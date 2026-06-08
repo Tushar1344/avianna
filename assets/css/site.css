@@ -96,19 +96,19 @@ a:hover { color: var(--teal); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin-right: 12px;
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
   vertical-align: middle;
   background: var(--brand-cream);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  transform: translateY(-3px);
+  border-radius: 6px;
+  transform: translateY(-2px);
 }
 .brand-mark img {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 .brand-sub {
@@ -567,8 +567,8 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
     border-bottom: 1px solid var(--line);
   }
   .brand { font-size: 18px; margin: 0; }
-  .brand-mark { width: 26px; height: 26px; margin-right: 8px; transform: translateY(-1px); }
-  .brand-mark img { width: 20px; height: 20px; }
+  .brand-mark { width: 22px; height: 22px; margin-right: 8px; border-radius: 5px; transform: translateY(-1px); }
+  .brand-mark img { width: 16px; height: 16px; }
   .brand-sub,
   .nav-label,
   .sidebar-foot,
