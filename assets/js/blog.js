@@ -12,7 +12,19 @@
   const root = document.getElementById("blog-root");
   const byDate = (a, b) => b.date.localeCompare(a.date);
 
-  SECTIONS.forEach((section) => {
+  // Order sections so the one with the newest post sits at the top.
+  // Empty sections fall to the bottom.
+  const newestDateOf = (sectionId) =>
+    POSTS.filter((p) => p.section === sectionId)
+      .map((p) => p.date)
+      .sort()
+      .pop() || "";
+
+  const orderedSections = [...SECTIONS].sort((a, b) =>
+    (newestDateOf(b.id) || "").localeCompare(newestDateOf(a.id) || "")
+  );
+
+  orderedSections.forEach((section) => {
     const posts = POSTS.filter((p) => p.section === section.id).sort(byDate);
 
     const group = document.createElement("section");
