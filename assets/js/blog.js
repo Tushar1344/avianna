@@ -33,7 +33,9 @@
       posts.forEach((p) => {
         const a = document.createElement("a");
         a.className = "post-row";
-        a.href = `post.html?slug=${encodeURIComponent(p.slug)}`;
+        a.href = p.external_url
+          ? p.external_url
+          : `post.html?slug=${encodeURIComponent(p.slug)}`;
         a.innerHTML =
           `<span class="post-name">${esc(p.title)}</span>` +
           `<span class="post-date">${fmtDate(p.date)}</span>`;
