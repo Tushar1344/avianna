@@ -188,6 +188,19 @@
     heads.forEach((h) => observer.observe(h));
   }
 
+  // -- embedded sims: auto-resize iframes from their postMessage ------------
+  window.addEventListener("message", (e) => {
+    const data = e.data;
+    if (!data || data.type !== "embed-height") return;
+    const frames = elProse.querySelectorAll("iframe.embed-frame");
+    for (const f of frames) {
+      if (f.contentWindow === e.source) {
+        f.style.height = `${data.height}px`;
+        break;
+      }
+    }
+  });
+
   function buildMeta() {
     const words = elProse.textContent.trim().split(/\s+/).length;
     const mins = Math.max(1, Math.round(words / 220));

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Strategies — The Visible Pursuit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef } = React;
+
+const C = {
+  bg: 'transparent',
+  paper: '#FBFCFE',
+  ink: '#11212B',
+  muted: '#566571',
+  rule: '#D9E2EC',
+  accent: '#0D7C77',
+  goalA: '#0D7C77',
+  goalB: '#4F6D7A',
+  goalC: '#4E8C84',
+  agent: '#11212B',
+  decoy: '#4F6D7A',
+};
+
+const logSumExp = (arr) => {
+  const m = Math.max(...arr);
+  if (m === -Infinity) return -Infinity;
+  return m + Math.log(arr.reduce((s, x) => s + Math.exp(x - m), 0));
+};
+const manhattan = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+
+function StrategyDemo() {
+  const GRID_W = 9;
+  const GRID_H = 7;
+  const CELL = 40;
+  const PAD = 18;
+  const W = GRID_W * CELL + PAD * 2;
+  const H = GRID_H * CELL + PAD * 2;
+  const BETA = 1.2;
+
+  const start = { x: 4, y: 6 };
+  const goalTrue = { x: 8, y: 0, label: 'true' };
+  const goalDecoy = { x: 0, y: 0, label: 'decoy' };
+
+  const trajectories = {
+    optimal: [
+      {x:4,y:6},{x:5,y:6},{x:5,y:5},{x:6,y:5},{x:6,y:4},
+      {x:7,y:4},{x:7,y:3},{x:7,y:2},{x:8,y:2},{x:8,y:1},{x:8,y:0},
+    ],
+    legible: [
+      {x:4,y:6},{x:5,y:6},{x:6,y:6},{x:7,y:6},{x:8,y:6},
+      {x:8,y:5},{x:8,y:4},{x:8,y:3},{x:8,y:2},{x:8,y:1},{x:8,y:0},
+    ],
+    deceptive: [
+      {x:4,y:6},{x:3,y:6},{x:3,y:5},{x:3,y:4},{x:3,y:3},{x:3,y:2},
+      {x:4,y:2},{x:5,y:2},{x:6,y:2},{x:7,y:2},{x:8,y:2},
+      {x:8,y:1},{x:8,y:0},
+    ],
+  };
+
+  const labels = { optimal: 'Optimal', legible: 'Legible', deceptive: 'Deceptive' };
+  const blurbs = {
+    optimal: 'The shortest path. Cheap, but legible by accident — every step shaves distance from the true goal, so the observer locks on early.',
+    legible: 'Adds a few steps to make the intent unmistakable. Speeds up the observer. Useful when you want to be understood (a robot signalling a human).',
+    deceptive: 'Heads toward the decoy first. The observer commits to the wrong hypothesis until the last possible moment — then the true goal is revealed too late to react.',
+  };
+
+  const [strategy, setStrategy] = useState('optimal');
+  const [step, setStep] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const traj = trajectories[strategy];
+  const partial = traj.slice(0, step + 1);
+
+  useEffect(() => {
+    if (!playing) return;
+    if (step >= traj.length - 1) { setPlaying(false); return; }
+    const id = setTimeout(() => setStep((s) => s + 1), 380);
+    return () => clearTimeout(id);
+  }, [playing, step, strategy]);
+
+  useEffect(() => { setStep(0); setPlaying(false); }, [strategy]);
+
+  const computePost = (path) => {
+    const compute = (g) => {
+      let ll = 0;
+      for (let i = 1; i < path.length; i++) {
+        const s = path[i - 1];
+        const sNext = path[i];
+        const acts = [{dx:0,dy:-1},{dx:0,dy:1},{dx:-1,dy:0},{dx:1,dy:0}];
+        const lps = [];
+        let chosen = null;
+        for (const a of acts) {
+          const s2 = { x: s.x + a.dx, y: s.y + a.dy };
+          if (s2.x < 0 || s2.x >= GRID_W || s2.y < 0 || s2.y >= GRID_H) continue;
+          const lp = -BETA * (1 + manhattan(s2, g));
+          lps.push(lp);
+          if (s2.x === sNext.x && s2.y === sNext.y) chosen = lp;
+        }
+        if (chosen === null) return -Infinity;
+        ll += chosen - logSumExp(lps);
+      }
+      return ll;
+    };
+    const lT = compute(goalTrue);
+    const lD = compute(goalDecoy);
+    const m = Math.max(lT, lD);
+    const eT = Math.exp(lT - m), eD = Math.exp(lD - m);
+    return eT / (eT + eD);
+  };
+
+  const trace = useMemo(() => {
+    return traj.map((_, i) => computePost(traj.slice(0, i + 1)));
+  }, [strategy]);
+
+  const cx = (p) => PAD + p.x * CELL + CELL / 2;
+  const cy = (p) => PAD + p.y * CELL + CELL / 2;
+  const pTrue = trace[step];
+
+  return (
+    <figure style={{ margin: '0' }}>
+      <div style={{
+        background: C.paper, border: `1px solid ${C.rule}`,
+        padding: '1.5rem', borderRadius: '8px',
+      }}>
+        <div style={{
+          display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem',
+        }}>
+          {Object.keys(trajectories).map((k) => (
+            <button key={k} onClick={() => setStrategy(k)} style={{
+              padding: '8px 16px', borderRadius: '4px',
+              background: strategy === k ? C.ink : 'transparent',
+              color: strategy === k ? C.paper : C.ink,
+              border: `1px solid ${strategy === k ? C.ink : C.rule}`,
+              fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px',
+              letterSpacing: '0.08em', textTransform: 'uppercase',
+              cursor: 'pointer', transition: 'all 0.15s',
+            }}>{labels[k]}</button>
+          ))}
+          <div style={{ flex: 1 }} />
+          <button onClick={() => {
+            if (step >= traj.length - 1) setStep(0);
+            setPlaying((p) => !p);
+          }} style={{
+            padding: '8px 16px', borderRadius: '4px',
+            background: 'transparent', color: C.ink,
+            border: `1px solid ${C.rule}`,
+            fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px',
+            letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer',
+          }}>{playing ? '⏸ pause' : '▶ play'}</button>
+        </div>
+
+        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          <div>
+            <svg width={W} height={H} style={{ display: 'block' }}>
+              <rect width={W} height={H} fill={C.paper} />
+              {[...Array(GRID_W + 1)].map((_, i) => (
+                <line key={`v${i}`} x1={PAD + i * CELL} y1={PAD}
+                  x2={PAD + i * CELL} y2={PAD + GRID_H * CELL}
+                  stroke={C.rule} strokeWidth="1" />
+              ))}
+              {[...Array(GRID_H + 1)].map((_, i) => (
+                <line key={`h${i}`} x1={PAD} y1={PAD + i * CELL}
+                  x2={PAD + GRID_W * CELL} y2={PAD + i * CELL}
+                  stroke={C.rule} strokeWidth="1" />
+              ))}
+              <polyline fill="none" stroke={C.ink}
+                strokeWidth="1.5" strokeOpacity="0.12"
+                strokeDasharray="3 3"
+                points={traj.map(p => `${cx(p)},${cy(p)}`).join(' ')} />
+              <polyline fill="none" stroke={C.ink}
+                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                points={partial.map(p => `${cx(p)},${cy(p)}`).join(' ')} />
+              <circle cx={cx(goalDecoy)} cy={cy(goalDecoy)} r="14"
+                fill={C.decoy} fillOpacity="0.85" stroke={C.paper} strokeWidth="2" />
+              <text x={cx(goalDecoy)} y={cy(goalDecoy)} dy="0.35em"
+                textAnchor="middle" fontFamily="'Source Serif 4', Georgia, serif"
+                fontSize="10" fontWeight="600" fill={C.paper}>D</text>
+              <circle cx={cx(goalTrue)} cy={cy(goalTrue)} r="14"
+                fill={C.goalA} stroke={C.paper} strokeWidth="2" />
+              <text x={cx(goalTrue)} y={cy(goalTrue)} dy="0.35em"
+                textAnchor="middle" fontFamily="'Source Serif 4', Georgia, serif"
+                fontSize="10" fontWeight="600" fill={C.paper}>T</text>
+              <circle cx={cx(start)} cy={cy(start)} r="4"
+                fill="none" stroke={C.muted} strokeWidth="1.5" />
+              <circle cx={cx(partial[partial.length - 1])}
+                cy={cy(partial[partial.length - 1])} r="8"
+                fill={C.agent} stroke={C.paper} strokeWidth="2.5" />
+            </svg>
+            <div style={{
+              marginTop: '0.5rem', display: 'flex',
+              alignItems: 'center', justifyContent: 'space-between',
+              fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px', color: C.muted,
+            }}>
+              <span>step {step} / {traj.length - 1}</span>
+              <span>
+                <span style={{ display:'inline-block', width:8, height:8, background:C.decoy, borderRadius:'50%', marginRight:4, verticalAlign:'middle' }}/>
+                decoy &nbsp;
+                <span style={{ display:'inline-block', width:8, height:8, background:C.goalA, borderRadius:'50%', marginRight:4, marginLeft:8, verticalAlign:'middle' }}/>
+                true
+              </span>
+            </div>
+          </div>
+
+          <div style={{ flex: 1, minWidth: '240px' }}>
+            <div style={{
+              fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '10px',
+              letterSpacing: '0.12em', color: C.muted,
+              textTransform: 'uppercase', marginBottom: '12px',
+            }}>observer's belief that goal = true</div>
+            <div style={{
+              fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '42px',
+              color: C.accent, lineHeight: 1, marginBottom: 6, fontWeight: 500,
+            }}>
+              {(pTrue * 100).toFixed(0)}<span style={{ fontSize: '22px', color: C.muted }}>%</span>
+            </div>
+            <svg width="100%" height="130" viewBox="0 0 320 130" preserveAspectRatio="none"
+              style={{ marginTop: 12, marginBottom: 12 }}>
+              <line x1="0" y1="65" x2="320" y2="65" stroke={C.rule} strokeWidth="1" strokeDasharray="2 3" />
+              <text x="318" y="62" textAnchor="end" fontFamily="'Chivo Mono', ui-monospace, monospace"
+                fontSize="8" fill={C.muted}>0.5 (tie)</text>
+              <polyline fill="none" stroke={C.ink} strokeWidth="1.5" strokeOpacity="0.25"
+                points={trace.map((p, i) => `${(i / (trace.length - 1)) * 320},${130 - p * 130}`).join(' ')} />
+              <polyline fill="none" stroke={C.accent} strokeWidth="2.25"
+                strokeLinecap="round" strokeLinejoin="round"
+                points={trace.slice(0, step + 1).map((p, i) => `${(i / (trace.length - 1)) * 320},${130 - p * 130}`).join(' ')} />
+              <circle cx={(step / (trace.length - 1)) * 320}
+                cy={130 - pTrue * 130} r="4" fill={C.accent} stroke={C.paper} strokeWidth="2" />
+            </svg>
+            <div style={{
+              display: 'flex', justifyContent: 'space-between',
+              fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '9px', color: C.muted,
+            }}>
+              <span>start</span><span>arrival</span>
+            </div>
+            <p style={{
+              fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '14px',
+              color: C.ink, lineHeight: 1.6, marginTop: '1.125rem',
+              paddingTop: '0.875rem', borderTop: `1px solid ${C.rule}`,
+            }}>
+              <span style={{
+                fontFamily: "'Source Serif 4', Georgia, serif", fontWeight: 600, color: C.accent,
+              }}>{labels[strategy]}. </span>
+              {blurbs[strategy]}
+            </p>
+          </div>
+        </div>
+      </div>
+      <figcaption style={{
+        marginTop: '0.75rem', textAlign: 'center',
+        fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px',
+        color: C.muted, letterSpacing: '0.05em',
+      }}>
+        Fig. 2 &nbsp;·&nbsp; Same start, same true goal, three policies. The accent curve is what the observer believes over time.
+      </figcaption>
+    </figure>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<StrategyDemo />);
+
+const postHeight = () =>
+  parent.postMessage({ type: 'embed-height', height: document.documentElement.scrollHeight }, '*');
+new ResizeObserver(postHeight).observe(document.documentElement);
+window.addEventListener('load', postHeight);
+setTimeout(postHeight, 200);
+</script>
+</body>
+</html>

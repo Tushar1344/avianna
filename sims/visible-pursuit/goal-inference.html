@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Goal Inference — The Visible Pursuit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef } = React;
+
+const C = {
+  bg: 'transparent',
+  paper: '#FBFCFE',
+  ink: '#11212B',
+  muted: '#566571',
+  rule: '#D9E2EC',
+  accent: '#0D7C77',
+  goalA: '#0D7C77',
+  goalB: '#4F6D7A',
+  goalC: '#4E8C84',
+  agent: '#11212B',
+  decoy: '#4F6D7A',
+};
+
+const logSumExp = (arr) => {
+  const m = Math.max(...arr);
+  if (m === -Infinity) return -Infinity;
+  return m + Math.log(arr.reduce((s, x) => s + Math.exp(x - m), 0));
+};
+const manhattan = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+
+function GoalInference() {
+  const GRID = 7;
+  const CELL = 44;
+  const PAD = 18;
+  const W = GRID * CELL + PAD * 2;
+  const BETA = 1.2;
+
+  const goals = [
+    { x: 0, y: 0, color: C.goalA, label: 'A' },
+    { x: 6, y: 0, color: C.goalB, label: 'B' },
+    { x: 3, y: 6, color: C.goalC, label: 'C' },
+  ];
+  const start = { x: 3, y: 3 };
+  const [trajectory, setTrajectory] = useState([start]);
+  const agent = trajectory[trajectory.length - 1];
+
+  const posterior = useMemo(() => {
+    const logLiks = goals.map((g) => {
+      let ll = 0;
+      for (let i = 1; i < trajectory.length; i++) {
+        const s = trajectory[i - 1];
+        const sNext = trajectory[i];
+        const actions = [
+          { dx: 0, dy: -1 }, { dx: 0, dy: 1 },
+          { dx: -1, dy: 0 }, { dx: 1, dy: 0 },
+        ];
+        const logPs = [];
+        let logPchosen = null;
+        for (const a of actions) {
+          const s2 = { x: s.x + a.dx, y: s.y + a.dy };
+          if (s2.x < 0 || s2.x >= GRID || s2.y < 0 || s2.y >= GRID) continue;
+          const lp = -BETA * (1 + manhattan(s2, g));
+          logPs.push(lp);
+          if (s2.x === sNext.x && s2.y === sNext.y) logPchosen = lp;
+        }
+        if (logPchosen === null) return -Infinity;
+        ll += logPchosen - logSumExp(logPs);
+      }
+      return ll;
+    });
+    const m = Math.max(...logLiks);
+    const ex = logLiks.map((l) => Math.exp(l - m));
+    const z = ex.reduce((a, b) => a + b, 0);
+    return ex.map((e) => e / z);
+  }, [trajectory]);
+
+  const tryMove = (dx, dy) => {
+    const nx = agent.x + dx;
+    const ny = agent.y + dy;
+    if (nx < 0 || nx >= GRID || ny < 0 || ny >= GRID) return;
+    setTrajectory((t) => [...t, { x: nx, y: ny }]);
+  };
+
+  useEffect(() => {
+    const h = (e) => {
+      if (e.key === 'ArrowUp') { e.preventDefault(); tryMove(0, -1); }
+      if (e.key === 'ArrowDown') { e.preventDefault(); tryMove(0, 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); tryMove(-1, 0); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); tryMove(1, 0); }
+      if (e.key === 'r' || e.key === 'R') setTrajectory([start]);
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [agent.x, agent.y]);
+
+  const reset = () => setTrajectory([start]);
+  const cx = (g) => PAD + g.x * CELL + CELL / 2;
+  const cy = (g) => PAD + g.y * CELL + CELL / 2;
+  const inBounds = (p) => p.x >= 0 && p.x < GRID && p.y >= 0 && p.y < GRID;
+
+  return (
+    <figure style={{ margin: '0' }}>
+      <div style={{
+        background: C.paper, border: `1px solid ${C.rule}`,
+        padding: '1.5rem', borderRadius: '8px',
+      }}>
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          <div>
+            <svg width={W} height={W} style={{ display: 'block' }}>
+              <rect x="0" y="0" width={W} height={W} fill={C.paper} />
+              {[...Array(GRID + 1)].map((_, i) => (
+                <g key={i}>
+                  <line x1={PAD + i * CELL} y1={PAD} x2={PAD + i * CELL} y2={PAD + GRID * CELL} stroke={C.rule} strokeWidth="1" />
+                  <line x1={PAD} y1={PAD + i * CELL} x2={PAD + GRID * CELL} y2={PAD + i * CELL} stroke={C.rule} strokeWidth="1" />
+                </g>
+              ))}
+              {[{dx:0,dy:-1},{dx:0,dy:1},{dx:-1,dy:0},{dx:1,dy:0}].map((a, i) => {
+                const p = { x: agent.x + a.dx, y: agent.y + a.dy };
+                if (!inBounds(p)) return null;
+                return (
+                  <rect key={i}
+                    x={PAD + p.x * CELL + 2} y={PAD + p.y * CELL + 2}
+                    width={CELL - 4} height={CELL - 4}
+                    fill={C.ink} fillOpacity="0.04"
+                    stroke={C.ink} strokeOpacity="0.15"
+                    strokeDasharray="2 3"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => tryMove(a.dx, a.dy)} />
+                );
+              })}
+              {trajectory.length > 1 && (
+                <polyline fill="none" stroke={C.ink} strokeWidth="2"
+                  strokeOpacity="0.35" strokeLinecap="round" strokeLinejoin="round"
+                  points={trajectory.map(p => `${cx(p)},${cy(p)}`).join(' ')} />
+              )}
+              {trajectory.slice(0, -1).map((p, i) => (
+                <circle key={i} cx={cx(p)} cy={cy(p)} r="3" fill={C.ink} fillOpacity="0.25" />
+              ))}
+              {goals.map((g, i) => (
+                <g key={i}>
+                  <circle cx={cx(g)} cy={cy(g)} r="13" fill={g.color} />
+                  <circle cx={cx(g)} cy={cy(g)} r="13" fill="none" stroke={C.paper} strokeWidth="2" />
+                  <text x={cx(g)} y={cy(g)} dy="0.34em" textAnchor="middle"
+                    fontFamily="'Source Serif 4', Georgia, serif" fontSize="13" fontWeight="600" fill={C.paper}>
+                    {g.label}
+                  </text>
+                </g>
+              ))}
+              <circle cx={cx(agent)} cy={cy(agent)} r="9" fill={C.agent} stroke={C.paper} strokeWidth="2.5" />
+            </svg>
+            <div style={{
+              marginTop: '0.75rem', display: 'flex',
+              alignItems: 'center', justifyContent: 'space-between',
+              color: C.muted, fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px',
+            }}>
+              <span>arrow keys or click to move &nbsp;·&nbsp; R to reset</span>
+              <button onClick={reset} style={{
+                padding: '4px 12px', borderRadius: '4px',
+                border: `1px solid ${C.rule}`, color: C.ink,
+                background: 'transparent', fontFamily: "'Chivo Mono', ui-monospace, monospace",
+                fontSize: '11px', cursor: 'pointer',
+              }}>reset</button>
+            </div>
+          </div>
+
+          <div style={{ flex: 1, minWidth: '240px' }}>
+            <div style={{
+              fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '10px',
+              letterSpacing: '0.12em', color: C.muted, textTransform: 'uppercase',
+              marginBottom: '14px',
+            }}>
+              the observer's posterior &nbsp; P(goal | trajectory)
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {goals.map((g, i) => (
+                <div key={i}>
+                  <div style={{
+                    display: 'flex', alignItems: 'baseline',
+                    justifyContent: 'space-between', marginBottom: '6px',
+                  }}>
+                    <span style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '15px', color: C.ink }}>
+                      <span style={{
+                        display: 'inline-block', width: 10, height: 10,
+                        background: g.color, borderRadius: '50%',
+                        marginRight: 8, verticalAlign: 'middle',
+                      }} />
+                      goal {g.label}
+                    </span>
+                    <span style={{
+                      fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '12px', color: C.muted,
+                    }}>
+                      {(posterior[i] * 100).toFixed(1)}%
+                    </span>
+                  </div>
+                  <div style={{ height: 8, background: C.rule, borderRadius: 2, overflow: 'hidden' }}>
+                    <div style={{
+                      height: '100%', width: `${posterior[i] * 100}%`,
+                      background: g.color, transition: 'width 0.3s ease',
+                    }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{
+              marginTop: '1.75rem', paddingTop: '1.25rem',
+              borderTop: `1px solid ${C.rule}`,
+            }}>
+              <div style={{
+                fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '13px',
+                color: C.muted, lineHeight: 1.55, fontStyle: 'italic',
+              }}>
+                Pick a goal in your head. Walk toward it. Watch the observer narrow in.
+                The straighter your path, the faster they figure you out.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption style={{
+        marginTop: '0.75rem', textAlign: 'center',
+        fontFamily: "'Chivo Mono', ui-monospace, monospace", fontSize: '11px',
+        color: C.muted, letterSpacing: '0.05em',
+      }}>
+        Fig. 1 &nbsp;·&nbsp; Boltzmann-rational observer, β = 1.2, uniform prior over {`{A, B, C}`}
+      </figcaption>
+    </figure>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<GoalInference />);
+
+const postHeight = () =>
+  parent.postMessage({ type: 'embed-height', height: document.documentElement.scrollHeight }, '*');
+new ResizeObserver(postHeight).observe(document.documentElement);
+window.addEventListener('load', postHeight);
+setTimeout(postHeight, 200);
+</script>
+</body>
+</html>

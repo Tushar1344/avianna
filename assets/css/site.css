@@ -452,6 +452,16 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
 /* mermaid */
 .prose .mermaid { margin: 28px 0; text-align: center; }
 
+/* embedded interactive simulations (iframes) */
+.prose .embed { margin: 36px 0; }
+.prose .embed-frame {
+  display: block;
+  width: 100%;
+  border: none;
+  height: 640px; /* fallback before postMessage auto-resize fires */
+  overflow: hidden;
+}
+
 /* ------------------------------------------------------------- right rail -- */
 
 .rail {
