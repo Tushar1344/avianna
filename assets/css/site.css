@@ -24,6 +24,10 @@
   --code-bg: #EEF3F8;
   --inline-code: #E6EDF6;
 
+  /* brand tokens — used in small islands (mark chip, accents), not site-wide */
+  --brand-cream: #FBF9F4;
+  --brand-blue: #0077FF;
+
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --mono: 'Chivo Mono', ui-monospace, 'JetBrains Mono', monospace;
@@ -89,12 +93,23 @@ a:hover { color: var(--teal); }
 }
 .brand:hover { color: var(--ink); }
 .brand-mark {
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 12px;
   vertical-align: middle;
-  transform: translateY(-2px);
+  background: var(--brand-cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transform: translateY(-3px);
+}
+.brand-mark img {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 .brand-sub {
   font-family: var(--mono);
@@ -552,7 +567,8 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
     border-bottom: 1px solid var(--line);
   }
   .brand { font-size: 18px; margin: 0; }
-  .brand-mark { width: auto; height: 22px; margin-right: 8px; transform: translateY(-1px); }
+  .brand-mark { width: 26px; height: 26px; margin-right: 8px; transform: translateY(-1px); }
+  .brand-mark img { width: 20px; height: 20px; }
   .brand-sub,
   .nav-label,
   .sidebar-foot,

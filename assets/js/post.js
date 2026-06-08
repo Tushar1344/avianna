@@ -23,7 +23,27 @@
     return;
   }
 
-  document.title = `${post.title} — we`;
+  document.title = `${post.title} — avianna.ai`;
+
+  // -- per-post OG / Twitter meta (so social shares carry the post title/url) -
+  function setMeta(key, value, attr = "property") {
+    if (!value) return;
+    let m = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!m) {
+      m = document.createElement("meta");
+      m.setAttribute(attr, key);
+      document.head.appendChild(m);
+    }
+    m.setAttribute("content", value);
+  }
+  const shareUrl = `https://avianna.ai/post.html?slug=${encodeURIComponent(post.slug)}`;
+  const shareTitle = `${post.title} — avianna.ai`;
+  const shareDesc = post.summary || "";
+  setMeta("og:title", shareTitle);
+  setMeta("og:description", shareDesc);
+  setMeta("og:url", shareUrl);
+  setMeta("twitter:title", shareTitle, "name");
+  setMeta("twitter:description", shareDesc, "name");
 
   const fmtDate = (iso) =>
     new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
