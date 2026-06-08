@@ -138,6 +138,26 @@ a:hover { color: var(--teal); }
 }
 .sidebar-foot a { color: var(--muted); }
 .sidebar-foot a:hover { color: var(--teal); }
+.sidebar-foot .creation-by {
+  margin: 0 0 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.sidebar-foot .creation-by .creation-name {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+}
 
 /* -------------------------------------------------------------------- main - */
 
@@ -182,7 +202,7 @@ main {
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(44px, 10vw, 84px);
+  font-size: clamp(36px, 6.5vw, 60px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.035em;

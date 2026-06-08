@@ -23,7 +23,7 @@
     return;
   }
 
-  document.title = `${post.title} — Tushar Madan`;
+  document.title = `${post.title} — we`;
 
   const fmtDate = (iso) =>
     new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
