@@ -93,5 +93,67 @@
   </main>
 
 </div>
+
+<!-- PWA launch splash: cycles through the four logo styles on standalone-mode
+     launches only. No-op for regular web visits (icons not even fetched). -->
+<style>
+  .pwa-splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #FBF9F4;
+    display: flex; align-items: center; justify-content: center;
+    animation: pwa-splash-out 0.5s ease 3.7s forwards;
+  }
+  .pwa-splash img {
+    position: absolute;
+    width: min(52vw, 260px);
+    height: auto;
+    opacity: 0;
+    animation: pwa-splash-pulse 1.05s ease-in-out forwards;
+    filter: drop-shadow(0 4px 24px rgba(17, 33, 43, 0.08));
+  }
+  .pwa-splash img:nth-child(1) { animation-delay: 0s; }
+  .pwa-splash img:nth-child(2) { animation-delay: 0.9s; }
+  .pwa-splash img:nth-child(3) { animation-delay: 1.8s; }
+  .pwa-splash img:nth-child(4) { animation-delay: 2.7s; }
+  @keyframes pwa-splash-pulse {
+    0%   { opacity: 0; transform: scale(0.94); }
+    25%  { opacity: 1; transform: scale(1); }
+    75%  { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.03); }
+  }
+  @keyframes pwa-splash-out {
+    to { opacity: 0; visibility: hidden; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pwa-splash, .pwa-splash img { animation: none; }
+    .pwa-splash { display: none; }
+  }
+</style>
+<script>
+  (function () {
+    var isStandalone =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true;
+    if (!isStandalone) return;
+    try {
+      if (sessionStorage.getItem('pwa-splash-shown')) return;
+      sessionStorage.setItem('pwa-splash-shown', '1');
+    } catch (e) { /* private mode, run splash anyway */ }
+
+    var splash = document.createElement('div');
+    splash.className = 'pwa-splash';
+    var styles = [
+      'assets/brand/styles/01-refined-geometric.png',
+      'assets/brand/styles/02-inkwash-precision.png',
+      'assets/brand/styles/03-pointillism-clean-line.png',
+      'assets/brand/styles/04-dynamic-transition.png',
+    ];
+    splash.innerHTML = styles.map(function (s) {
+      return '<img src="' + s + '" alt="">';
+    }).join('');
+    document.body.appendChild(splash);
+    setTimeout(function () { splash.remove(); }, 4500);
+  })();
+</script>
 </body>
 </html>
