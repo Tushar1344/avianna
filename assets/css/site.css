@@ -4,40 +4,8 @@
    Mono) borrowed from iii.dev.
    =========================================================================== */
 
-:root {
-  --paper: #F7F4EE;
-  --paper-2: #EDE7DD;
-  --panel: #FDFBF6;
-  --panel-2: #F3EFE7;
-  --ink: #11212B;
-  --ink-soft: #2A3A44;
-  --muted: #566571;
-  --muted-2: #8496A3;
-  --line: #D9E2EC;
-  --line-strong: #C0CDDA;
-  --teal: #15A39C;
-  --teal-deep: #0D7C77;
-  --teal-soft: #BCE4E1;
-  --teal-bg: #E2F3F1;
-  /* secondary accent — used sparingly to break the teal monotony */
-  --orange: #D9743C;
-  --orange-deep: #B65A26;
-  --orange-soft: #EEC6A9;
-  --orange-bg: #F8E7D7;
-  --sage: #4E8C84;
-  --plum: #4F6D7A;
-  --code-bg: #EEF3F8;
-  --inline-code: #E6EDF6;
-
-  /* brand tokens — used in small islands (mark chip, accents), not site-wide */
-  --brand-cream: #FBF9F4;
-  --brand-blue: #0077FF;
-
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --mono: 'Chivo Mono', ui-monospace, 'JetBrains Mono', monospace;
-  --code: 'JetBrains Mono', ui-monospace, 'Chivo Mono', monospace;
-}
+/* palette lives in tokens.css — the single source of truth (see that file) */
+@import url("tokens.css");
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -1089,6 +1057,14 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
   line-height: 1.56;
   color: var(--muted);
 }
+.focus-link {
+  margin: 12px 0 0 !important;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.focus-link a { color: var(--teal-deep); }
+.focus-link a:hover { color: var(--teal); }
 
 /* selected writing */
 .writing-list { display: flex; flex-direction: column; }

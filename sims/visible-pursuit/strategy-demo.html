@@ -12,6 +12,8 @@
 <!-- Pinned to Babel 7: Babel 8 defaults preset-react to the automatic JSX runtime,
      which emits imports of "react/jsx-runtime" that don't resolve in a plain <script> page. -->
 <script src="https://unpkg.com/@babel/standalone@7.26.4/babel.min.js"></script>
+<!-- palette from the shared token file — keeps the sim in step with the site -->
+<link rel="stylesheet" href="../../assets/css/tokens.css">
 <style>
   html, body { margin: 0; padding: 0; background: transparent; }
   * { box-sizing: border-box; }
@@ -23,18 +25,22 @@
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useMemo, useRef } = React;
 
+// Palette pulled from the shared token file (assets/css/tokens.css) so the sim
+// tracks the site. Fallbacks apply only if that stylesheet fails to load.
+const _cs = getComputedStyle(document.documentElement);
+const _v = (name, fb) => (_cs.getPropertyValue(name).trim() || fb);
 const C = {
   bg: 'transparent',
-  paper: '#FBFCFE',
-  ink: '#11212B',
-  muted: '#566571',
-  rule: '#D9E2EC',
-  accent: '#0D7C77',
-  goalA: '#0D7C77',
-  goalB: '#4F6D7A',
-  goalC: '#4E8C84',
-  agent: '#11212B',
-  decoy: '#4F6D7A',
+  paper: _v('--panel', '#FDFBF6'),
+  ink: _v('--ink', '#11212B'),
+  muted: _v('--muted', '#566571'),
+  rule: _v('--line', '#D9E2EC'),
+  accent: _v('--teal-deep', '#0D7C77'),
+  goalA: _v('--teal-deep', '#0D7C77'),
+  goalB: _v('--plum', '#4F6D7A'),
+  goalC: _v('--sage', '#4E8C84'),
+  agent: _v('--ink', '#11212B'),
+  decoy: _v('--plum', '#4F6D7A'),
 };
 
 const logSumExp = (arr) => {

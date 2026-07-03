@@ -1,0 +1,58 @@
+/* ===========================================================================
+   Design tokens — the single source of truth for the palette.
+   Every page/widget pulls colors from here (site.css @imports it; standalone
+   posts and sims link it directly), so a color change flows everywhere at once.
+   Do not hardcode palette hexes anywhere else.
+   =========================================================================== */
+
+:root {
+  /* surfaces (warm cream) */
+  --paper: #F7F4EE;
+  --paper-2: #EDE7DD;
+  --panel: #FDFBF6;
+  --panel-2: #F3EFE7;
+
+  /* text */
+  --ink: #11212B;
+  --ink-soft: #2A3A44;
+  --muted: #566571;
+  --muted-2: #8496A3;
+
+  /* lines */
+  --line: #D9E2EC;
+  --line-strong: #C0CDDA;
+  --line-soft: #E5ECF4;
+
+  /* primary accent — teal (dominant) */
+  --teal: #15A39C;
+  --teal-deep: #0D7C77;
+  --teal-soft: #BCE4E1;
+  --teal-bg: #E2F3F1;
+
+  /* secondary accent — orange, used sparingly to break the teal monotony */
+  --orange: #D9743C;
+  --orange-deep: #B65A26;
+  --orange-soft: #EEC6A9;
+  --orange-bg: #F8E7D7;
+
+  /* supporting accents */
+  --sage: #4E8C84;
+  --sage-bg: #DEE8E8;
+  --plum: #4F6D7A;
+  --amber: #B68A2E;
+  --amber-bg: #F4ECD7;
+
+  /* code */
+  --code-bg: #EEF3F8;
+  --inline-code: #E6EDF6;
+
+  /* brand tokens — used in small islands (mark chip, accents), not site-wide */
+  --brand-cream: #FBF9F4;
+  --brand-blue: #0077FF;
+
+  /* type */
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --mono: 'Chivo Mono', ui-monospace, 'JetBrains Mono', monospace;
+  --code: 'JetBrains Mono', ui-monospace, 'Chivo Mono', monospace;
+}

@@ -87,23 +87,26 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+  // palette from the shared token file so diagrams track the site theme
+  const _cs = getComputedStyle(document.documentElement);
+  const _t = (name, fb) => (_cs.getPropertyValue(name).trim() || fb);
   mermaid.initialize({
     startOnLoad: false,
     theme: "base",
     themeVariables: {
       fontFamily: "Inter, system-ui, sans-serif",
-      primaryColor: "#FBFCFE",
-      primaryTextColor: "#11212B",
-      primaryBorderColor: "#15A39C",
-      lineColor: "#8496A3",
-      secondaryColor: "#F4F7FB",
-      tertiaryColor: "#FFFFFF",
-      background: "#F4F7FB",
-      mainBkg: "#FBFCFE",
-      clusterBkg: "#EEF3F9",
-      clusterBorder: "#C0CDDA",
-      noteBkgColor: "#E2F3F1",
-      noteBorderColor: "#15A39C",
+      primaryColor: _t("--panel", "#FDFBF6"),
+      primaryTextColor: _t("--ink", "#11212B"),
+      primaryBorderColor: _t("--teal", "#15A39C"),
+      lineColor: _t("--muted-2", "#8496A3"),
+      secondaryColor: _t("--paper", "#F7F4EE"),
+      tertiaryColor: _t("--panel", "#FDFBF6"),
+      background: _t("--paper", "#F7F4EE"),
+      mainBkg: _t("--panel", "#FDFBF6"),
+      clusterBkg: _t("--panel-2", "#F3EFE7"),
+      clusterBorder: _t("--line-strong", "#C0CDDA"),
+      noteBkgColor: _t("--teal-bg", "#E2F3F1"),
+      noteBorderColor: _t("--teal", "#15A39C"),
     },
     flowchart: { curve: "basis", padding: 18, useMaxWidth: true },
   });
