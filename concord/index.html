@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concord — agent contracts for governed work</title>
+<meta name="description" content="A Summit-ready one-page guide to Concord: why agents need a contract, what layer Concord owns, and how a governed workflow executes end to end." />
+
+<!-- favicons & PWA -->
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../assets/brand/site.webmanifest">
+<meta name="theme-color" content="#FDFBF6">
+
+<!-- feed discovery -->
+<link rel="alternate" type="application/atom+xml" title="avianna.ai" href="/feed.xml">
+
+<!-- open graph / twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="avianna.ai">
+<meta property="og:title" content="Concord — agent contracts for governed work">
+<meta property="og:description" content="A one-page guide to Concord for DAIS: the three-post series, architecture spec, and worked examples.">
+<meta property="og:image" content="https://avianna.ai/assets/brand/og-image.png">
+<meta property="og:url" content="https://avianna.ai/concord/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Concord — agent contracts for governed work">
+<meta name="twitter:description" content="A one-page guide to Concord for DAIS: the three-post series, architecture spec, and worked examples.">
+<meta name="twitter:image" content="https://avianna.ai/assets/brand/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="layout concord-layout">
+
+  <aside class="sidebar">
+    <a class="brand" href="../index.html"><span class="brand-mark"><img src="../assets/brand/logo-mark.png" alt=""></span>avianna.ai</a>
+    <p class="brand-sub">math · ai · software</p>
+
+    <p class="nav-label">Site</p>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../concord/" class="active">Concord</a>
+    </nav>
+
+    <p class="nav-label">DAIS links</p>
+    <nav class="nav">
+      <a href="#series">Series</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#examples">Examples</a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <p class="creation-by">Team<a class="creation-name" href="https://www.linkedin.com/in/tusharmadaan/" target="_blank" rel="noopener">Tushar Madan</a><a class="creation-name" href="https://www.linkedin.com/in/rishubh-khurana-46874b7/" target="_blank" rel="noopener">Rishubh Khurana</a></p>
+      <a href="../tushar.html">Learn more →</a><br>
+      <a href="mailto:tushar.madaan@gmail.com">Email ↗</a>
+    </div>
+  </aside>
+
+  <main class="concord">
+    <section class="concord-hero" aria-labelledby="concord-title">
+      <div class="concord-copy">
+        <span class="eyebrow">DAIS 2026 field note</span>
+        <h1 id="concord-title">Concord</h1>
+        <p class="concord-kicker">A semantic contract layer for agent-initiated work.</p>
+        <p class="concord-lede">Durable execution tells you what ran. Concord records what the action meant, who authorized it, which systems it touched, and how to undo it when something goes sideways.</p>
+        <div class="concord-actions" aria-label="Primary Concord links">
+          <a class="button-link primary" href="../posts/concord-1-why-agents-need-a-contract.html">Start the series</a>
+          <a class="button-link" href="https://tushar1344.github.io/concord-architecture/" target="_blank" rel="noopener">Architecture spec ↗</a>
+        </div>
+      </div>
+
+      <div class="contract-panel" aria-label="Concord contract summary">
+        <div class="contract-panel-head">
+          <span class="panel-dot"></span>
+          <span>contract surface</span>
+        </div>
+        <div class="contract-flow">
+          <div><strong>Agent</strong><span>proposes intent</span></div>
+          <div><strong>Policy</strong><span>checks authority</span></div>
+          <div><strong>Runtime</strong><span>executes durably</span></div>
+          <div><strong>Ledger</strong><span>keeps meaning</span></div>
+        </div>
+        <p>One command shape across agent loops, deterministic jobs, connector calls, approvals, artifacts, memory, and compensation.</p>
+      </div>
+    </section>
+
+    <section class="concord-strip" aria-label="Concord summary">
+      <div>
+        <span>Layer</span>
+        <strong>Contract, not runtime</strong>
+      </div>
+      <div>
+        <span>Default runtime</span>
+        <strong>DBOS, with Temporal as adapter</strong>
+      </div>
+      <div>
+        <span>System of record</span>
+        <strong>Postgres domain events</strong>
+      </div>
+    </section>
+
+    <section id="series" class="concord-section" aria-labelledby="series-title">
+      <div class="section-heading">
+        <span class="eyebrow">Three-post path</span>
+        <h2 id="series-title">Read this in one sitting</h2>
+      </div>
+      <div class="concord-card-grid">
+        <a class="concord-card" href="../posts/concord-1-why-agents-need-a-contract.html">
+          <span class="card-step">01</span>
+          <h3>Why agents need a contract</h3>
+          <p>Durability preserves execution. It does not preserve intent. This piece frames the gap Concord closes.</p>
+          <span class="card-cta">Read part 1</span>
+        </a>
+        <a class="concord-card" href="../posts/concord-2-contract-not-runtime.html">
+          <span class="card-step">02</span>
+          <h3>Contract, not runtime</h3>
+          <p>Draws the boundary between Concord, DBOS, LangGraph, OPA, OTel, and Postgres with interactive demos.</p>
+          <span class="card-cta">Read part 2</span>
+        </a>
+        <a class="concord-card" href="../posts/concord-3-day-in-the-life.html">
+          <span class="card-step">03</span>
+          <h3>A day in the life</h3>
+          <p>Traces a hotel booking end to end, then toggles between full Concord, minimal Concord, and no contract.</p>
+          <span class="card-cta">Read part 3</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="architecture" class="concord-section compact" aria-labelledby="architecture-title">
+      <div class="section-heading">
+        <span class="eyebrow">Deeper material</span>
+        <h2 id="architecture-title">Architecture and worked examples</h2>
+      </div>
+      <div class="resource-list">
+        <a href="https://tushar1344.github.io/concord-architecture/" target="_blank" rel="noopener">
+          <strong>Full architecture spec</strong>
+          <span>The complete Concord system shape, vocabulary, tables, and adapters.</span>
+        </a>
+        <a href="https://tushar1344.github.io/concord-architecture/what-concord-is.html" target="_blank" rel="noopener">
+          <strong>What Concord is and is not</strong>
+          <span>A crisp layer-boundary reference for conversations after the QR scan.</span>
+        </a>
+        <a href="https://tushar1344.github.io/concord-architecture/problems.html" target="_blank" rel="noopener">
+          <strong>The ten problems</strong>
+          <span>The governance failures Concord is designed to make explicit.</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="examples" class="concord-section compact" aria-labelledby="examples-title">
+      <div class="section-heading">
+        <span class="eyebrow">Reference cases</span>
+        <h2 id="examples-title">See the primitives under pressure</h2>
+      </div>
+      <div class="example-links">
+        <a href="https://tushar1344.github.io/concord-architecture/examples/hotel-booking.html" target="_blank" rel="noopener">Hotel booking ↗</a>
+        <a href="https://tushar1344.github.io/concord-architecture/examples/vendor-data-sync.html" target="_blank" rel="noopener">Vendor data sync ↗</a>
+        <a href="https://tushar1344.github.io/concord-architecture/examples/revenue-investigation-swarm.html" target="_blank" rel="noopener">Revenue investigation swarm ↗</a>
+      </div>
+    </section>
+  </main>
+
+</div>
+</body>
+</html>
