@@ -57,7 +57,11 @@
     post.section;
 
   // -- header ----------------------------------------------------------------
-  document.getElementById("article-eyebrow").textContent = sectionLabel;
+  const seriesMeta =
+    (post.series && typeof SERIES !== "undefined" && SERIES[post.series]) || null;
+  document.getElementById("article-eyebrow").textContent = seriesMeta
+    ? `${sectionLabel} · ${seriesMeta.title} — Part ${post.part}`
+    : sectionLabel;
   document.getElementById("article-title").textContent = post.title;
   const subEl = document.getElementById("article-sub");
   if (post.summary) subEl.textContent = post.summary; else subEl.remove();
@@ -229,6 +233,7 @@
       ["Published", fmtDate(post.date)],
       ["Read", `${mins} min`],
     ];
+    if (seriesMeta) rows.splice(1, 0, ["Series", `${seriesMeta.title} · Part ${post.part}`]);
     if (post.tags && post.tags.length) rows.push(["Tags", post.tags.join(", ")]);
     elMeta.innerHTML = rows
       .map(([k, v]) => `<div><span class="k">${k}</span><br>${esc(String(v))}</div>`)

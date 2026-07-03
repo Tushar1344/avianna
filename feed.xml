@@ -5,7 +5,7 @@
   <link rel="self" href="https://avianna.ai/feed.xml" />
   <link href="https://avianna.ai/" />
   <id>https://avianna.ai/</id>
-  <updated>2026-06-08T00:00:00Z</updated>
+  <updated>2026-07-02T00:00:00Z</updated>
   <author>
     <name>Tushar Madan</name>
   </author>
@@ -15,6 +15,17 @@
   <icon>https://avianna.ai/assets/brand/favicon-64x64.png</icon>
   <logo>https://avianna.ai/assets/brand/logo-mark.png</logo>
   <generator>build_feed.py</generator>
+  <entry>
+    <title>The control plane for digital labor</title>
+    <link href="https://avianna.ai/post.html?slug=lattice-digital-labor" />
+    <id>https://avianna.ai/post.html?slug=lattice-digital-labor</id>
+    <updated>2026-07-02T00:00:00Z</updated>
+    <published>2026-07-02T00:00:00Z</published>
+    <summary>Why enterprise agents need context, ontology, controls, scorecards, and a graduation process before they can take on higher-stakes work.</summary>
+    <category term="lattice" />
+    <category term="agents" />
+    <category term="governance" />
+  </entry>
   <entry>
     <title>Why agents need a contract</title>
     <link href="https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html" />

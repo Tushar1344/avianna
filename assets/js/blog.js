@@ -40,18 +40,60 @@
       empty.textContent = "Nothing here yet.";
       group.appendChild(empty);
     } else {
+      // Cluster posts that share a series into one item, keeping the
+      // cluster at the position of its newest part.
+      const items = [];
+      const clusters = new Map();
+      posts.forEach((p) => {
+        if (p.series && typeof SERIES !== "undefined" && SERIES[p.series]) {
+          if (!clusters.has(p.series)) {
+            const c = { seriesId: p.series, posts: [] };
+            clusters.set(p.series, c);
+            items.push(c);
+          }
+          clusters.get(p.series).posts.push(p);
+        } else {
+          items.push(p);
+        }
+      });
+
+      const hrefOf = (p) =>
+        p.external_url || `post.html?slug=${encodeURIComponent(p.slug)}`;
+
       const list = document.createElement("div");
       list.className = "post-list";
-      posts.forEach((p) => {
-        const a = document.createElement("a");
-        a.className = "post-row";
-        a.href = p.external_url
-          ? p.external_url
-          : `post.html?slug=${encodeURIComponent(p.slug)}`;
-        a.innerHTML =
-          `<span class="post-name">${esc(p.title)}</span>` +
-          `<span class="post-date">${fmtDate(p.date)}</span>`;
-        list.appendChild(a);
+      items.forEach((item) => {
+        if (item.seriesId) {
+          const meta = SERIES[item.seriesId];
+          const parts = [...item.posts].sort((a, b) => (a.part || 0) - (b.part || 0));
+          const block = document.createElement("div");
+          block.className = "series-block";
+          block.innerHTML =
+            `<div class="series-head">` +
+              `<span class="series-title">${esc(meta.title)}</span>` +
+              `<span class="series-tag">Series · ${parts.length === 1 ? "Part 1" : `${parts.length} parts`}</span>` +
+            `</div>` +
+            (meta.blurb ? `<p class="series-blurb">${esc(meta.blurb)}</p>` : "");
+          parts.forEach((p) => {
+            const a = document.createElement("a");
+            a.className = "series-row";
+            a.href = hrefOf(p);
+            a.innerHTML =
+              `<span class="series-part">Part ${p.part}</span>` +
+              `<span class="post-name">${esc(p.title)}</span>` +
+              `<span class="post-date">${fmtDate(p.date)}</span>`;
+            block.appendChild(a);
+          });
+          list.appendChild(block);
+        } else {
+          const a = document.createElement("a");
+          a.className = "post-row";
+          a.href = hrefOf(item);
+          a.innerHTML =
+            `<span class="post-name">${esc(item.title)}</span>` +
+            `<span class="post-date">${fmtDate(item.date)}</span>`;
+          list.appendChild(a);
+        }
       });
       group.appendChild(list);
     }
