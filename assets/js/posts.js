@@ -36,21 +36,43 @@ const SERIES = {
   },
   lattice: {
     title: "Lattice",
-    blurb: "The enterprise control plane for digital labor.",
+    blurb: "Onboarding digital labor: the enterprise control plane. A three-part series.",
   },
 };
 
 const POSTS = [
   {
-    slug: "lattice-digital-labor",
-    title: "The control plane for digital labor",
+    slug: "lattice-1-the-problem",
+    title: "The problem",
     section: "ai",
     date: "2026-07-02",
-    summary: "Why enterprise agents need context, ontology, controls, scorecards, and a graduation process before they can take on higher-stakes work.",
+    summary: "Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model — it does not onboard a worker.",
     tags: ["lattice", "agents", "governance"],
     series: "lattice",
     part: 1,
-    file: "content/ai/lattice-digital-labor.md",
+    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html",
+  },
+  {
+    slug: "lattice-2-the-framework",
+    title: "The framework",
+    section: "ai",
+    date: "2026-07-02",
+    summary: "The Lattice primitives — role, context, ontology, permissions, tools, policy, evaluation, graduation, accountability.",
+    tags: ["lattice", "agents", "governance"],
+    series: "lattice",
+    part: 2,
+    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html",
+  },
+  {
+    slug: "lattice-3-in-practice",
+    title: "In practice",
+    section: "ai",
+    date: "2026-07-02",
+    summary: "An agent traced through Lattice end to end — graduating from observing to acting autonomously without losing accountability.",
+    tags: ["lattice", "agents", "governance"],
+    series: "lattice",
+    part: 3,
+    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html",
   },
   {
     slug: "the-visible-pursuit",

@@ -16,12 +16,34 @@
   <logo>https://avianna.ai/assets/brand/logo-mark.png</logo>
   <generator>build_feed.py</generator>
   <entry>
-    <title>The control plane for digital labor</title>
-    <link href="https://avianna.ai/post.html?slug=lattice-digital-labor" />
-    <id>https://avianna.ai/post.html?slug=lattice-digital-labor</id>
+    <title>The problem</title>
+    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html" />
+    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
-    <summary>Why enterprise agents need context, ontology, controls, scorecards, and a graduation process before they can take on higher-stakes work.</summary>
+    <summary>Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model — it does not onboard a worker.</summary>
+    <category term="lattice" />
+    <category term="agents" />
+    <category term="governance" />
+  </entry>
+  <entry>
+    <title>The framework</title>
+    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html" />
+    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html</id>
+    <updated>2026-07-02T00:00:00Z</updated>
+    <published>2026-07-02T00:00:00Z</published>
+    <summary>The Lattice primitives — role, context, ontology, permissions, tools, policy, evaluation, graduation, accountability.</summary>
+    <category term="lattice" />
+    <category term="agents" />
+    <category term="governance" />
+  </entry>
+  <entry>
+    <title>In practice</title>
+    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html" />
+    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html</id>
+    <updated>2026-07-02T00:00:00Z</updated>
+    <published>2026-07-02T00:00:00Z</published>
+    <summary>An agent traced through Lattice end to end — graduating from observing to acting autonomously without losing accountability.</summary>
     <category term="lattice" />
     <category term="agents" />
     <category term="governance" />
