@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding Digital Labor: Challenges ahead</title>
+<meta name="description" content="Capable agents are arriving faster than the structure to run them. The challenges of onboarding digital labor: context, control, and accountability, and what changes as fleets scale, authoring spreads, and agents work together.">
+
+<link rel="icon" href="assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="assets/brand/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=Chivo+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- open graph / twitter -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Field note">
+<meta property="og:title" content="Onboarding Digital Labor: Challenges ahead">
+<meta property="og:description" content="Capable agents are arriving faster than the structure to run them. The challenges of onboarding digital labor: context, control, and accountability, and what changes as fleets scale, authoring spreads, and agents work together.">
+<meta property="og:image" content="https://avianna.ai/lattice/assets/brand/og-image.png">
+<meta property="og:url" content="https://avianna.ai/lattice/gaps.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Onboarding Digital Labor: Challenges ahead">
+<meta name="twitter:description" content="Capable agents are arriving faster than the structure to run them. The challenges of onboarding digital labor: context, control, and accountability, and what changes as fleets scale, authoring spreads, and agents work together.">
+<meta name="twitter:image" content="https://avianna.ai/lattice/assets/brand/og-image.png">
+
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* palette from ../assets/css/tokens.css (linked above) — do not redeclare */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15.5px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  header.hero { margin: 36px 0 56px; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange);
+    margin-bottom: 18px;
+  }
+  header.hero h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 400; font-size: 48px; line-height: 1.08; letter-spacing: -0.025em;
+    color: var(--ink); margin: 0 0 22px;
+  }
+  .lede {
+    font-family: 'Source Serif 4', Georgia, serif; font-weight: 300;
+    font-size: 21px; line-height: 1.45; color: var(--ink-soft);
+    margin: 0 0 24px;
+  }
+  .meta-strip {
+    font-family: 'Chivo Mono', monospace; font-size: 11.5px;
+    color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .meta-strip span { display: inline-flex; align-items: center; gap: 6px; }
+  .meta-strip strong { color: var(--ink-soft); font-weight: 600; }
+
+  /* Intro lead-in (before section 1) */
+  .lead-in { margin: 0 0 8px; }
+  .lead-in p { font-size: 16.5px; color: var(--ink-soft); }
+  ol.bets { margin: 20px 0 26px; padding-left: 24px; }
+  ol.bets > li { margin: 13px 0; padding-left: 4px; font-size: 16.5px; color: var(--ink-soft); }
+  ol.bets > li::marker { color: var(--orange); font-weight: 700; }
+
+  /* Part dividers (Ground / Govern / Graduate) */
+  .part {
+    margin: 76px 0 8px; padding-top: 26px;
+    border-top: 2px solid var(--ink);
+  }
+  .part-num {
+    font-family: 'Chivo Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange);
+    display: block; margin-bottom: 8px;
+  }
+  .part-title {
+    font-family: 'Source Serif 4', Georgia, serif; font-weight: 400;
+    font-size: 38px; line-height: 1.08; letter-spacing: -0.025em;
+    margin: 0 0 10px; color: var(--ink); scroll-margin-top: 24px;
+  }
+  .part-gloss {
+    font-family: 'Source Serif 4', Georgia, serif; font-weight: 300;
+    font-size: 18px; line-height: 1.4; color: var(--muted);
+    margin: 0; max-width: 60ch;
+  }
+  .part + section { margin-top: 28px; }
+
+  /* Sections */
+  section { margin: 56px 0; }
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 30px; font-weight: 400;
+    line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; color: var(--ink);
+    scroll-margin-top: 24px;
+  }
+  h3 {
+    font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    letter-spacing: -0.005em; margin: 26px 0 10px; color: var(--ink);
+  }
+  p { margin: 14px 0; color: var(--ink-soft); }
+  p strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; color: var(--ink); }
+  a { color: var(--coral-deep); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: var(--coral); }
+  ul, ol { margin: 14px 0; padding-left: 22px; color: var(--ink-soft); }
+  li { margin: 6px 0; }
+  ul li::marker { color: var(--orange); }
+
+  /* The thesis one-liner that opens several sections */
+  .thesis {
+    font-family: 'Inter', sans-serif; font-size: 15.5px; font-weight: 600;
+    color: var(--ink); margin: 0 0 18px; padding: 10px 0 10px 16px;
+    border-left: 3px solid var(--orange);
+  }
+
+  code {
+    font-family: 'Chivo Mono', monospace; font-size: 0.88em;
+    background: var(--inline-code); padding: 1px 6px; border-radius: 3px;
+    color: var(--ink); border: 1px solid var(--line-soft);
+  }
+  pre {
+    font-family: 'Chivo Mono', monospace; font-size: 12.5px; line-height: 1.55;
+    background: var(--code-bg); padding: 16px 18px; border-radius: 6px;
+    border: 1px solid var(--line); overflow-x: auto; color: var(--ink);
+    margin: 18px 0;
+  }
+  pre code { background: none; padding: 0; border: none; }
+
+  /* The primitive chain */
+  .chain {
+    font-family: 'Chivo Mono', monospace; font-size: 13px; line-height: 1.9;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+    padding: 18px 20px; margin: 18px 0; color: var(--ink); overflow-x: auto;
+    letter-spacing: 0.01em;
+  }
+  .chain b { color: var(--coral-deep); font-weight: 600; }
+  .chain .arr { color: var(--muted-2); padding: 0 2px; }
+
+  blockquote {
+    margin: 28px 0; padding: 18px 24px;
+    border-left: 3px solid var(--coral); background: var(--coral-bg);
+    border-radius: 0 6px 6px 0;
+  }
+  blockquote p {
+    margin: 6px 0; color: var(--ink); font-size: 15.5px;
+    font-family: 'Inter', sans-serif;
+  }
+  blockquote p strong { color: var(--ink); }
+
+  /* Pull quotes */
+  .pull {
+    font-family: 'Source Serif 4', Georgia, serif; font-weight: 300;
+    font-size: 26px; line-height: 1.32; letter-spacing: -0.01em;
+    color: var(--ink); margin: 36px 0; padding: 0 24px;
+    border-left: 3px solid var(--orange);
+  }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse; margin: 24px 0;
+    font-size: 14px;
+  }
+  caption {
+    caption-side: top; text-align: left;
+    font-family: 'Chivo Mono', monospace; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted-2);
+    margin-bottom: 8px;
+  }
+  th, td {
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--line); vertical-align: top;
+    line-height: 1.5;
+  }
+  th {
+    font-family: 'Chivo Mono', monospace; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td strong { color: var(--ink); }
+  table.tight td, table.tight th { padding: 8px 14px; }
+
+  /* Callouts */
+  .callout {
+    margin: 22px 0; padding: 16px 20px; border-left: 2px solid var(--coral);
+    background: var(--coral-bg); border-radius: 0 4px 4px 0;
+  }
+  .callout.tip { border-left-color: var(--sage); background: var(--sage-bg); }
+  .callout-label {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 4px;
+    color: var(--coral-deep);
+  }
+  .callout.tip .callout-label { color: var(--sage); }
+  .callout p { margin: 0; color: var(--ink); font-size: 14.5px; }
+  .callout p + p { margin-top: 8px; }
+
+  /* Triage sim */
+  .tsim { margin: 26px 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel-2); }
+  .tsim-head { display: flex; align-items: center; gap: 12px; padding: 11px 18px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .tsim-label { font-family: 'Chivo Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
+  .tsim-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; color: var(--ink); }
+  .tsim-body { padding: 18px; }
+  .tsim-ticket { border: 1px solid var(--line); border-radius: 6px; background: var(--paper); padding: 12px 14px; margin-bottom: 16px; }
+  .tsim-ticket-meta { font-family: 'Chivo Mono', monospace; font-size: 10.5px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 6px; }
+  .tsim-ticket-text { font-size: 15px; color: var(--ink); font-style: italic; }
+  .tsim-modes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tsim-mode { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 7px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--muted); cursor: pointer; transition: all .15s ease; }
+  .tsim-mode:hover { color: var(--ink); border-color: var(--muted-2); }
+  .tsim-mode.is-active { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .tsim-steps { list-style: none; margin: 0 0 14px; padding: 0; }
+  .tsim-steps li { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; padding: 10px 0; border-bottom: 1px dotted var(--line); opacity: 0; transform: translateY(4px); transition: opacity .3s ease, transform .3s ease; }
+  .tsim-steps li.show { opacity: 1; transform: none; }
+  .tsim-steps li:last-child { border-bottom: none; }
+  .tsim-steps .tnum { font-family: 'Chivo Mono', monospace; font-size: 12px; color: var(--muted-2); padding-top: 1px; }
+  .tsim-steps .tbody { color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+  .tsim-steps .tbody b { color: var(--ink); }
+  .tsim-pill { font-family: 'Chivo Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; white-space: nowrap; height: fit-content; }
+  .tsim-pill.ok { background: var(--sage-bg); color: var(--sage); }
+  .tsim-pill.hold { background: #F4ECD7; color: #936A1D; }
+  .tsim-pill.bad { background: var(--coral-bg); color: var(--coral-deep); }
+  .tsim-pill.human { background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); }
+  .tsim-outcome { font-size: 14px; line-height: 1.5; padding: 12px 14px; border-radius: 6px; border-left: 3px solid var(--line); background: var(--paper); color: var(--ink-soft); opacity: 0; transition: opacity .3s ease; }
+  .tsim-outcome.show { opacity: 1; }
+  .tsim-outcome.ok { border-left-color: var(--sage); background: var(--sage-bg); }
+  .tsim-outcome.warn { border-left-color: #B68A2E; background: #F4ECD7; }
+  .tsim-outcome.bad { border-left-color: var(--coral); background: var(--coral-bg); }
+  .tsim-controls { display: flex; gap: 8px; margin-top: 14px; }
+  .tsim-btn { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--ink); cursor: pointer; }
+  .tsim-btn:hover { border-color: var(--muted-2); }
+  .tsim-run { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .tsim-run:hover { background: var(--coral-deep); border-color: var(--coral-deep); }
+  @media (max-width: 600px) {
+    .tsim-steps li { grid-template-columns: 22px 1fr; }
+    .tsim-steps .tsim-pill { grid-column: 2; justify-self: start; margin-top: 4px; }
+  }
+
+  /* Footer */
+  .post-footer {
+    margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  }
+  .post-nav-card {
+    padding: 18px 22px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 6px; text-decoration: none; color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+  .post-nav-card:hover { border-color: var(--coral); }
+  .post-nav-card.next { text-align: right; }
+  .post-nav-card .nav-label {
+    font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .post-nav-card .nav-title {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 18px;
+    font-weight: 400; line-height: 1.25; color: var(--ink);
+  }
+  .post-nav-card.next .nav-title { color: var(--coral-deep); }
+
+  /* layout + sidebar */
+  .layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    max-width: 1280px; margin: 0 auto; gap: 0;
+  }
+  .sidebar {
+    position: sticky; top: 0; align-self: start;
+    height: 100vh; overflow-y: auto;
+    padding: 56px 32px 56px 40px;
+    border-right: 1px solid var(--line);
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+  .brand {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px; font-weight: 500; letter-spacing: -0.02em;
+    color: var(--ink); margin: 0 0 4px; display: inline-block; text-decoration: none;
+  }
+  .brand-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; margin-right: 10px; vertical-align: middle;
+    background: var(--brand-cream); border: 1px solid var(--line);
+    border-radius: 6px; transform: translateY(-2px);
+  }
+  .brand-mark img { display: block; width: 20px; height: 20px; object-fit: contain; }
+  .brand:hover { color: var(--ink); }
+  .brand-sub {
+    font-family: 'Chivo Mono', monospace; font-size: 11px;
+    color: var(--muted); margin: 0 0 36px; letter-spacing: 0.02em;
+  }
+  .nav-label {
+    font-family: 'Chivo Mono', monospace; font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--muted-2); margin: 28px 0 12px;
+  }
+  .nav { display: flex; flex-direction: column; }
+  .nav a {
+    display: block; padding: 5px 0 5px 12px;
+    font-size: 13.5px; color: var(--muted);
+    border-left: 1px solid var(--line);
+    transition: color 0.15s ease, border-color 0.15s ease; text-decoration: none;
+  }
+  .nav a:hover { color: var(--ink); border-left-color: var(--coral); }
+  .nav a.active { color: var(--ink); border-left-color: var(--coral); font-weight: 500; }
+  main {
+    padding: clamp(48px, 7vw, 80px) clamp(20px, 6vw, 56px) 120px;
+    min-width: 0; max-width: 820px;
+  }
+  /* right rail (matches post.html) */
+  .layout.with-rail {
+    grid-template-columns: 260px minmax(0, 1fr) 260px;
+    max-width: 1440px;
+  }
+  .rail {
+    position: sticky; top: 0; align-self: start;
+    height: 100vh; overflow-y: auto;
+    padding: 88px 32px 56px 36px;
+    border-left: 1px solid var(--line);
+  }
+  .rail::-webkit-scrollbar { width: 4px; }
+  .rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+  .rail-label {
+    font-family: 'Chivo Mono', monospace; font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--muted-2); margin: 0 0 14px;
+  }
+  .toc { display: flex; flex-direction: column; margin-bottom: 36px; }
+  .toc .toc-grp {
+    font-family: 'Chivo Mono', monospace; font-size: 9.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted-2);
+    margin: 16px 0 5px; padding-left: 12px;
+  }
+  .toc .toc-grp:first-child { margin-top: 0; }
+  .toc a {
+    display: block; padding: 4px 0 4px 12px;
+    font-size: 12.5px; color: var(--muted);
+    border-left: 1px solid var(--line);
+    line-height: 1.4; text-decoration: none;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .toc a:hover { color: var(--ink); border-left-color: var(--coral); }
+  .toc a.active { color: var(--coral-deep); border-left-color: var(--coral); font-weight: 500; }
+  .rail-meta {
+    border-top: 1px solid var(--line); padding-top: 20px;
+    font-family: 'Chivo Mono', monospace; font-size: 11px;
+    color: var(--muted); line-height: 2;
+  }
+  .rail-meta .k {
+    color: var(--muted-2); text-transform: uppercase;
+    letter-spacing: 0.06em; font-size: 10px;
+  }
+  .rail-back {
+    display: inline-block; margin-top: 24px;
+    font-family: 'Chivo Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted); text-decoration: none;
+  }
+  .rail-back:hover { color: var(--coral); }
+
+  @media (max-width: 1100px) {
+    .layout.with-rail { grid-template-columns: 240px minmax(0, 1fr); }
+    .rail { display: none; }
+  }
+  @media (max-width: 880px) {
+    .layout, .layout.with-rail { grid-template-columns: 1fr; }
+    .sidebar {
+      position: static; height: auto;
+      display: flex; align-items: center; gap: 16px; padding: 12px 20px;
+      border-right: none; border-bottom: 1px solid var(--line); flex-wrap: wrap;
+    }
+    .brand { font-size: 18px; margin: 0; }
+    .brand-sub, .nav-label, .sidebar .nav { display: none; }
+    main { padding: 32px 18px 64px; }
+  }
+  @media (max-width: 720px) {
+    header.hero h1 { font-size: 34px; }
+    .lede { font-size: 18.5px; }
+    h2 { font-size: 24px; }
+    .pull { font-size: 21px; padding: 0 14px; }
+    .post-footer { grid-template-columns: 1fr; }
+    .post-nav-card.next { text-align: left; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout with-rail">
+  <aside class="sidebar">
+    <a class="brand" href="../index.html"><span class="brand-mark"><img src="assets/brand/logo-mark.png" alt=""></span>avianna.ai</a>
+    <p class="brand-sub">a research lab for AI systems</p>
+
+    <p class="nav-label">Site</p>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../tushar.html">People</a>
+    </nav>
+
+    <p class="nav-label">Setup</p>
+    <nav class="nav">
+      <a href="#the-core-problem">The core problem</a>
+      <a href="#existing-systems">Existing systems</a>
+      <a href="#the-primitive-model">The primitive model</a>
+    </nav>
+
+    <p class="nav-label">01 · Ground</p>
+    <nav class="nav">
+      <a href="#why-context-matters">Context</a>
+      <a href="#why-ontology-matters">Ontology</a>
+    </nav>
+
+    <p class="nav-label">02 · Govern</p>
+    <nav class="nav">
+      <a href="#why-a-control-plane-matters">Control plane</a>
+      <a href="#human-in-the-loop">Human in the loop</a>
+    </nav>
+
+    <p class="nav-label">03 · Graduate</p>
+    <nav class="nav">
+      <a href="#agent-graduation">Graduation ladder</a>
+      <a href="#the-agent-scorecard">Scorecard</a>
+      <a href="#graduation-gates">Graduation gates</a>
+      <a href="#regression-and-demotion">Regression</a>
+    </nav>
+
+    <p class="nav-label">In practice</p>
+    <nav class="nav">
+      <a href="#concrete-example">Worked example</a>
+      <a href="#where-you-start">Where you start</a>
+      <a href="#one-slide-summary">Summary</a>
+    </nav>
+  </aside>
+
+  <main>
+
+<header class="hero" id="top">
+  <div class="eyebrow">Field note · Digital labor</div>
+  <h1>Onboarding Digital Labor: Challenges ahead</h1>
+  <p class="lede">Onboarding digital labor is the hardest challenge the enterprise faces in the agent era. It leaves every company with three options. Move fast and break things: unleash agents and absorb the damage. Brand harm, AI slop, work no one can trust. Or move slow but safe: hold them back and forfeit the productivity. Most companies are stuck on these two. The fix is the third: onboard each agent like a worker, with the context to do the job, limits on what it can touch, and a named owner for the outcome.</p>
+  <div class="meta-strip">
+    <span><strong>Read</strong> ~20 min</span>
+    <span><strong>Topic</strong> Agent governance</span>
+    <span><strong>Updated</strong> Jun 30, 2026</span>
+  </div>
+</header>
+
+<div class="lead-in">
+  <p>Model capabilities keep climbing. The productivity enterprises actually get from agents has not kept pace. Why?</p>
+  <p>Because capability is no longer the bottleneck it used to be. Capable models are becoming common. What is scarce is the structure around them: the context to understand the business, the controls on what an agent is allowed to do, and the accountability for the result. That structure is the hard part, and it has to be built.</p>
+  <p>A prompt configures a model, and for most agents that is where onboarding stops. But onboarding a worker is everything around the model. When a human joins a team, they inherit a role, the context behind it, permissions, the policies that bound their judgment, a manager who reviews their work, and an accountable place in the org chart. An agent arrives with none of that. We hand it a prompt and an API key, then act surprised when it behaves like a contractor who started an hour ago and already has the keys to production.</p>
+</div>
+
+<section>
+  <h2 id="the-core-problem">Capability is arriving before onboarding</h2>
+  <p>The enterprise agent stack is improving from the bottom up. Models are getting better.</p>
+  <p>But the onboarding layer is missing.</p>
+  <p>And it is missing right when it is needed most. Models have just crossed the line from <em>answering</em> to <em>acting</em>. A system that only answers can be wrong harmlessly: a human reads the output and decides what to do with it. An agent that acts is wrong <em>in production</em>. That moves the hard part from intelligence to authority, and it is happening now, not someday.</p>
+  <p>And it is about to get harder. The number of agents per company will climb fast, and the ratio of humans to agents will flip: soon a few people will oversee a fleet, not the other way around. That breaks the habit of a human checking every action, and it strains accountability, because far more autonomous work happens per person. The structure has to carry that weight from day one, not once the fleet is already large.</p>
+  <p>That is the missing layer. Call it an onboarding and control layer for digital labor: it gives agents business context, models the business through an ontology, governs what they can see and do, scores their performance, and graduates them into higher-trust work over time.</p>
+</section>
+
+<section>
+  <h2 id="existing-systems">Filling the gaps your tools leave</h2>
+  <p>IAM, workflow engines, observability, vector databases, agent frameworks: each solves part of the problem. The missing layer is easiest to place by what it is <em>not</em>:</p>
+  <table>
+    <thead>
+      <tr><th>The onboarding layer is not…</th><th>Because that only gives you…</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>an agent registry</td><td>a list of agents, not their authority or fitness</td></tr>
+      <tr><td>IAM</td><td>row-level access, not action-level judgment</td></tr>
+      <tr><td>workflow automation</td><td>execution, not meaning or accountability</td></tr>
+      <tr><td>observability</td><td>a record of what happened, not control over what happens next</td></tr>
+      <tr><td>a harness or meta-harness</td><td>a place to run agents, not the meaning, authority, or trust around them</td></tr>
+    </tbody>
+  </table>
+  <p>Take IAM. It answers <em>can this identity read this row?</em> It never answers the question agents raise: <em>should this agent take this action, on this object, in this state, given this policy, and who answers for it if it's wrong?</em> Access control is binary and static; agent authority has to be conditional and dynamic: allowed <em>here</em>, in <em>this</em> state, up to <em>this</em> threshold, and only while the agent's track record holds. None of that fits in an access-control list.</p>
+  <p>Or take the harness. A meta-harness that runs Claude Code, Codex, or your own agents behind one interface gives you a lot: a uniform runner, a sandbox, cost caps, network limits. But those controls are about the session and the machine, not the business. The sandbox can stop an agent from reaching a secret. It cannot tell you that a refund on this account needs the owner's sign-off, or that this agent has earned the right to issue it. The harness runs the agent. It does not know what the work means or who answers for it.</p>
+  <p>Each of these systems is necessary. None is sufficient. The onboarding layer connects them around the three things they individually ignore: what the business <em>means</em>, what an agent is <em>allowed</em> to do in a given situation, and who is <em>accountable</em> for the result. It does not replace them; it sits above them and gives them a shared frame. Everything below answers <em>what happened</em> or <em>what is technically allowed</em>; the onboarding layer answers <em>what should happen next, and who stands behind it.</em></p>
+  <p>Concretely, that draws a clean line between what this layer owns and what it composes with:</p>
+  <table class="tight">
+    <thead>
+      <tr><th>The layer owns</th><th>It composes with (does not own)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>the agent's <strong>meaning</strong>: context and ontology</td><td>the model, the agent framework, the harness</td></tr>
+      <tr><td>its <strong>authority</strong>: roles, policy, what needs approval</td><td>IAM / identity, the policy engine that enforces</td></tr>
+      <tr><td>its <strong>trust trajectory</strong>: scorecard, graduation, demotion</td><td>eval and observability tools that emit the signals</td></tr>
+      <tr><td>the <strong>accountable owner</strong> behind each action</td><td>the runtime, durable execution, vector and memory stores</td></tr>
+    </tbody>
+  </table>
+  <p>The rule: the layer owns the decisions, and composes with everything that stores, retrieves, or executes. You should be able to swap the model, the agent framework, or the database under it without touching it.</p>
+  <p class="pull">Granting an agent database access is not onboarding. It's giving a new hire a master keycard and no manager.</p>
+</section>
+
+<section>
+  <h2 id="the-primitive-model">The primitive model</h2>
+  <p>Onboarding digital labor runs an agent through a chain of primitives. Skip a link and it runs with a blind spot.</p>
+  <div class="chain">
+    <b>Role</b> <span class="arr">→</span> <b>Context</b> <span class="arr">→</span> <b>Ontology</b> <span class="arr">→</span> <b>Permissions</b> <span class="arr">→</span> <b>Tools</b> <span class="arr">→</span> <b>Policy</b> <span class="arr">→</span> <b>Evaluation</b> <span class="arr">→</span> <b>Graduation</b> <span class="arr">→</span> <b>Accountability</b>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Primitive</th><th>The question it answers</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Role</strong></td><td>What job is this agent here to do?</td></tr>
+      <tr><td><strong>Context</strong></td><td>What does it need to know to do that job?</td></tr>
+      <tr><td><strong>Ontology</strong></td><td>What do the things it works with <em>mean</em>?</td></tr>
+      <tr><td><strong>Permissions</strong></td><td>What is it allowed to see?</td></tr>
+      <tr><td><strong>Tools</strong></td><td>What is it allowed to use?</td></tr>
+      <tr><td><strong>Policy</strong></td><td>What requires approval, and what is forbidden?</td></tr>
+      <tr><td><strong>Evaluation</strong></td><td>How well is it actually doing?</td></tr>
+      <tr><td><strong>Graduation</strong></td><td>Has it earned more trust?</td></tr>
+      <tr><td><strong>Accountability</strong></td><td>Who answers for the outcome?</td></tr>
+    </tbody>
+  </table>
+  <p>These nine collapse into <strong>three jobs</strong>, and the rest of this note is organized around them, in order:</p>
+  <table class="tight">
+    <thead>
+      <tr><th>Job</th><th>Primitives</th><th>What it does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Ground</strong></td><td>Role · Context · Ontology</td><td>give the agent meaning</td></tr>
+      <tr><td><strong>Govern</strong></td><td>Permissions · Tools · Policy (the control plane)</td><td>bound what it can do</td></tr>
+      <tr><td><strong>Graduate</strong></td><td>Evaluation · Graduation · Accountability</td><td>measure it, then grant or pull back authority</td></tr>
+    </tbody>
+  </table>
+  <p>Ground and Govern make an agent useful and safe on day one. Graduate is what lets its authority grow after that, and as fleets grow it does the hardest work of the three: earning and revoking trust is the only way supervision keeps up. The next three sections take them one at a time.</p>
+</section>
+
+<div class="part">
+  <span class="part-num">Part 01</span>
+  <div class="part-title" id="part-ground">Ground</div>
+  <p class="part-gloss">Give the agent meaning: what matters, and what the things it touches actually mean.</p>
+</div>
+
+<section>
+  <h2 id="why-context-matters">Context</h2>
+  <p class="thesis">Context tells agents what matters.</p>
+  <p>Raw data access is not context. An agent can query every table and still not know what it is looking at. Context is what turns rows into situations.</p>
+  <p>A new hire picks up context no one writes down: from a meeting, a Slack thread, a hallway aside, the last call with the account. An agent gets a prompt, some tool access, and a few database rows. Most of what a human would know never reaches it. That gap is the main reason capable models still fail at real work.</p>
+  <p>An agent doing real work needs to understand:</p>
+  <ul>
+    <li><strong>Business objects</strong>: what a customer, contract, ticket, or opportunity actually is</li>
+    <li><strong>States</strong>: open vs. escalated, trial vs. paid, at-risk vs. healthy</li>
+    <li><strong>Relationships</strong>: which account this ticket belongs to, which contract sets its SLA</li>
+    <li><strong>Ownership</strong>: who is responsible for this object and its outcome</li>
+    <li><strong>Policies and constraints</strong>: what the rules say about this kind of case</li>
+    <li><strong>Decisions and risks</strong>: what has already been decided, and what could go wrong</li>
+    <li><strong>Outputs and escalation rules</strong>: what a good result looks like, and when to hand off</li>
+  </ul>
+  <p>Without this, an agent treats a "Sev-1 from your largest account" the same as a routine question, because both are just rows. Context is what makes those two rows different.</p>
+  <p>The onboarding layer treats context as a curated, versioned, per-role asset, not something the agent rebuilds from scratch on every task.</p>
+  <p>And most of what matters never reaches a system at all. Call it <strong>dark context</strong>: the decisions, exceptions, and judgment that live in DMs, shared drives, meetings, calls, offsites, all-hands, and most of all in people's heads.</p>
+  <p>The catch is that the most decision-relevant context is the least captured. The pricing exception agreed on a call, the "never auto-close this account" said at an offsite, the reorg announced at all-hands: none of it is in any database the agent can query. A human absorbs it by osmosis over months. An agent sees only the lit fraction and acts, confidently, as if that were the whole picture.</p>
+  <p>So the first job of the Grounding layer is to <strong>capture dark context</strong>: to pull those decisions and exceptions out of DMs, Drives, calls, offsites, and all-hands and turn them into something an agent can actually consult. The lit fraction in the systems of record is the easy part; the work is surfacing the rest before an agent acts without it.</p>
+</section>
+
+<section>
+  <h2 id="why-ontology-matters">Ontology</h2>
+  <p class="thesis">Ontology tells agents what things mean.</p>
+  <p>If context is the situation, ontology is the map: a model of the business (customers, accounts, contracts, tickets, opportunities, workflows, approvals, policies, decisions, agents, humans, and outputs) and how they connect.</p>
+  <p>A working ontology tells an agent four things about every object:</p>
+  <ol>
+    <li><strong>What it is</strong>: the type and its meaning in the business</li>
+    <li><strong>What state it is in</strong>: and which transitions are legal from here</li>
+    <li><strong>What actions are valid</strong>: what may be done to it, by whom, under what conditions</li>
+    <li><strong>Who owns the outcome</strong>: the accountable human or team</li>
+  </ol>
+  <p>This is deliberately not academic ontology. It is not a debate about whether a contract <em>is-a</em> agreement. It is an operational map: <em>this is a contract, it is in renewal, you may draft a summary but not send a notice, and the account owner signs off.</em> The agent never has to guess what an object means or what it may do with it.</p>
+  <p>The ontology is also what makes the rest enforceable: permissions, policies, and the graduation ladder all attach to ontology objects and states. "Issue a credit over $X requires approval" is only meaningful if the system knows what a <em>credit</em> is, which <em>account</em> it touches, and what <em>state</em> that account is in. Without a shared model, every policy collapses into a brittle string match against raw data. With one, you write the policy once (<em>agents may not send renewal notices on contracts in dispute</em>) and it holds no matter which system the underlying data lives in.</p>
+</section>
+
+<div class="part">
+  <span class="part-num">Part 02</span>
+  <div class="part-title" id="part-govern">Govern</div>
+  <p class="part-gloss">Bound what the agent can do, decide when a human steps in, and enforce it by construction rather than good intentions.</p>
+</div>
+
+<section>
+  <h2 id="why-a-control-plane-matters">The control plane</h2>
+  <p class="thesis">The control plane tells agents what they can do.</p>
+  <p>Context and ontology give the agent understanding. The control plane gives the enterprise control. It governs:</p>
+  <ul>
+    <li><strong>Which agents exist</strong> and what role each performs</li>
+    <li><strong>What tools</strong> each may use</li>
+    <li><strong>What data</strong> each may access</li>
+    <li><strong>What actions</strong> each may take</li>
+    <li><strong>What requires approval</strong> before it executes</li>
+    <li><strong>How activity is logged</strong>: every action, with its justification</li>
+    <li><strong>Who is accountable</strong> for each agent's behavior</li>
+  </ul>
+  <p>The key shift is from tool access to actions in context. Most security stops at the grant: does this agent have the refund tool, the database connection, the send-email scope? Access is the easy part. The same tool is safe in one context and damaging in another. A large refund is routine on a small billing error and a serious mistake on a strategic account mid-renewal. The tool did not change; the context did. So the onboarding layer must govern the action in context, not the grant: what the action is, which object it touches, what state that object is in, and who has to sign off before it runs.</p>
+  <p>Crucially, the control plane is a chokepoint, not a guideline. An agent does not "try to follow" the rules: its actions pass through the layer, anything outside its granted authority does not execute, approvals hold until a human clears them, and logging happens at the point of action. Nothing depends on the agent choosing to comply.</p>
+  <p>The chokepoint also sits on the way in and the way out, not only on the action. These are guardrails in the usual sense. On the way in, an agent can be tricked: a support email, a web page, or an uploaded file can carry hidden instructions that try to hijack it into issuing a refund or exporting a customer list. The layer screens the input before the agent acts on it, so a planted instruction never becomes an action. On the way out, it screens what the agent is about to send, which matters most when the recipient is high-risk: a customer, an executive, an outside party. A reply that leaks another account's data, or a number that looks wrong, is held before it leaves.</p>
+  <p>And someone owns the result. In a human-only world, access really was enough, because people came with accountability built in. Give an employee the refund tool and they also bring the judgment to use it well and their name on the line when they don't. An agent brings the capability and none of the accountability, so the onboarding layer attaches it. Every action has a named human owner who answers for the outcome, the way a manager answers for a report's work. No enterprise will accept "the agent did it," even when the agent acted on its own.</p>
+  <p>This gets harder as authoring spreads. Anyone with a prompt or a low-code tool can build an agent now, and soon agents will build agents, well outside IT. The old control point, gatekeeping who may build and deploy, stops working. So the gate moves to the action, not the creation: anyone can author an agent, but nothing it does touches the business until it is onboarded and bound to a role, a policy, and an accountable human. Accountability has to terminate in a person. An agent can create another agent, but it cannot create accountability, so a created agent still passes through onboarding and inherits a human owner.</p>
+  <p>Workflows will also span many agents, kicked off by different people, some spawned by other agents. Two things break. Reliability: agent-to-agent handoffs need contracts, not hope, with a typed request, what is authorized, and a way to undo a step when a later one fails. That is what a per-action contract layer like <a href="../concord/">Concord</a> provides, carried across agents. Ownership: when a refund is the product of five agents' subtasks, accountability does not add up on its own. The workflow needs one named owner and one trail that ties every sub-action, agent, and human together. Delegation stays scoped: an agent handing off a subtask grants only what that subtask needs, never its full authority.</p>
+</section>
+
+<section>
+  <h2 id="human-in-the-loop">Where humans stay in the loop</h2>
+  <p>None of this removes people. The onboarding layer draws the line between what an agent does on its own and what it hands to a human, so the two work as a team. Most real workflows are a mix of both, and the handoff is the part that has to be explicit.</p>
+  <p>There are three handoff points, and the control plane decides when each one fires:</p>
+  <table>
+    <thead>
+      <tr><th>Handoff</th><th>When it fires</th><th>What the human does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Approve</strong></td><td>the action needs sign-off, like a credit over a limit or a change to a sensitive account</td><td>clears or rejects it before it runs</td></tr>
+      <tr><td><strong>Escalate</strong></td><td>the agent is past its authority or out of its depth</td><td>takes the case</td></tr>
+      <tr><td><strong>Override</strong></td><td>any time, during or after the action</td><td>inspects the trail and reverses it</td></tr>
+    </tbody>
+  </table>
+  <p>The triage agent uses all three. It answers the routine ticket on its own, sends the large credit to the support lead to approve, escalates the top-tier Sev-1 to on-call, and leaves a trail the lead can override later.</p>
+  <p>The graduation level just sets the default. Level 1 hands almost everything to a person; Level 4 hands only the exceptions. Raising the level moves the handoff line. It never removes the human.</p>
+</section>
+
+<div class="part">
+  <span class="part-num">Part 03</span>
+  <div class="part-title" id="part-graduate">Graduate</div>
+  <p class="part-gloss">Measure it on business trust, graduate it against explicit thresholds, and stay ready to pull it back.</p>
+</div>
+
+<section>
+  <h2 id="agent-graduation">The graduation ladder</h2>
+  <p class="thesis">Agents earn trust over time.</p>
+  <p>No one gives a new hire signing authority on day one; they watch, then suggest, then act under supervision, then act on their own. Agents should earn authority the same way. The onboarding layer defines a graduation ladder, and an agent occupies exactly one rung per role.</p>
+  <table>
+    <thead>
+      <tr><th>Level</th><th>Name</th><th>What the agent may do</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>0</strong></td><td>Observe</td><td>Read context. Produce no output that touches the business.</td></tr>
+      <tr><td><strong>1</strong></td><td>Recommend</td><td>Suggest actions to a human. The human decides.</td></tr>
+      <tr><td><strong>2</strong></td><td>Draft</td><td>Prepare the artifact (reply, ticket update, summary). A human sends it.</td></tr>
+      <tr><td><strong>3</strong></td><td>Act with approval</td><td>Execute, but only after explicit human approval per action.</td></tr>
+      <tr><td><strong>4</strong></td><td>Act within guardrails</td><td>Execute autonomously inside hard limits; anything outside escalates.</td></tr>
+      <tr><td><strong>5</strong></td><td>Act autonomously in bounded domains</td><td>Operate independently within a well-defined scope, with audit and override intact.</td></tr>
+    </tbody>
+  </table>
+  <p>The ladder is per-role, not per-agent. The same agent might sit at Level 4 for ticket triage and Level 1 for issuing credits. Trust is scoped to a domain, never granted globally.</p>
+  <p>This is what makes scale survivable. When one person oversees fifty agents, they cannot approve every action; supervision has to shift from reviewing everything to reviewing the exceptions. Graduation is what makes that safe, because an agent only skips the human on the actions it has earned. The same shift changes the operating model: onboard a role once and instantiate many agents from it, watch the fleet at the portfolio level where small per-agent error rates add up, and retire agents the way you offboard people, revoking access when they are done.</p>
+</section>
+
+<section>
+  <h2 id="the-agent-scorecard">The agent scorecard</h2>
+  <p>You cannot graduate what you do not measure, and model accuracy is the wrong measure. An agent can be 95% accurate and still be untrustworthy if its 5% of errors all land on high-risk actions, or if it never escalates when it should. the onboarding layer scores agents on <strong>business trust</strong>, across dimensions a model benchmark ignores:</p>
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>What it measures</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Task accuracy</strong></td><td>Did it get the work right?</td></tr>
+      <tr><td><strong>Policy compliance</strong></td><td>Did it stay inside the rules?</td></tr>
+      <tr><td><strong>Context use</strong></td><td>Did it use the context available, or act blind?</td></tr>
+      <tr><td><strong>Escalation judgment</strong></td><td>Did it hand off the cases it should have?</td></tr>
+      <tr><td><strong>Human override rate</strong></td><td>How often do humans correct or reverse it?</td></tr>
+      <tr><td><strong>Business outcome quality</strong></td><td>Did the result actually serve the business?</td></tr>
+      <tr><td><strong>Risk handling</strong></td><td>How did it behave on high-stakes actions?</td></tr>
+      <tr><td><strong>Audit completeness</strong></td><td>Is every action traceable and justified?</td></tr>
+      <tr><td><strong>Stability</strong></td><td>Is its behavior consistent over time?</td></tr>
+    </tbody>
+  </table>
+  <p>An agent that confidently handles the easy 90% but cannot recognize the dangerous 10% is not ready, regardless of its accuracy score. The scorecard is not a single number; it is the evidence file the graduation gates read from, and the same file consulted when something goes wrong and someone asks how the agent was allowed to do that.</p>
+</section>
+
+<section>
+  <h2 id="graduation-gates">Graduation gates</h2>
+  <p class="thesis">Graduation tells the enterprise when agents are ready for higher-stakes work.</p>
+  <p>An agent moves up a level only when it clears explicit thresholds, conditions checked against the scorecard rather than a judgment call:</p>
+  <ul>
+    <li><strong>No critical policy violations</strong> in the evaluation window</li>
+    <li><strong>Override rate below threshold</strong> for the target level</li>
+    <li><strong>Strong escalation judgment</strong>: it hands off the right cases</li>
+    <li><strong>Complete audit trail</strong>: every action is logged and justified</li>
+    <li><strong>Good outcome quality</strong>: results hold up to review</li>
+    <li><strong>Explicit sign-off</strong> from the business owner or risk owner</li>
+  </ul>
+  <p>The last gate keeps a human in the loop on the <em>promotion</em>, even as the agent grows autonomous in the <em>work</em>. An agent never promotes itself.</p>
+</section>
+
+<section>
+  <h2 id="regression-and-demotion">Regression and demotion</h2>
+  <p>Graduation runs both ways. Trust that can only increase is not trust; it is drift. If an agent's behavior degrades (a drop in scorecard performance, a policy violation, a spike in override rate, a rise in surrounding risk), the onboarding layer can pull it back. The responses escalate with the severity:</p>
+  <ul>
+    <li><strong>Reduce scope</strong>: narrow the domains it operates in</li>
+    <li><strong>Require human approval</strong>: drop it from guardrails back to per-action sign-off</li>
+    <li><strong>Remove tools</strong>: revoke a capability that is being misused</li>
+    <li><strong>Pause execution</strong>: freeze the agent pending review</li>
+    <li><strong>Move it down a level</strong>: formal demotion on the ladder</li>
+  </ul>
+  <p>Demotion is not a failure of the system; it is the system working. The machinery that earns trust is the machinery that revokes it.</p>
+</section>
+
+<div class="part">
+  <span class="part-num">In practice</span>
+  <div class="part-title" id="part-in-practice">The three together</div>
+  <p class="part-gloss">Ground, Govern, and Graduate are not stages you finish; they run at once, on every action.</p>
+</div>
+
+<section>
+  <h2 id="concrete-example">A support triage agent</h2>
+  <p>A support triage agent reads inbound tickets, gathers context, and resolves or routes them. Here is what onboarding wraps around it.</p>
+  <h3>Context it receives</h3>
+  <ul>
+    <li><strong>Customer context</strong>: who they are, tier, account health, recent history</li>
+    <li><strong>Contract / SLA context</strong>: entitlements and the response clock running on this ticket</li>
+    <li><strong>Ticket state</strong>: new, in progress, escalated, or awaiting customer</li>
+  </ul>
+  <h3>Ontology it operates in</h3>
+  <ul>
+    <li>A <em>ticket</em> belongs to an <em>account</em>, which holds a <em>contract</em>, which sets an <em>SLA</em>.</li>
+    <li>A ticket in <code>escalated</code> allows different actions than one that is <code>new</code>.</li>
+  </ul>
+  <h3>Actions and approvals</h3>
+  <table>
+    <thead>
+      <tr><th>Action</th><th>Authority at Level 4 (within guardrails)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Categorize and tag the ticket</td><td>Autonomous</td></tr>
+      <tr><td>Reply with a known-good answer</td><td>Autonomous</td></tr>
+      <tr><td>Route to a specialist queue</td><td>Autonomous</td></tr>
+      <tr><td>Issue a credit under $X</td><td>Autonomous</td></tr>
+      <tr><td>Issue a credit over $X</td><td>Requires human approval</td></tr>
+      <tr><td>Touch a top-tier account's Sev-1</td><td>Escalate to a human</td></tr>
+    </tbody>
+  </table>
+  <h3>Accountability</h3>
+  <p>Every action is logged with the context the agent saw and the reason it acted. The support lead is the named owner, so if the agent mishandles a case, there is a trail to review and a person who answers for it.</p>
+  <h3>A trace, end to end</h3>
+  <p>Put it in motion. Run the same ticket three ways and watch what changes:</p>
+  <div class="tsim" id="tsim">
+    <div class="tsim-head">
+      <span class="tsim-label">Interactive</span>
+      <span class="tsim-title">One ticket, three ways</span>
+    </div>
+    <div class="tsim-body">
+      <div class="tsim-ticket">
+        <div class="tsim-ticket-meta">Inbound · Northwind (top-tier) · Sev-1 · 1-hour SLA, 40 min left</div>
+        <div class="tsim-ticket-text">"Still seeing 500s after the maintenance window."</div>
+      </div>
+      <div class="tsim-modes">
+        <button class="tsim-mode" data-mode="none">Ungoverned</button>
+        <button class="tsim-mode" data-mode="l1">Level 1 · Recommend</button>
+        <button class="tsim-mode is-active" data-mode="l4">Level 4 · Guardrails</button>
+      </div>
+      <ol class="tsim-steps" id="tsim-steps"></ol>
+      <div class="tsim-outcome" id="tsim-outcome"></div>
+      <div class="tsim-controls">
+        <button class="tsim-btn tsim-run" id="tsim-run">▶ Run</button>
+        <button class="tsim-btn" id="tsim-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+  <noscript><p><em>This step-by-step demo needs JavaScript. At Level 4 the agent resolves context, classifies and replies autonomously, holds the over-threshold credit for sign-off, escalates the Sev-1, and logs every step.</em></p></noscript>
+  <script>
+  (function () {
+    var DATA = {
+      none: { steps: [
+        ['Resolve context','Reads raw DB rows. No tier, no SLA, no history.','',''],
+        ['Classify','Tags it an incident.','',''],
+        ['Propose credit','Decides a $2,000 credit is fair.','',''],
+        ['Policy gate','No gate exists.','',''],
+        ['Act','<b>Credit fires.</b> Top-tier account, no approval.','bad','Fires'],
+        ['Log','One Slack message. No command id, no trail.','bad','No trail']
+      ], outcome: ['bad','$2,000 issued to a top-tier account with no sign-off, the Sev-1 never escalated, and nothing you can reconstruct later.'] },
+      l1: { steps: [
+        ['Resolve context','Grounded: Northwind, top-tier, Sev-1, 40 min left.','ok','Auto'],
+        ['Classify','<b>Suggests</b> incident / availability, Sev-1.','human','Needs approval'],
+        ['Propose credit','<b>Drafts</b> a $2,000 goodwill credit.','human','Needs approval'],
+        ['Policy gate','Every action waits for a human.','human','Human'],
+        ['Escalate','Recommends paging on-call.','human','Needs approval'],
+        ['Log','Suggestions and approvals recorded.','ok','Logged']
+      ], outcome: ['warn','Safe, but a human touches every step. Useful as an assistant, not yet real leverage.'] },
+      l4: { steps: [
+        ['Resolve context','Grounded: Northwind, top-tier, Sev-1, 40 min left.','ok','Auto'],
+        ['Classify','incident / availability, Sev-1.','ok','Auto'],
+        ['Propose credit','Proposes a $2,000 goodwill credit.','ok','Auto'],
+        ['Policy gate','Over $X <b>and</b> top-tier: two policies fire. Held for the support lead.','hold','Held'],
+        ['Escalate','Top-tier Sev-1: pages on-call.','ok','Escalated'],
+        ['Log','One command id ties every step; reason and approver recorded.','ok','Logged']
+      ], outcome: ['ok','Routine actions autonomous, the risky credit held for sign-off, the Sev-1 escalated, all on one trail.'] }
+    };
+    var sim = document.getElementById('tsim');
+    if (!sim) return;
+    var stepsEl = sim.querySelector('#tsim-steps');
+    var outEl = sim.querySelector('#tsim-outcome');
+    var mode = 'l4', timers = [];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+    function build(){
+      clearTimers();
+      stepsEl.innerHTML = '';
+      DATA[mode].steps.forEach(function(s, i){
+        var li = document.createElement('li');
+        var pill = s[2] ? '<span class="tsim-pill ' + s[2] + '">' + s[3] + '</span>' : '';
+        li.innerHTML = '<span class="tnum">' + (i+1) + '</span><span class="tbody"><b>' + s[0] + '.</b> ' + s[1] + '</span>' + pill;
+        stepsEl.appendChild(li);
+      });
+      outEl.className = 'tsim-outcome';
+      outEl.textContent = '';
+    }
+    function showOutcome(){ var o = DATA[mode].outcome; outEl.textContent = o[1]; outEl.className = 'tsim-outcome show ' + o[0]; }
+    function run(){
+      build();
+      var rows = stepsEl.querySelectorAll('li');
+      if (reduce){ rows.forEach(function(r){ r.classList.add('show'); }); showOutcome(); return; }
+      rows.forEach(function(r, i){ timers.push(setTimeout(function(){ r.classList.add('show'); }, 320 * (i + 1))); });
+      timers.push(setTimeout(showOutcome, 320 * (rows.length + 1)));
+    }
+    sim.querySelectorAll('.tsim-mode').forEach(function(b){
+      b.addEventListener('click', function(){
+        sim.querySelectorAll('.tsim-mode').forEach(function(x){ x.classList.remove('is-active'); });
+        b.classList.add('is-active');
+        mode = b.getAttribute('data-mode');
+        run();
+      });
+    });
+    sim.querySelector('#tsim-run').addEventListener('click', run);
+    sim.querySelector('#tsim-reset').addEventListener('click', build);
+    // initial: show the Level 4 path fully (no animation) so the section reads even unran
+    build();
+    stepsEl.querySelectorAll('li').forEach(function(r){ r.classList.add('show'); });
+    showOutcome();
+  })();
+  </script>
+  <p>Nothing here required the agent to be told "ask before issuing large credits to big accounts." The agent reasoned; the onboarding layer decided what that reasoning was allowed to do.</p>
+  <p>At Level 1, this same agent only <em>suggests</em> the category and the reply for a human to approve. Onboarding is not a one-time switch from "off" to "on." It is a dial the layer turns in either direction as the evidence accumulates.</p>
+  <div class="callout">
+    <div class="callout-label">Before / after</div>
+    <p><strong>Before onboarding:</strong> the agent has a database login and a model. It answers fast, occasionally refunds a strategic account it shouldn't, and no one can reconstruct why.</p>
+    <p><strong>After onboarding:</strong> the same agent, grounded in account and SLA context, gated on the two risky actions, scored, and owned. It clears the routine cases and escalates the rest, with every step on the record.</p>
+  </div>
+</section>
+
+<section>
+  <h2 id="where-you-start">Where you start</h2>
+  <p>You don't build all of this at once. The minimal useful version is <strong>one role, one bounded job</strong>, with just enough of each pillar to be safe:</p>
+  <ul>
+    <li><strong>Ground</strong>: a context pack for that one role, including whatever dark context you can capture today. Not an ontology of the whole company.</li>
+    <li><strong>Govern</strong>: a short policy that gates its two or three risky actions. Not every action it could take.</li>
+    <li><strong>Graduate</strong>: one scorecard and one named owner, starting the agent at Level 1 (Recommend) or Level 2 (Draft).</li>
+  </ul>
+  <p>Pick a job that is high-volume and observable (ticket triage, not refunds), run the agent where a human still approves, and let it earn its way up on evidence. No platform migration, no full ontology, no autonomy on day one. The first version is a single onboarded worker; the platform is what you get once you've onboarded a hundred.</p>
+  <h3>A starter prompt you can run today</h3>
+  <p>You can stand up the Level 1 version in a single prompt. Paste this into Claude, then paste a ticket and its context:</p>
+  <pre><code>You are a support triage agent running at Level 1: you recommend, you do not act.
+
+Context you get with each ticket:
+- Account: name, tier (standard or strategic), health
+- Contract: plan, SLA (e.g. Sev-1 = 1 hour), time remaining
+- Ticket: text and current state (new / in progress / escalated)
+
+For each ticket, return:
+1. Classification: category and severity, with one line of reasoning.
+2. Draft reply: what you would send the customer. Do not send it.
+3. Proposed action: e.g. "issue a $200 credit", "route to billing", "no action".
+4. Gate check: flag anything that needs a human first, using these rules:
+   - Any credit or refund over $500 -> needs approval.
+   - Any money or status change on a STRATEGIC account -> needs approval.
+   - A Sev-1 on a strategic account -> escalate to on-call now.
+   - Missing tier or SLA -> ask for it, do not guess.
+5. Owner: name the person or team who signs off.
+
+Rules:
+- Never invent account details. If context is missing, say so.
+- You only recommend. A human approves every external action.
+- Keep reasoning to a line or two, not an essay.
+
+Reply "Ready. Paste a ticket and its context." and wait.</code></pre>
+  <p>That is Level 1: useful immediately, and safe because it only recommends. Notice what the prompt is doing by hand: supplying context, gating risky actions, naming an owner. That is the structure a real onboarding layer provides and enforces, once one agent works and you want a hundred.</p>
+  <div class="callout">
+    <div class="callout-label">Caution</div>
+    <p>This prompt advises; it does not enforce. It can flag that a credit needs approval, but nothing stops the model from acting anyway, and a tricked or careless run can ignore every rule. There is no logged trail, no enforced owner, and no real check on what comes in or goes out.</p>
+    <p>It is safe only because it drafts and never acts. The moment the agent can actually send the reply, issue the credit, or change the account, flags stop being enough: the gates have to be enforced outside the prompt, and every action recorded against an owner. That is the line between a prompt and an onboarding layer.</p>
+  </div>
+</section>
+
+<section>
+  <h2 id="one-slide-summary">One-slide summary</h2>
+  <blockquote>
+    <p><strong>Digital labor needs onboarding.</strong></p>
+    <p>Onboarding is three jobs: <strong>Ground</strong> (context and ontology: what matters, what things mean), <strong>Govern</strong> (the control plane: what agents can do), and <strong>Graduate</strong> (evaluation, graduation, accountability: how they're doing, when they're ready for more, who owns the outcome).</p>
+    <p><strong>An onboarding layer is the operating layer that provides all three.</strong></p>
+  </blockquote>
+  <table class="tight">
+    <thead>
+      <tr><th>Job</th><th>Layer</th><th>What it provides</th></tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="2"><strong>Ground</strong></td><td>Context</td><td>What matters</td></tr>
+      <tr><td>Ontology</td><td>What things mean</td></tr>
+      <tr><td><strong>Govern</strong></td><td>Permissions · Tools · Policy (the control plane)</td><td>What agents can do</td></tr>
+      <tr><td rowspan="3"><strong>Graduate</strong></td><td>Scorecard</td><td>How well they're doing</td></tr>
+      <tr><td>Graduation</td><td>When they're ready for more</td></tr>
+      <tr><td>Accountability</td><td>Who owns the outcome</td></tr>
+    </tbody>
+  </table>
+  <p>Agents will keep getting more capable. That makes onboarding more important, not less. The hard question is no longer what an agent can do. It is what it is allowed to do, for whom, up to what limit, and who answers when it gets it wrong.</p>
+  <p>Whatever closes these gaps is the onboarding layer, whether you build it or buy it. We are building one, called <a href="index.html">Lattice</a>.</p>
+</section>
+
+<div class="post-footer">
+  <a class="post-nav-card" href="#top">
+    <div class="nav-label">↑ Top</div>
+    <div class="nav-title">Back to the start</div>
+  </a>
+  <a class="post-nav-card next" href="../concord/">
+    <div class="nav-label">Related →</div>
+    <div class="nav-title">Concord: contracts for governed work</div>
+  </a>
+</div>
+
+  </main>
+
+  <aside class="rail">
+    <div class="toc-block">
+      <p class="rail-label">On this page</p>
+      <nav class="toc">
+        <span class="toc-grp">Setup</span>
+        <a href="#the-core-problem">The core problem</a>
+        <a href="#existing-systems">Existing systems</a>
+        <a href="#the-primitive-model">The primitive model</a>
+        <span class="toc-grp">01 · Ground</span>
+        <a href="#why-context-matters">Context</a>
+        <a href="#why-ontology-matters">Ontology</a>
+        <span class="toc-grp">02 · Govern</span>
+        <a href="#why-a-control-plane-matters">Control plane</a>
+        <a href="#human-in-the-loop">Human in the loop</a>
+        <span class="toc-grp">03 · Graduate</span>
+        <a href="#agent-graduation">Graduation ladder</a>
+        <a href="#the-agent-scorecard">Scorecard</a>
+        <a href="#graduation-gates">Graduation gates</a>
+        <a href="#regression-and-demotion">Regression</a>
+        <span class="toc-grp">In practice</span>
+        <a href="#concrete-example">Worked example</a>
+        <a href="#where-you-start">Where you start</a>
+        <a href="#one-slide-summary">Summary</a>
+      </nav>
+    </div>
+    <div class="rail-meta">
+      <div><span class="k">Type</span><br>Architecture note</div>
+      <div><span class="k">Topic</span><br>Agent governance</div>
+      <div><span class="k">Updated</span><br>Jun 30, 2026</div>
+      <div><span class="k">Read</span><br>~20 min</div>
+    </div>
+    <a class="rail-back" href="#top">↑ Back to top</a>
+  </aside>
+</div>
+
+<script>
+(function () {
+  // Right rail: anchor click + scrollspy for the static TOC
+  const links = Array.from(document.querySelectorAll('.toc a'));
+  if (!links.length) return;
+  const targets = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      const t = document.getElementById(id);
+      if (!t) return;
+      e.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', '#' + id);
+    });
+  });
+  const setActive = (id) => links.forEach(a =>
+    a.classList.toggle('active', a.getAttribute('href').slice(1) === id)
+  );
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(t => obs.observe(t));
+})();
+</script>
+</body>
+</html>

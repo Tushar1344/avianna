@@ -17,8 +17,8 @@
   <generator>build_feed.py</generator>
   <entry>
     <title>The problem</title>
-    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html" />
-    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html</id>
+    <link href="https://avianna.ai/lattice/part-1-the-problem.html" />
+    <id>https://avianna.ai/lattice/part-1-the-problem.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
     <summary>Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model — it does not onboard a worker.</summary>
@@ -28,8 +28,8 @@
   </entry>
   <entry>
     <title>The framework</title>
-    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html" />
-    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html</id>
+    <link href="https://avianna.ai/lattice/part-2-the-framework.html" />
+    <id>https://avianna.ai/lattice/part-2-the-framework.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
     <summary>The Lattice primitives — role, context, ontology, permissions, tools, policy, evaluation, graduation, accountability.</summary>
@@ -39,8 +39,8 @@
   </entry>
   <entry>
     <title>In practice</title>
-    <link href="https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html" />
-    <id>https://avianna.ai/https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html</id>
+    <link href="https://avianna.ai/lattice/part-3-in-practice.html" />
+    <id>https://avianna.ai/lattice/part-3-in-practice.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
     <summary>An agent traced through Lattice end to end — graduating from observing to acting autonomously without losing accountability.</summary>

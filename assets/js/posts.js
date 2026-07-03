@@ -50,7 +50,7 @@ const POSTS = [
     tags: ["lattice", "agents", "governance"],
     series: "lattice",
     part: 1,
-    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-1-the-problem.html",
+    external_url: "lattice/part-1-the-problem.html",
   },
   {
     slug: "lattice-2-the-framework",
@@ -61,7 +61,7 @@ const POSTS = [
     tags: ["lattice", "agents", "governance"],
     series: "lattice",
     part: 2,
-    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-2-the-framework.html",
+    external_url: "lattice/part-2-the-framework.html",
   },
   {
     slug: "lattice-3-in-practice",
@@ -72,7 +72,7 @@ const POSTS = [
     tags: ["lattice", "agents", "governance"],
     series: "lattice",
     part: 3,
-    external_url: "https://tushar1344.github.io/lattice-digital-labor/part-3-in-practice.html",
+    external_url: "lattice/part-3-in-practice.html",
   },
   {
     slug: "the-visible-pursuit",
