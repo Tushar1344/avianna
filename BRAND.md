@@ -329,3 +329,20 @@ Build Avianna as: **a serious, research-led AI systems lab with a strong applied
 The brand should make visitors think: *"These people are developing original frameworks for how AI systems, agents, and organizations will actually work."*
 
 Concord should strengthen that perception as a concrete project. Advisory should monetize and apply that thinking. But the main brand should remain the lab.
+
+## 17. Audience (amendment, 2026-07-04)
+
+Decision: **the lab is the authority; the executive is the audience.**
+
+Primary audience: executives and founders responsible for adopting and scaling AI effectively (CIO/CTO/CDO, product leaders, founders). Secondary: the builders and researchers whose respect gives the lab its credibility.
+
+The research-lab positioning (§1) stands. Credibility continues to come from systems research. But every major surface must pass a second test alongside §16's: *an overwhelmed executive should recognize their problem within the first screen.* Vague is not the same as credible.
+
+Bridge rules:
+
+1. **Name the beneficiary.** The homepage subhead pairs the lab thesis with whom the work serves: the executives adopting and scaling AI.
+2. **Split outputs by audience.** Exec track: the adoption playbook, Lattice, the Enterprise-AI essay cluster. Builder track: Concord, sims, architecture essays. The exec track leads on the homepage.
+3. **Advisory speaks in outcome language** (stalled between competing goals, clarity and alignment, pilots to production), about the reader rather than the lab. CTAs stay restrained per §11.
+4. **Content priority:** the §10 "Enterprise AI" cluster ships first.
+
+This amends the reading of §15 ("do not make the site too commercial too early"): naming the buyer is clarity, not commerce.
