@@ -112,6 +112,8 @@
   }
   .callout.tip { border-left-color: var(--sage); background: var(--sage-bg); }
   .callout.warn { border-left-color: #B68A2E; background: #F4ECD7; }
+  .refs { margin: 6px 0 0; padding-left: 22px; }
+  .refs li { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin-bottom: 10px; }
   .callout-label {
     font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 4px;
@@ -646,6 +648,7 @@
   <p class="pull">The system has to record intent explicitly now because the intent didn't come from a person. It came from an agent.</p>
   <p>And the agent's reasoning is a transient prompt-and-completion exchange. There is no log to point to that says "this is what the agent intended." If you don't capture it at the moment it's proposed, it's gone. The model that produced the proposal might not even exist next quarter.</p>
   <p>The mismatch is structural. Old runtimes assumed human ingress. New runtimes have to assume agent ingress. The contract that used to live in the human's head now has to live in a table.</p>
+  <p>And this is not a solved problem someone else is quietly shipping. In December 2025, Microsoft Research wrote that meaningful human oversight of agents, "whether real-time monitoring or post-hoc auditing," is "very challenging" and remains open <a href="#references">[1]</a>. The CHI 2026 workshop on human-agent collaboration reached the same verdict: today's systems lack "shared accountability" <a href="#references">[2]</a>. The contract layer is the missing piece both admissions point at.</p>
 </section>
 
 <section>
@@ -703,6 +706,14 @@
 
   <h3>What I haven't decided</h3>
   <p>Whether Concord should ship with an opinionated policy DSL or stay strictly bring-your-own-policy. There's a strong case for both — opinionated keeps small teams unstuck, BYO keeps regulated industries adoptable. I lean BYO today, but I expect to be wrong about this at least once.</p>
+</section>
+
+<section>
+  <h2 id="references">References</h2>
+  <ol class="refs">
+    <li id="ref-1">Microsoft Research, <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf" target="_blank" rel="noopener">New Future of Work Report 2025</a> (MSR-TR-2025-58), December 2025. Names meaningful human oversight of agents, real-time or post-hoc, as an open challenge, and the "goal-plan-execution gap" as a core sociotechnical problem.</li>
+    <li id="ref-2"><a href="https://chi26workshop-human-agent-collaboration.hailab.io/" target="_blank" rel="noopener">Workshop on Human-Agent Collaboration</a>, CHI 2026, April 2026. Finds current systems "lack critical characteristics of effective collaboration, such as mutual awareness, mixed-initiative interactions, and shared accountability."</li>
+  </ol>
 </section>
 
 <div class="callout">
@@ -966,6 +977,7 @@ last_booking     "<span class="lwarn">res_9d4f7</span>"      <span class="ldim">
         <a href="#the-five-questions" class="lvl-2">The five questions</a>
         <a href="#three-counterarguments-i-take-seriously" class="lvl-2">Three counterarguments I take seriously</a>
         <a href="#where-i-might-be-wrong" class="lvl-2">Where I might be wrong</a>
+        <a href="#references" class="lvl-2">References</a>
       </nav>
     </div>
     <div class="rail-meta">
