@@ -154,6 +154,8 @@ Experimental products and frameworks that turn research ideas into working syste
 
 These pillars should appear across the homepage, Research page, and Essays taxonomy.
 
+> Amended 2026-07-05 (owner decision): the public research areas are three — **Economics, Reliability, and Alignment & Governance of agents in the enterprise**. The six pillars above remain internal scaffolding for content planning.
+
 ## 6. Concord Positioning
 
 Concord should be described as a flagship project, not the company's entire identity.
