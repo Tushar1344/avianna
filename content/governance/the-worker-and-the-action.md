@@ -1,14 +1,16 @@
 When a company hires a person, it builds two kinds of structure around them. The first is standing structure: a role, an onboarding, permissions, a manager, performance reviews, a path to promotion. The second is per-transaction structure: the expense report, the purchase order, the approval on the contract they want to sign. Neither substitutes for the other. A well-onboarded employee still cannot wire money without a second signature, and a perfectly designed approval form does not tell you whether the employee should be trusted with bigger work next quarter.
 
-Companies putting AI agents to work need both kinds of structure, and they are not the same system. We built one project for each. [Lattice](lattice/) is the standing structure: it onboards an agent the way you onboard a worker, with context, limits, and a named owner. [Concord](concord/) is the per-transaction structure: a contract attached to each action an agent takes, recording what it meant, who authorized it, and how to undo it. This note explains how the two layers fit, and what the combined stack points to next.
+Companies putting AI agents to work are missing both kinds of structure. An agent arrives with a prompt and an API key: no role, no onboarding, no manager, no probation period. And each action it takes executes with no record of what it meant, who authorized it, or how to reverse it. The technology to act is here. The structure around the acting is not.
 
-## The worker and the action
+Do not expect anyone selling you AI to point this out. Capability vendors are paid to improve the model, platforms are paid when usage grows, and neither earns anything when you pause to build the structure that decides whether any of it sticks. This layer is yours to build.
 
-The division of labor is one sentence: **Lattice governs the worker; Concord governs the action.**
+Building it means answering two different kinds of questions, on two different clocks.
 
-Lattice answers standing questions. What job is this agent here to do? What does it need to know? What may it see and touch? How well is it performing, and has it earned more trust? These questions change slowly, on the timescale of onboarding, review cycles, and promotions.
+**Standing questions.** What job is this agent here to do? What does it need to know? What may it see and touch? Has it earned more trust? These change slowly, on the timescale of onboarding, reviews, and promotions.
 
-Concord answers runtime questions. What is this specific action? Was it allowed, and by whom? What did it mean in business terms? What systems did it touch, and if it was wrong, how does it get reversed? These questions arrive hundreds of times a day, on the timescale of execution.
+**Runtime questions.** What is this specific action? Was it allowed, and by whom? What did it mean in business terms? If it was wrong, how does it get reversed? These arrive hundreds of times a day.
+
+We built one project for each. [Lattice](lattice/) onboards the agent like a worker: context to do the job, limits on what it can touch, a named owner for the outcome. [Concord](concord/) puts a contract on each action: meaning, authority, undo. The rest of this note is how the two layers fit together, and what the combined stack points to next.
 
 <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The governance stack: the organization on top, Lattice below it, Concord below that, enterprise systems at the bottom. Policy flows down from Lattice into Concord; Concord's ledger flows back up to Lattice." style="max-width:100%;height:auto;display:block;margin:28px auto;">
   <g font-family="Inter, system-ui, sans-serif">
