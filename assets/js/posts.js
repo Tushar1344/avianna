@@ -42,13 +42,13 @@ const SERIES = {
 
 const POSTS = [
   {
-    slug: "the-42-percent-problem",
-    title: "The 42% problem",
+    slug: "what-your-vendors-cant-tell-you",
+    title: "What your vendors can't tell you",
     section: "adoption",
     date: "2026-07-04",
-    summary: "Enterprises abandoned most of their AI initiatives before production in 2025, at more than double the prior year's rate. The failures have a pattern, the pattern has structural causes, and almost everyone advising you has a reason not to name them.",
-    tags: ["enterprise-ai", "adoption", "evidence"],
-    file: "content/ai/the-42-percent-problem.md",
+    summary: "Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps model labs, platforms, and consultancies from advising on the layer where AI initiatives actually live or die. The map, the evidence, and the questions nobody is paid to ask you.",
+    tags: ["enterprise-ai", "adoption", "incentives", "evidence"],
+    file: "content/ai/what-your-vendors-cant-tell-you.md",
   },
   {
     slug: "lattice-1-the-problem",
