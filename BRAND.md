@@ -80,6 +80,8 @@ Recommended primary sections:
 
 The homepage should not lead with Concord. Concord should appear as a strong featured project after the lab's broader thesis has been established.
 
+> Amended 2026-07-05 (owner decision): the Advisory section sits directly after the hero with a visible CTA. CTA visibility outranks the original "advisory only after credibility" ordering; the research sections still carry the credibility case immediately below.
+
 ## 4. Site Information Architecture
 
 Recommended navigation:
