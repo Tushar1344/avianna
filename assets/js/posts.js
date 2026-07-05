@@ -46,7 +46,7 @@ const POSTS = [
     title: "The hole in the AI advice market",
     section: "adoption",
     date: "2026-07-04",
-    summary: "Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps the advice market away from the layer where AI initiatives actually live or die. The map, the evidence, and the questions that cannot be outsourced.",
+    summary: "The companies selling you AI cannot tell you why AI projects really fail. Not because they are dishonest, but because their business models point the other way. Here is what each of them cannot say, and the questions you will have to answer yourself.",
     tags: ["enterprise-ai", "adoption", "incentives", "evidence"],
     file: "content/ai/the-hole-in-the-ai-advice-market.md",
   },
