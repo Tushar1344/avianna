@@ -1,16 +1,16 @@
-When a company hires a person, it builds two kinds of structure around them. The first is standing structure: a role, an onboarding, permissions, a manager, performance reviews, a path to promotion. The second is per-transaction structure: the expense report, the purchase order, the approval on the contract they want to sign. Neither substitutes for the other. A well-onboarded employee still cannot wire money without a second signature, and a perfectly designed approval form does not tell you whether the employee should be trusted with bigger work next quarter.
+When a company hires a person, it builds two kinds of structure. Standing structure: a role, a manager, permissions, reviews. Per-transaction structure: the purchase order, the approval, the second signature on the wire. Neither replaces the other.
 
-Companies putting AI agents to work are missing both kinds of structure. An agent arrives with a prompt and an API key: no role, no onboarding, no manager, no probation period. And each action it takes executes with no record of what it meant, who authorized it, or how to reverse it. The technology to act is here. The structure around the acting is not.
+Agents get neither. They arrive with a prompt and an API key. Their actions execute with no record of what they meant, who approved them, or how to undo them. The technology to act is here. The structure around the acting is not.
 
-Do not expect anyone selling you AI to point this out. Capability vendors are paid to improve the model, platforms are paid when usage grows, and neither earns anything when you pause to build the structure that decides whether any of it sticks. This layer is yours to build.
+No one selling you AI is paid to point this out. Model vendors improve models, platforms grow usage, and the structure that decides whether any of it sticks is yours to build.
 
-Building it means answering two different kinds of questions, on two different clocks.
+Building it means answering two kinds of questions, on two clocks.
 
-**Standing questions.** What job is this agent here to do? What does it need to know? What may it see and touch? Has it earned more trust? These change slowly, on the timescale of onboarding, reviews, and promotions.
+**Standing questions.** What job does this agent do? What may it touch? Has it earned more trust? These change slowly, like onboarding and reviews.
 
-**Runtime questions.** What is this specific action? Was it allowed, and by whom? What did it mean in business terms? If it was wrong, how does it get reversed? These arrive hundreds of times a day.
+**Runtime questions.** What is this action? Who allowed it? How does it get reversed? These arrive hundreds of times a day.
 
-We built one project for each. [Lattice](lattice/) onboards the agent like a worker: context to do the job, limits on what it can touch, a named owner for the outcome. [Concord](concord/) puts a contract on each action: meaning, authority, undo. The rest of this note is how the two layers fit together, and what the combined stack points to next.
+We built one project for each. [Lattice](lattice/) onboards the agent like a worker: context to do the job, limits on what it can touch, a named owner for the outcome. [Concord](concord/) puts a contract on each action: meaning, authority, undo.
 
 <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The governance stack: the organization on top, Lattice below it, Concord below that, enterprise systems at the bottom. Policy flows down from Lattice into Concord; Concord's ledger flows back up to Lattice." style="max-width:100%;height:auto;display:block;margin:28px auto;">
   <g font-family="Inter, system-ui, sans-serif">
@@ -38,17 +38,13 @@ We built one project for each. [Lattice](lattice/) onboards the agent like a wor
 
 ## The loop is the point
 
-The two layers are not merely stacked. They close a loop, and the loop is what makes governance real rather than aspirational.
+The layers close a loop. Downward: a policy like "credits over a threshold need approval" is a sentence in a binder until something checks it at the moment an agent acts. That checkpoint is the contract. Upward: deciding whether an agent deserves more trust takes evidence: how many actions were approved unchanged, corrected, reversed. That evidence is the contract ledger.
 
-Downward: policy needs an enforcement point. A Lattice policy like "credits over a threshold require approval" is a sentence in a binder until something checks it at the moment an agent proposes a credit. That checkpoint is the per-action contract. Concord is where Lattice's rules stop being documentation and start being enforced.
-
-Upward: trust needs evidence. Lattice's scorecard and graduation decisions have to be grounded in what the agent actually did. How many actions did it propose? How many were approved unchanged, how many were corrected, how many had to be reversed? That record is exactly what Concord's ledger accumulates, action by action. The ledger is the evidence the scorecard reads. Without it, graduation decisions run on impressions.
-
-One layer without the other fails in a predictable direction. Standing structure without per-action contracts produces well-documented agents whose individual actions nobody can explain or undo. Per-action contracts without standing structure produce beautifully audited actions by agents nobody decided to trust in the first place.
+One without the other fails predictably. Onboarding without contracts: well-documented agents whose actions nobody can explain. Contracts without onboarding: perfectly audited actions by agents nobody decided to trust.
 
 ## Trust level sets the ceremony
 
-The most concrete connection between the layers: an agent's Lattice trust level should determine how much contract ceremony Concord applies to each of its actions.
+An agent's trust level should set how much contract ceremony each action gets.
 
 | Lattice level | What the agent may do | What each Concord contract does |
 |---|---|---|
@@ -59,18 +55,16 @@ The most concrete connection between the layers: an agent's Lattice trust level 
 | 4 · Act within guardrails | Execute inside hard limits | Auto-approved within policy; exceptions escalate with full ceremony |
 | 5 · Autonomous in bounds | Operate within a domain | Auto-approved in domain; audit and reversal intact, sampled review |
 
-Read the table twice and the loop appears again: graduation up the levels is earned by ledger evidence from the previous level, and each promotion changes the ceremony, not the accountability. The audit trail never thins. What thins is how often a human stands in the path.
+Promotion changes the ceremony, not the accountability. The audit trail never thins. What thins is how often a human stands in the path.
 
-## What the stack foreshadows
+## What comes next
 
-Treat Lattice and Concord as the first two entries in a longer research program. Each pillar, pulled on, unspools into work we have not written yet:
+Each piece of the stack opens a question we haven't finished answering:
 
-- **Autonomy levels as shared vocabulary.** The 0 to 5 ladder wants to become a standard the industry can point at, the way driving automation has levels. A common scale for "how much do you trust this agent" would let buyers, vendors, and auditors talk about the same thing.
-- **Performance management for digital labor.** The scorecard grows into evaluation in production, trust metrics, and eventually unit economics: what an agent's outcomes cost against what they return.
-- **Context packs.** The Ground pillar implies a discipline for packaging business knowledge for agents, including the undocumented judgment that lives in people's heads.
-- **The hybrid organization.** When the human-to-agent ratio flips, spans of control, escalation paths, and the manager-of-agents role all need rethinking.
-- **The delegation ledger.** Most companies already have ungoverned delegation: employees handing work to personal AI tools with no record of what was delegated or under whose authority. The same primitives that onboard sanctioned agents can instrument the unsanctioned ones.
+- **Autonomy levels as a shared scale.** Like driving automation: one vocabulary for "how much do you trust this agent."
+- **Performance reviews for agents.** What an agent costs against what it returns.
+- **Context packs.** How business knowledge, including the kind that lives in people's heads, gets handed to an agent.
+- **The flipped org chart.** What management looks like when a few people oversee many agents.
+- **The delegation you didn't sanction.** Most employees already hand work to personal AI tools, off the books. The same structure can bring it on the books.
 
-Each of these is an open question, not a finished framework. That is deliberate. The stack above is what we are confident about; the list here is what we are working on.
-
-If you are starting from the executive side, begin with [Lattice, part 1](lattice/part-1-the-problem.html). If you are starting from the systems side, begin with [Concord, part 1](posts/concord-1-why-agents-need-a-contract.html).
+If you run an organization, start with [Lattice, part 1](lattice/part-1-the-problem.html). If you build systems, start with [Concord, part 1](posts/concord-1-why-agents-need-a-contract.html).
