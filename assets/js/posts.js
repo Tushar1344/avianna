@@ -46,8 +46,6 @@ const SERIES = {
 
 /* Renamed posts: old slug -> current slug. post.js redirects on lookup miss. */
 const SLUG_ALIASES = {
-  "the-42-percent-problem": "the-hole-in-the-ai-advice-market",
-  "what-your-vendors-cant-tell-you": "the-hole-in-the-ai-advice-market",
   "lattice-digital-labor": "lattice-1-the-problem",
 };
 
@@ -60,15 +58,6 @@ const POSTS = [
     summary: "Lattice onboards an AI agent the way you onboard a worker. Concord puts a contract on each action the agent takes. This note explains how the two layers close a loop, why one without the other fails, and the frameworks the stack points to next.",
     tags: ["lattice", "concord", "agents", "governance"],
     file: "content/governance/the-worker-and-the-action.md",
-  },
-  {
-    slug: "the-hole-in-the-ai-advice-market",
-    title: "The hole in the AI advice market",
-    section: "adoption",
-    date: "2026-07-04",
-    summary: "The companies selling you AI cannot tell you why AI projects really fail. Not because they are dishonest, but because their business models point the other way. Here is what each of them cannot say, and the questions you will have to answer yourself.",
-    tags: ["enterprise-ai", "adoption", "incentives", "evidence"],
-    file: "content/ai/the-hole-in-the-ai-advice-market.md",
   },
   {
     slug: "lattice-1-the-problem",
