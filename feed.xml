@@ -5,7 +5,7 @@
   <link rel="self" href="https://avianna.ai/feed.xml" />
   <link href="https://avianna.ai/" />
   <id>https://avianna.ai/</id>
-  <updated>2026-07-02T00:00:00Z</updated>
+  <updated>2026-07-04T00:00:00Z</updated>
   <author>
     <name>Tushar Madan</name>
   </author>
@@ -15,6 +15,17 @@
   <icon>https://avianna.ai/assets/brand/favicon-64x64.png</icon>
   <logo>https://avianna.ai/assets/brand/logo-mark.png</logo>
   <generator>build_feed.py</generator>
+  <entry>
+    <title>The 42% problem</title>
+    <link href="https://avianna.ai/post.html?slug=the-42-percent-problem" />
+    <id>https://avianna.ai/post.html?slug=the-42-percent-problem</id>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <published>2026-07-04T00:00:00Z</published>
+    <summary>Enterprises abandoned most of their AI initiatives before production in 2025, at more than double the prior year's rate. The failures have a pattern, the pattern has structural causes, and almost everyone advising you has a reason not to name them.</summary>
+    <category term="enterprise-ai" />
+    <category term="adoption" />
+    <category term="evidence" />
+  </entry>
   <entry>
     <title>The problem</title>
     <link href="https://avianna.ai/lattice/part-1-the-problem.html" />

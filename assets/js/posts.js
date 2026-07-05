@@ -42,6 +42,15 @@ const SERIES = {
 
 const POSTS = [
   {
+    slug: "the-42-percent-problem",
+    title: "The 42% problem",
+    section: "ai",
+    date: "2026-07-04",
+    summary: "Enterprises abandoned most of their AI initiatives before production in 2025, at more than double the prior year's rate. The failures have a pattern, the pattern has structural causes, and almost everyone advising you has a reason not to name them.",
+    tags: ["enterprise-ai", "adoption", "evidence"],
+    file: "content/ai/the-42-percent-problem.md",
+  },
+  {
     slug: "lattice-1-the-problem",
     title: "The problem",
     section: "ai",
