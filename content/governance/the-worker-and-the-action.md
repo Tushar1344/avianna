@@ -36,7 +36,7 @@ We built one project for each. [Lattice](lattice/) onboards the agent like a wor
   </g>
 </svg>
 
-## The loop is the point
+## Rules go down, proof comes up
 
 The layers close a loop. Downward: a policy like "credits over a threshold need approval" is a sentence in a binder until something checks it at the moment an agent acts. That checkpoint is the contract. Upward: deciding whether an agent deserves more trust takes evidence: how many actions were approved unchanged, corrected, reversed. That evidence is the contract ledger.
 
