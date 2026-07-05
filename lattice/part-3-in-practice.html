@@ -202,6 +202,8 @@
   .callout.tip .callout-label { color: var(--sage); }
   .callout p { margin: 0; color: var(--ink); font-size: 14.5px; }
   .callout p + p { margin-top: 8px; }
+  .refs { padding-left: 18px; }
+  .refs li { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
 
   /* Triage sim */
   .tsim { margin: 26px 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel-2); }
@@ -427,6 +429,7 @@
       <a href="#authoring">Authoring spreads beyond IT</a>
       <a href="#agent-to-agent">Agents working with agents</a>
       <a href="#one-slide-summary">One-slide summary</a>
+      <a href="#references">References</a>
     </nav>
 
     <div class="sidebar-foot">
@@ -587,6 +590,7 @@
 
 <section>
   <h2 id="where-you-start">Where you start</h2>
+  <p>The stakes of getting this wrong are no longer hypothetical. Enterprises abandoned most of their AI initiatives before production at a 42 percent rate in 2025, up from 17 percent the year before <a href="#references">[1]</a>. The pattern behind those abandonments is starting too big with too little structure. So start small, with the structure.</p>
   <p>You don't deploy all of Lattice at once. The minimal useful version is <strong>one role, one bounded job</strong>, with just enough of each pillar to be safe:</p>
   <ul>
     <li><strong>Ground</strong>: a context pack for that one role, including whatever dark context you can capture today. Not an ontology of the whole company.</li>
@@ -676,6 +680,13 @@ Reply "Ready. Paste a ticket and its context." and wait.</code></pre>
 </section>
 
 
+
+<section>
+  <h2 id="references">References</h2>
+  <ol class="refs">
+    <li>[1] S&amp;P Global Market Intelligence / 451 Research, <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/generative-ai-shows-rapid-growth-but-yields-mixed-results" target="_blank" rel="noopener">Voice of the Enterprise: AI &amp; Machine Learning, Use Cases 2025</a>, October 2025 (n=1,006). 42 percent of organizations abandoned most of their AI initiatives before production, up from 17 percent a year earlier; the average organization scrapped 46 percent of proofs-of-concept. Self-reported survey data; correlational, not causal.</li>
+  </ol>
+</section>
 
 <div class="post-footer">
   <a class="post-nav-card" href="part-2-the-framework.html">

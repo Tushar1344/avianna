@@ -202,6 +202,8 @@
   .callout.tip .callout-label { color: var(--sage); }
   .callout p { margin: 0; color: var(--ink); font-size: 14.5px; }
   .callout p + p { margin-top: 8px; }
+  .refs { padding-left: 18px; }
+  .refs li { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
 
   /* Triage sim */
   .tsim { margin: 26px 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel-2); }
@@ -424,6 +426,7 @@
       <a href="#the-core-problem">Capability is arriving before onboarding</a>
       <a href="#existing-systems">Filling the gaps your tools leave</a>
       <a href="#the-primitive-model">The primitive model</a>
+      <a href="#references">References</a>
     </nav>
 
     <div class="sidebar-foot">
@@ -454,6 +457,7 @@
   <p>The enterprise agent stack is improving from the bottom up. Models are getting better.</p>
   <p>But the onboarding layer is missing.</p>
   <p>And it is missing right when it is needed most. Models have just crossed the line from <em>answering</em> to <em>acting</em>. A system that only answers can be wrong harmlessly: a human reads the output and decides what to do with it. An agent that acts is wrong <em>in production</em>. That moves the hard part from intelligence to authority, and it is happening now, not someday.</p>
+  <p>The numbers show the shape of the gap. As of mid-2025, 62 percent of organizations were at least experimenting with agents, yet no more than 10 percent reported scaling them in any single business function <a href="#references">[1]</a>. The distance between experimenting and scaling is not a capability gap. It is an onboarding gap.</p>
   <p>That is the layer Lattice occupies. It is the control plane for digital labor: it gives agents business context, models the business through an ontology, governs what they can see and do, scores their performance, and graduates them into higher-trust work over time.</p>
 </section>
 
@@ -528,6 +532,13 @@
 </section>
 
 
+
+<section>
+  <h2 id="references">References</h2>
+  <ol class="refs">
+    <li>[1] McKinsey, <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">The State of AI</a>, November 2025 (survey fielded mid-2025, n=1,993). 62 percent of organizations were at least experimenting with AI agents; no more than 10 percent reported scaling agents in any single business function. Stanford’s <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" target="_blank" rel="noopener">AI Index Report 2026</a> reports the same single-digit function-level usage, drawing on the same underlying survey.</li>
+  </ol>
+</section>
 
 <div class="post-footer">
   <a class="post-nav-card" href="./">

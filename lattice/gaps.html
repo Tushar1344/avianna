@@ -202,6 +202,8 @@
   .callout.tip .callout-label { color: var(--sage); }
   .callout p { margin: 0; color: var(--ink); font-size: 14.5px; }
   .callout p + p { margin-top: 8px; }
+  .refs { padding-left: 18px; }
+  .refs li { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
 
   /* Triage sim */
   .tsim { margin: 26px 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel-2); }
@@ -438,6 +440,7 @@
       <a href="#concrete-example">Worked example</a>
       <a href="#where-you-start">Where you start</a>
       <a href="#one-slide-summary">Summary</a>
+      <a href="#references">References</a>
     </nav>
   </aside>
 
@@ -465,6 +468,7 @@
   <p>The enterprise agent stack is improving from the bottom up. Models are getting better.</p>
   <p>But the onboarding layer is missing.</p>
   <p>And it is missing right when it is needed most. Models have just crossed the line from <em>answering</em> to <em>acting</em>. A system that only answers can be wrong harmlessly: a human reads the output and decides what to do with it. An agent that acts is wrong <em>in production</em>. That moves the hard part from intelligence to authority, and it is happening now, not someday.</p>
+  <p>The numbers show the shape of the gap. As of mid-2025, 62 percent of organizations were at least experimenting with agents, yet no more than 10 percent reported scaling them in any single business function <a href="#references">[1]</a>. The distance between experimenting and scaling is not a capability gap. It is an onboarding gap.</p>
   <p>And it is about to get harder. The number of agents per company will climb fast, and the ratio of humans to agents will flip: soon a few people will oversee a fleet, not the other way around. That breaks the habit of a human checking every action, and it strains accountability, because far more autonomous work happens per person. The structure has to carry that weight from day one, not once the fleet is already large.</p>
   <p>That is the missing layer. Call it an onboarding and control layer for digital labor: it gives agents business context, models the business through an ontology, governs what they can see and do, scores their performance, and graduates them into higher-trust work over time.</p>
 </section>
@@ -848,6 +852,7 @@
 
 <section>
   <h2 id="where-you-start">Where you start</h2>
+  <p>The stakes of getting this wrong are no longer hypothetical. Enterprises abandoned most of their AI initiatives before production at a 42 percent rate in 2025, up from 17 percent the year before <a href="#references">[2]</a>. The pattern behind those abandonments is starting too big with too little structure. So start small, with the structure.</p>
   <p>You don't build all of this at once. The minimal useful version is <strong>one role, one bounded job</strong>, with just enough of each pillar to be safe:</p>
   <ul>
     <li><strong>Ground</strong>: a context pack for that one role, including whatever dark context you can capture today. Not an ontology of the whole company.</li>
@@ -911,6 +916,14 @@ Reply "Ready. Paste a ticket and its context." and wait.</code></pre>
   </table>
   <p>Agents will keep getting more capable. That makes onboarding more important, not less. The hard question is no longer what an agent can do. It is what it is allowed to do, for whom, up to what limit, and who answers when it gets it wrong.</p>
   <p>Whatever closes these gaps is the onboarding layer, whether you build it or buy it. We are building one, called <a href="index.html">Lattice</a>.</p>
+</section>
+
+<section>
+  <h2 id="references">References</h2>
+  <ol class="refs">
+    <li>[1] McKinsey, <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">The State of AI</a>, November 2025 (survey fielded mid-2025, n=1,993). 62 percent of organizations were at least experimenting with AI agents; no more than 10 percent reported scaling agents in any single business function. Stanford’s <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" target="_blank" rel="noopener">AI Index Report 2026</a> reports the same single-digit function-level usage, drawing on the same underlying survey.</li>
+    <li>[2] S&amp;P Global Market Intelligence / 451 Research, <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/generative-ai-shows-rapid-growth-but-yields-mixed-results" target="_blank" rel="noopener">Voice of the Enterprise: AI &amp; Machine Learning, Use Cases 2025</a>, October 2025 (n=1,006). 42 percent of organizations abandoned most of their AI initiatives before production, up from 17 percent a year earlier; the average organization scrapped 46 percent of proofs-of-concept. Self-reported survey data; correlational, not causal.</li>
+  </ol>
 </section>
 
 <div class="post-footer">
