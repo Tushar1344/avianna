@@ -4,6 +4,10 @@
    To add a post:
      1. Drop a Markdown file under content/<section>/<slug>.md
      2. Add one entry to the POSTS array below.
+     3. Bump the ?v= query on the <script> tags in blog.html AND post.html.
+        Skipping this leaves returning visitors on a cached manifest: the
+        new post 404s with a stuck "Loading…" title until their cache expires.
+     4. Rebuild the feed: python3 scripts/build_feed.py
 
    Fields:
      slug          unique id, used in the URL: post.html?slug=<slug>
