@@ -1,43 +1,43 @@
-In 2025, 42 percent of enterprises abandoned most of their AI initiatives before they reached production. A year earlier it was 17 percent [[1]](#sources). Over the same period the models got measurably better. Something other than the technology is killing these projects.
+In 2025, 42 percent of enterprises abandoned most of their AI projects before they reached production. A year earlier it was 17 percent [[1]](#sources). Over the same period the models got better. So whatever is killing these projects, it is not the technology.
 
-Here is the uncomfortable part: everyone you pay for AI advice has a reason not to name it. Not dishonesty. Business models.
+Here is the uncomfortable part: everyone you pay for AI advice has a reason not to name it. Not dishonesty. Business models. The model companies sell capability, the platforms sell usage, the consultancies sell programs, and none of them gets paid when you fix the thing that actually decides success: how your own organization changes around the AI.
 
-## Who can't say what
+You cannot make them say it. You can ask questions that surface it.
 
-| Who advises you | What they sell | What their model makes it hard to say |
+## Take these to your next vendor meeting
+
+| Who you're meeting | What they sell you | What to ask them |
 |---|---|---|
-| Frontier AI labs | Capability | "The model is not your bottleneck" |
-| Cloud and data platforms | Consumption | "Redesign the workflow before you scale the spend" |
-| Consultancies | Transformation programs | "Your organization cannot absorb this yet" |
-| Vendors at large | Agentic products | "This use case does not need an agent" |
+| The model company | Capability | "If the model were perfect tomorrow, what would still block us?" |
+| The cloud or data platform | Usage | "Where should we spend less until the workflow is fixed?" |
+| The consultancy | A transformation program | "What would make you tell us to stop?" |
+| The agent vendor | AI agents | "Why does this need an agent instead of a script?" |
 
-The last row has been measured: of the thousands of vendors calling their products agentic in 2025, an analyst review judged about 130 to be real [[2]](#sources).
+A good advisor answers these directly. Evasion is also an answer. And skepticism toward the last row is warranted: of the thousands of vendors selling "AI agents" in 2025, an analyst review judged about 130 to be real [[2]](#sources).
 
-All four blind spots sit on the same territory: the organizational work of absorbing AI. Redesigning the workflow. Deciding what an agent may touch. Naming who owns the outcome. Nobody's business model rewards talking about that layer, and the evidence says that layer is where projects live or die.
+## Why this is where the money dies
 
-## What actually kills the projects
+The abandonment survey checked what predicts failure. Delivery speed does not even correlate. What predicts failure is fear of embarrassment, customer pushback, and staff resistance [[1]](#sources). In plain terms: projects die because the people and process changes were never made, not because the software was late.
 
-The same survey that measured abandonment asked what predicts failure. Delivery speed does not correlate at all. What does: fear of reputational damage (+77 percent versus successful projects), customer resistance (+41), staff resistance (+36) [[1]](#sources). The projects are dying of organizational causes while the advice keeps arriving about technical ones.
+Only about six percent of organizations get real earnings impact from AI, and the clearest thing they do differently is change how the work is done instead of adding AI to how it is done today [[3]](#sources). A study of 51 successful deployments said it in one line: "The difference was never the AI model. It was always the organization." [[4]](#sources)
 
-The success side says the same thing. In a survey of roughly 2,000 organizations, only six percent get meaningful earnings impact from AI, and the habit that most separates them is redesigning the workflow around AI instead of bolting AI onto it [[3]](#sources). A study of 51 successful deployments put it in one sentence: "The difference was never the AI model. It was always the organization." [[4]](#sources)
+## Run this against every pilot you have
 
-## The five questions to ask before your next pilot
+Five questions, one hour, your current list of AI projects. Kill or fix what fails.
 
-Since no one is paid to ask them for you:
+1. **What changes about how the work is done if this succeeds?** No answer means it is a demo. Kill it or scope it as one.
+2. **Who owns the business result?** One name. If the only owner is the technical lead, assign a business owner this week.
+3. **What does the affected team lose?** If nobody has asked them, the resistance data above is about to be about you.
+4. **What is the next level of responsibility, and what earns it?** The AI recommends today; what evidence lets it act tomorrow? No answer means the pilot stays a suggestion box forever.
+5. **What would make you kill it?** Write the number down now. It is cheaper than month eighteen.
 
-1. **What changes about the workflow if this works?** If the answer is nothing, you are buying a demo.
-2. **Who owns the outcome?** One name, and not the person who owns the model's accuracy.
-3. **What does the affected team lose?** Staff resistance is a top failure predictor. Unexamined, it examines you.
-4. **How does it earn more autonomy?** No [graduation path](lattice/), no graduation. The pilot stalls at "recommends things."
-5. **What would make you kill it?** Decide now. It is cheaper than deciding in month eighteen.
+Ask these about a new employee and every one has an obvious answer: a job description, a manager, a probation period, a review. That is onboarding. Agents need the same thing, built on purpose. We wrote that playbook as [Lattice](lattice/): give each agent the context to do the job, limits on what it can touch, and a named owner for the outcome.
 
-None of these are questions about the model. Asked about a person instead of an agent, all five would already be answered, by a role, a manager, permissions, and a review cycle. That is what onboarding is, and agents need it built deliberately. We wrote that framework down as [Lattice](lattice/): onboard each agent like a worker, with the context to do the job, limits on what it can touch, and a named owner for the outcome.
-
-If your portfolio is stalled between competing priorities, this is the layer we study and the work we do with executive teams. For advisory or collaboration inquiries, [contact the lab](mailto:tushar.madaan@gmail.com?subject=Advisory%20inquiry).
+If your AI projects are stuck, this is the work we do with executive teams. For advisory or collaboration inquiries, [contact the lab](mailto:tushar.madaan@gmail.com?subject=Advisory%20inquiry).
 
 ## Caveats
 
-All figures are self-reported survey data, correlational, and in some designs sampled only on successes. Model capability was never a controlled variable, so "it is not the model" is a consistent inference across independent methods, not an experimental result. We do not cite the viral claim that 95 percent of AI pilots fail; it comes from a contested preprint, and the sturdier numbers tell the same story. The incentive map is our reading of why the advice pattern looks the way it does, not something any vendor has confirmed.
+All figures are self-reported survey data and show correlation, not proven cause. Capability was never a controlled variable, so "it is not the model" is a consistent inference across independent studies, not an experiment. We do not cite the viral claim that 95 percent of AI pilots fail; it comes from a contested preprint, and the sturdier numbers tell the same story. The incentive reading of the advice market is ours, not something any vendor has confirmed.
 
 ## Sources
 
