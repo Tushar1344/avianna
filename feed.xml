@@ -33,7 +33,7 @@
     <id>https://avianna.ai/lattice/part-1-the-problem.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
-    <summary>Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model — it does not onboard a worker.</summary>
+    <summary>Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model. It does not onboard a worker.</summary>
     <category term="lattice" />
     <category term="agents" />
     <category term="governance" />
@@ -44,7 +44,7 @@
     <id>https://avianna.ai/lattice/part-2-the-framework.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
-    <summary>The Lattice primitives — role, context, ontology, permissions, tools, policy, evaluation, graduation, accountability.</summary>
+    <summary>What a properly onboarded agent inherits: a role, context, permissions, policy, evaluation, and a path to more trust.</summary>
     <category term="lattice" />
     <category term="agents" />
     <category term="governance" />
@@ -55,7 +55,7 @@
     <id>https://avianna.ai/lattice/part-3-in-practice.html</id>
     <updated>2026-07-02T00:00:00Z</updated>
     <published>2026-07-02T00:00:00Z</published>
-    <summary>An agent traced through Lattice end to end — graduating from observing to acting autonomously without losing accountability.</summary>
+    <summary>An agent traced through Lattice end to end, graduating from observing to acting on its own without losing accountability.</summary>
     <category term="lattice" />
     <category term="agents" />
     <category term="governance" />
@@ -66,7 +66,7 @@
     <id>https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html</id>
     <updated>2026-06-08T00:00:00Z</updated>
     <published>2026-06-08T00:00:00Z</published>
-    <summary>Part 1 of three on Concord. Durable execution tells you what ran. It doesn't tell you what it meant — and that gap matters more now that agents propose work. With an interactive scattered-evidence simulation.</summary>
+    <summary>Part 1 of three on Concord. Durable execution tells you what ran. It doesn't tell you what it meant, and that gap matters more now that agents propose work. With an interactive scattered-evidence simulation.</summary>
     <category term="concord" />
     <category term="agents" />
     <category term="durability" />
@@ -78,7 +78,7 @@
     <id>https://avianna.ai/post.html?slug=the-visible-pursuit</id>
     <updated>2026-06-07T00:00:00Z</updated>
     <published>2026-06-07T00:00:00Z</published>
-    <summary>Why every action you take to get what you want tells someone else what you want — goal recognition, with two interactive simulations.</summary>
+    <summary>Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.</summary>
     <category term="goal-recognition" />
     <category term="information-theory" />
     <category term="interactive" />
@@ -100,7 +100,7 @@
     <id>https://avianna.ai/posts/concord-3-day-in-the-life.html</id>
     <updated>2026-06-06T00:00:00Z</updated>
     <published>2026-06-06T00:00:00Z</published>
-    <summary>Part 3 of three. A hotel booking traced through Concord end-to-end. Animated nine-step playback with three modes — full contract, minimal subset, no Concord at all.</summary>
+    <summary>Part 3 of three. A hotel booking traced through Concord end-to-end. Animated nine-step playback with three modes: full contract, minimal subset, no Concord at all.</summary>
     <category term="concord" />
     <category term="walkthrough" />
     <category term="interactive" />
