@@ -16,12 +16,12 @@
   <logo>https://avianna.ai/assets/brand/logo-mark.png</logo>
   <generator>build_feed.py</generator>
   <entry>
-    <title>What your vendors can't tell you</title>
-    <link href="https://avianna.ai/post.html?slug=what-your-vendors-cant-tell-you" />
-    <id>https://avianna.ai/post.html?slug=what-your-vendors-cant-tell-you</id>
+    <title>The hole in the AI advice market</title>
+    <link href="https://avianna.ai/post.html?slug=the-hole-in-the-ai-advice-market" />
+    <id>https://avianna.ai/post.html?slug=the-hole-in-the-ai-advice-market</id>
     <updated>2026-07-04T00:00:00Z</updated>
     <published>2026-07-04T00:00:00Z</published>
-    <summary>Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps model labs, platforms, and consultancies from advising on the layer where AI initiatives actually live or die. The map, the evidence, and the questions nobody is paid to ask you.</summary>
+    <summary>Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps the advice market away from the layer where AI initiatives actually live or die. The map, the evidence, and the questions that cannot be outsourced.</summary>
     <category term="enterprise-ai" />
     <category term="adoption" />
     <category term="incentives" />

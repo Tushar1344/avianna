@@ -11,7 +11,7 @@ This essay maps that hole: where each advisor's business model stops them from a
 | Consultancies | Transformation programs | "Your organization cannot absorb this yet" |
 | Vendors at large | Agentic products | "This use case does not need an agent" |
 
-The last row has been measured. An industry analyst firm assessed the agentic vendor landscape in June 2025 and estimated that of the thousands of vendors describing their products as agentic, only about 130 were real, a pattern it named agent washing and reaffirmed in 2026 [[1]](#sources). A market this willing to relabel its inventory will not volunteer that your bottleneck is organizational.
+The last row has been measured. An industry analyst firm assessed the agentic vendor landscape in June 2025 and estimated that of the thousands of vendors describing their products as agentic, only about 130 were real, a pattern it named agent washing and reaffirmed in 2026 [[1]](#sources). A market still sorting out its own labels is not where you will learn that your bottleneck is organizational.
 
 The dislocation matters because the blind spots all overlap in the same place: the layer between the technology and the value, where workflows get redesigned, delegation gets governed, and organizations either absorb AI or quietly abandon it. Every advisor's incentives point away from that layer. The evidence says that layer is exactly where AI initiatives live or die.
 
@@ -33,7 +33,7 @@ So the question an executive actually needs answered, which is why identical tec
 
 ## The questions nobody is paid to ask you
 
-If the advice market cannot cover this layer, the covering has to happen inside your own review. Five questions that do it:
+The implication is not to trust your advisors less. It is to know which questions cannot be outsourced to them. If the advice market cannot cover this layer, the covering has to happen inside your own review. Five questions that do it:
 
 1. **What changes about the workflow if this works?** If the honest answer is nothing, you are commissioning a demo, and demos are what the 42 percent filter removes.
 2. **Who owns the outcome?** A named person accountable for the business result, distinct from whoever owns the model's accuracy.

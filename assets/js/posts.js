@@ -42,13 +42,13 @@ const SERIES = {
 
 const POSTS = [
   {
-    slug: "what-your-vendors-cant-tell-you",
-    title: "What your vendors can't tell you",
+    slug: "the-hole-in-the-ai-advice-market",
+    title: "The hole in the AI advice market",
     section: "adoption",
     date: "2026-07-04",
-    summary: "Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps model labs, platforms, and consultancies from advising on the layer where AI initiatives actually live or die. The map, the evidence, and the questions nobody is paid to ask you.",
+    summary: "Every party advising enterprises on AI has a place it cannot look: a dislocation of incentives keeps the advice market away from the layer where AI initiatives actually live or die. The map, the evidence, and the questions that cannot be outsourced.",
     tags: ["enterprise-ai", "adoption", "incentives", "evidence"],
-    file: "content/ai/what-your-vendors-cant-tell-you.md",
+    file: "content/ai/the-hole-in-the-ai-advice-market.md",
   },
   {
     slug: "lattice-1-the-problem",
