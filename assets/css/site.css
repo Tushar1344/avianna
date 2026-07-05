@@ -1283,3 +1283,34 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
   .xp-period { padding-top: 0; margin-bottom: 4px; }
   .cta { flex-direction: column; align-items: flex-start; }
 }
+
+/* Advisory + Speaking side by side on wide screens (people page) */
+@media (min-width: 1100px) {
+  .pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+}
+
+/* Laptop-height compression: home and people fit one MacBook screen */
+@media (min-width: 861px) and (max-height: 940px) {
+  main { padding-top: 34px; padding-bottom: 36px; }
+  .hero { margin-bottom: 34px; padding-bottom: 26px; }
+  .hero h1 { font-size: clamp(32px, 4.5vw, 44px); margin-bottom: 16px; }
+  .hero-tagline { font-size: clamp(16px, 2.4vw, 19px); margin-bottom: 20px; }
+  .eyebrow { margin-bottom: 16px; }
+  .hero .resume-actions { margin-top: 14px; }
+  .resume-section { margin: 0 0 26px; }
+  .resume-section > h2 { margin-bottom: 12px; }
+  .section-intro { font-size: 14px; line-height: 1.5; }
+  .focus-grid { gap: 10px; }
+  .focus-card { padding: 13px 16px; }
+  .focus-card h3 { font-size: 15px; margin-bottom: 5px; }
+  .focus-card p { font-size: 12.5px; line-height: 1.45; }
+  .resume-head { margin-bottom: 26px; }
+  .resume-head h1 { font-size: clamp(30px, 4vw, 40px); }
+  .resume-role { margin-bottom: 14px; }
+  .resume-lede { font-size: 15.5px; line-height: 1.55; margin-bottom: 16px; }
+  .resume-contact a { min-height: 34px; padding: 6px 12px; }
+  .resume-subhead { margin: 14px 0 8px; }
+  .speaker-bio { padding: 12px 16px; }
+  .speaker-bio p { font-size: 13.5px; line-height: 1.5; }
+  .speaker-bio p + p { margin-top: 8px; }
+}
