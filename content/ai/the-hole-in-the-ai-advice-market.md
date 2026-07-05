@@ -38,10 +38,12 @@ The implication is not to trust your advisors less. It is to know which question
 1. **What changes about the workflow if this works?** If the honest answer is nothing, you are commissioning a demo, and demos are what the 42 percent filter removes.
 2. **Who owns the outcome?** A named person accountable for the business result, distinct from whoever owns the model's accuracy.
 3. **What does the affected team lose?** Staff resistance is one of the strongest failure correlates in the data. If the answer is unexamined, the resistance will examine it for you.
-4. **How does it earn more autonomy?** A pilot that cannot articulate its graduation path, from recommending to acting under supervision to acting within guardrails, will stall at the recommendation stage indefinitely.
+4. **How does it earn more autonomy?** A pilot that cannot articulate its [graduation path](lattice/), from recommending to acting under supervision to acting within guardrails, will stall at the recommendation stage indefinitely.
 5. **What would make you kill it?** Abandonment criteria decided up front are cheaper than an abandonment statistic eighteen months later.
 
 Notice what these have in common: not one of them is a question about the model, and not one of them is a question your vendor's business model rewards asking.
+
+They have something else in common: asked about a person instead of an agent, every one of them would already be answered, by a role, a manager, permissions, and a review cycle. That is what onboarding is. Agents need the same structure built deliberately, and we wrote it down as [Lattice](lattice/): onboard each agent like a worker, with the context to do the job, limits on what it can touch, and a named owner for the outcome. [Part 1](lattice/part-1-the-problem.html) makes the case; parts 2 and 3 give the framework and a worked example.
 
 If your portfolio is stalled between competing priorities, this is the layer we study and the work we do with executive teams. For advisory or collaboration inquiries, [contact the lab](mailto:tushar.madaan@gmail.com?subject=Advisory%20inquiry).
 
