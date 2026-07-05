@@ -44,6 +44,13 @@ const SERIES = {
   },
 };
 
+/* Renamed posts: old slug -> current slug. post.js redirects on lookup miss. */
+const SLUG_ALIASES = {
+  "the-42-percent-problem": "the-hole-in-the-ai-advice-market",
+  "what-your-vendors-cant-tell-you": "the-hole-in-the-ai-advice-market",
+  "lattice-digital-labor": "lattice-1-the-problem",
+};
+
 const POSTS = [
   {
     slug: "the-worker-and-the-action",

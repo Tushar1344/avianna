@@ -18,6 +18,11 @@
 
   const post = (typeof POSTS !== "undefined" && POSTS.find((p) => p.slug === slug)) || null;
 
+  if (!post && typeof SLUG_ALIASES !== "undefined" && SLUG_ALIASES[slug]) {
+    location.replace(`post.html?slug=${encodeURIComponent(SLUG_ALIASES[slug])}`);
+    return;
+  }
+
   if (!post) {
     elProse.innerHTML = `<p class="error">Post not found. <a href="blog.html">← Back to the blog</a></p>`;
     return;
