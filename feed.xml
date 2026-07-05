@@ -16,6 +16,18 @@
   <logo>https://avianna.ai/assets/brand/logo-mark.png</logo>
   <generator>build_feed.py</generator>
   <entry>
+    <title>The worker and the action</title>
+    <link href="https://avianna.ai/post.html?slug=the-worker-and-the-action" />
+    <id>https://avianna.ai/post.html?slug=the-worker-and-the-action</id>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <published>2026-07-04T00:00:00Z</published>
+    <summary>Lattice onboards an AI agent the way you onboard a worker. Concord puts a contract on each action the agent takes. This note explains how the two layers close a loop, why one without the other fails, and the frameworks the stack points to next.</summary>
+    <category term="lattice" />
+    <category term="concord" />
+    <category term="agents" />
+    <category term="governance" />
+  </entry>
+  <entry>
     <title>The hole in the AI advice market</title>
     <link href="https://avianna.ai/post.html?slug=the-hole-in-the-ai-advice-market" />
     <id>https://avianna.ai/post.html?slug=the-hole-in-the-ai-advice-market</id>

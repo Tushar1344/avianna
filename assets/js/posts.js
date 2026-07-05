@@ -42,6 +42,15 @@ const SERIES = {
 
 const POSTS = [
   {
+    slug: "the-worker-and-the-action",
+    title: "The worker and the action",
+    section: "governance",
+    date: "2026-07-04",
+    summary: "Lattice onboards an AI agent the way you onboard a worker. Concord puts a contract on each action the agent takes. This note explains how the two layers close a loop, why one without the other fails, and the frameworks the stack points to next.",
+    tags: ["lattice", "concord", "agents", "governance"],
+    file: "content/governance/the-worker-and-the-action.md",
+  },
+  {
     slug: "the-hole-in-the-ai-advice-market",
     title: "The hole in the AI advice market",
     section: "adoption",
