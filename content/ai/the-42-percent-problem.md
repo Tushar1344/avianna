@@ -1,4 +1,4 @@
-In 2025, 42 percent of enterprises abandoned most of their AI initiatives before they reached production. A year earlier that figure was 17 percent. The average organization scrapped nearly half of its proofs-of-concept. Those numbers come from S&P Global's survey of just over a thousand enterprises in North America and Europe [[1]](#sources), and they describe the same twelve months in which model capability, on any benchmark you care to pick, improved dramatically.
+In 2025, 42 percent of enterprises abandoned most of their AI initiatives before they reached production. A year earlier that figure was 17 percent. The average organization scrapped nearly half of its proofs-of-concept. Those numbers come from a survey of just over a thousand enterprises in North America and Europe [[1]](#sources), and they describe the same twelve months in which model capability, on any benchmark you care to pick, improved dramatically.
 
 That combination should bother you more than either fact alone. The models got better. The outcomes got worse. Whatever is killing these projects, it is not the model.
 
@@ -6,15 +6,15 @@ We spent the last month tracing this gap through every primary source we could v
 
 ## The numbers
 
-Adoption is nearly universal and value is not. As of McKinsey's late-2025 survey of 1,993 organizations, 88 percent use AI in at least one business function, yet about two-thirds have not begun scaling it across the enterprise. Only 39 percent attribute any effect on earnings to AI at all, and for most of those the effect is under five percent of EBIT. Roughly six percent qualify as what the survey calls high performers [[2]](#sources).
+Adoption is nearly universal and value is not. As of a late-2025 survey of 1,993 organizations, 88 percent use AI in at least one business function, yet about two-thirds have not begun scaling it across the enterprise. Only 39 percent attribute any effect on earnings to AI at all, and for most of those the effect is under five percent of EBIT. Roughly six percent qualify as what the survey calls high performers [[2]](#sources).
 
-You may have seen a more dramatic number making the rounds: the claim that 95 percent of AI pilots fail, from an MIT Media Lab preprint. We do not lean on it. The sample was small and non-random, the report is contested, and the sturdier surveys tell the same story without the fragility. The pattern does not need exaggerating.
+You may have seen a more dramatic number making the rounds: the claim that 95 percent of AI pilots fail, from a widely circulated preprint. We do not lean on it. The sample was small and non-random, the report is contested, and the sturdier surveys tell the same story without the fragility. The pattern does not need exaggerating.
 
 Agents make the pattern sharper. By mid-2025, 62 percent of organizations were at least experimenting with AI agents. No more than 10 percent reported scaling them in any single business function [[2]](#sources). Broad experimentation, shallow deployment. Something between the pilot and production is filtering almost everything out.
 
 ## What fails, and what doesn't
 
-The S&P survey asked which factors correlate with project failure. The revealing result is what does not: time-to-deliver shows no correlation. Projects are not dying because engineering is slow.
+The abandonment survey asked which factors correlate with project failure. The revealing result is what does not: time-to-deliver shows no correlation. Projects are not dying because engineering is slow.
 
 What does correlate: concern about reputational damage (+77 percent relative to successful projects), customer resistance (+41 percent), and staff resistance (+36 percent) [[1]](#sources). Every one of those is an organizational-absorption factor. The failure surface is trust, incentives, and workflow, and it sits almost entirely outside the codebase.
 
@@ -22,11 +22,11 @@ What does correlate: concern about reputational damage (+77 percent relative to 
 
 Three independent research programs, using different methods, converge on one answer.
 
-McKinsey ran a relative-weights analysis across 31 variables to find what actually predicts impact. Intentional workflow redesign came out among the strongest predictors, and high performers were about three times more likely to have fundamentally redesigned workflows around AI rather than bolting AI onto existing ones [[2]](#sources).
+The larger survey team ran a relative-weights analysis across 31 variables to find what actually predicts impact. Intentional workflow redesign came out among the strongest predictors, and high performers were about three times more likely to have fundamentally redesigned workflows around AI rather than bolting AI onto existing ones [[2]](#sources).
 
-Stanford's Digital Economy Lab studied 51 successful deployments across 41 organizations and put the conclusion in one sentence: "The difference was never the AI model. It was always the organization." Identical technology on identical use cases produced timelines ranging from weeks to years, depending on the organization deploying it [[3]](#sources).
+One research group studied 51 successful deployments across 41 organizations and put the conclusion in one sentence: "The difference was never the AI model. It was always the organization." Identical technology on identical use cases produced timelines ranging from weeks to years, depending on the organization deploying it [[3]](#sources).
 
-MIT's Center for Information Systems Research finds the same shape in performance terms. Firms at the lowest AI-maturity stage underperform their industry average on growth by 26.5 percentage points; firms at the highest stage outperform by 13.9. The differentiator in their model is what they call synchronization: redesigning work around AI and reskilling the roles and teams it touches [[4]](#sources).
+A long-running enterprise-research consortium finds the same shape in performance terms. Firms at the lowest AI-maturity stage underperform their industry average on growth by 26.5 percentage points; firms at the highest stage outperform by 13.9. The differentiator in their model is what they call synchronization: redesigning work around AI and reskilling the roles and teams it touches [[4]](#sources).
 
 The absorption work, in other words, is not the overhead of an AI initiative. It is the initiative.
 
@@ -41,7 +41,7 @@ If the evidence is this consistent, why does the advice you receive keep pointin
 | Consultancies | Transformation programs | "Your organization cannot absorb this yet" |
 | Vendors at large | Agentic products | "This use case does not need an agent" |
 
-That last row is not hypothetical. Gartner assessed the agentic vendor landscape in June 2025 and estimated that of the thousands of vendors describing their products as agentic, only about 130 were real, a pattern it named agent washing and reaffirmed in 2026 [[5]](#sources). A market this willing to relabel its inventory is not going to volunteer that your bottleneck is organizational.
+That last row is not hypothetical. An industry analyst firm assessed the agentic vendor landscape in June 2025 and estimated that of the thousands of vendors describing their products as agentic, only about 130 were real, a pattern it named agent washing and reaffirmed in 2026 [[5]](#sources). A market this willing to relabel its inventory is not going to volunteer that your bottleneck is organizational.
 
 None of this is conspiracy. It is ordinary incentive structure. The academics and analysts who do publish the absorption finding have their own limits: their access is surveys and interviews rather than instrumented deployments, so the field produces correlations and maturity models rather than causal answers. The question an executive actually needs answered, which is why identical technology succeeds in one organization and dies in the next, remains open. It is the question our research agenda is built around.
 
@@ -59,7 +59,7 @@ If your portfolio is already stalled between competing priorities, this is the l
 
 ## Caveats
 
-Every figure above is survey data: self-reported, correlational, and in some designs sampled on success. Model capability was never a controlled variable in any of these studies, so "it is not the model" is a consistent inference across independent methods, not an experimental result. The Stanford study examined only successful deployments; MIT CISR publishes consortium briefings rather than peer-reviewed research; the agent figures were fielded in mid-2025 and the market is moving quickly. We cite what each source can actually support and no more.
+Every figure above is survey data: self-reported, correlational, and in some designs sampled on success. Model capability was never a controlled variable in any of these studies, so "it is not the model" is a consistent inference across independent methods, not an experimental result. The deployment study examined only successes; the maturity research is consortium-published rather than peer-reviewed; the agent figures were fielded in mid-2025 and the market is moving quickly. We cite what each source can actually support and no more.
 
 ## Sources
 
