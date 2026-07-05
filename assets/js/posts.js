@@ -12,7 +12,7 @@
    Fields:
      slug          unique id, used in the URL: post.html?slug=<slug>
      title         display title
-     section       one of: agents | math | ai | software | misc
+     section       one of: agents | ai (add a section here when its first post ships)
      date          ISO date "YYYY-MM-DD" (used for sorting + display)
      summary       one-line description shown on the blog index
      tags          array of short strings
@@ -26,11 +26,8 @@
    =========================================================================== */
 
 const SECTIONS = [
-  { id: "agents",   label: "Agents" },
-  { id: "math",     label: "Math" },
-  { id: "ai",       label: "AI" },
-  { id: "software", label: "Software" },
-  { id: "misc",     label: "Misc" },
+  { id: "agents", label: "Agents" },
+  { id: "ai",     label: "AI" },
 ];
 
 /* Multi-part series. A series renders as one distinct block on the index. */
