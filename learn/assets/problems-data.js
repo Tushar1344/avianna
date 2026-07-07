@@ -13,14 +13,14 @@ const LM_PROBLEMS = [
    "sample_space",
    "uniformity"
   ],
-  "statement": "Two fair dice are rolled. What is the probability that the sum is 7?",
+  "statement": "A quant-desk interviewer opens with the oldest screen in the book: two fair dice are rolled. What is the probability the sum is 7?",
   "answer": "1/6",
   "solution": "There are 36 equally likely ordered outcomes. The favorable outcomes are (1,6),(2,5),(3,4),(4,3),(5,2),(6,1), so the probability is 6/36 = 1/6.",
   "autopsy": "The key is that dice outcomes are ordered pairs, not just sums.",
   "wrong": "Counting sums 2 through 12 as equally likely and saying 1/11.",
   "diagnosis": "Non-uniform sample space: sums are not equally likely.",
   "remediation": "List the ordered pairs for sums 2, 7, and 12 and compare their counts.",
-  "variant": "Two dice are rolled. What is the probability the sum is at least 10?"
+  "variant": "The follow-up she actually cares about: what is the probability the sum is at least 10?"
  },
  {
   "id": "P0-002",
@@ -34,11 +34,11 @@ const LM_PROBLEMS = [
    "complement",
    "cards"
   ],
-  "statement": "Five cards are drawn from a standard 52-card deck without replacement. What is the probability of getting at least one ace?",
+  "statement": "Your inbound pipeline holds 52 applications; exactly 4 are from ex-founders. A coordinator pulls 5 at random for today's screening block. What is the probability the block contains at least one ex-founder?",
   "answer": "1 - C(48,5)/C(52,5)",
-  "solution": "The complement of at least one ace is no aces. There are C(52,5) total hands and C(48,5) hands with no aces. So the probability is 1 - C(48,5)/C(52,5).",
+  "solution": "The complement of “at least one ex-founder” is “none.” There are C(52,5) possible screening blocks and C(48,5) containing no ex-founders, so the probability is 1 - C(48,5)/C(52,5).",
   "autopsy": "When 'at least one' creates many cases, count the complement.",
-  "wrong": "Adding probabilities of exactly 1,2,3,4 aces but forgetting changing denominators or cases.",
+  "wrong": "Adding the probabilities of exactly 1, 2, 3, and 4 ex-founders — and fumbling a case or a denominator on the way.",
   "diagnosis": "Direct-case explosion. Use complement to avoid fragmented counting.",
   "remediation": "Practice converting 'at least one' into 'not zero'.",
   "variant": "Among 10 server checks, each independently fails with probability p. What is the probability at least one fails?"
@@ -56,14 +56,14 @@ const LM_PROBLEMS = [
    "combinations",
    "cards"
   ],
-  "statement": "A 5-card hand is drawn. What is the probability it contains exactly two hearts?",
+  "statement": "A 52-person org includes 13 engineers. A 5-person task force is drawn at random. What is the probability it has exactly two engineers?",
   "answer": "C(13,2)C(39,3)/C(52,5)",
-  "solution": "Use hands as the sample space. Total hands: C(52,5). Favorable hands: choose 2 of 13 hearts and 3 of 39 non-hearts, giving C(13,2)C(39,3).",
-  "autopsy": "Total and favorable outcomes must be counted as unordered hands.",
+  "solution": "Use unordered teams as the sample space. Total task forces: C(52,5). Favorable: choose 2 of the 13 engineers and 3 of the 39 others, giving C(13,2)C(39,3).",
+  "autopsy": "Total and favorable outcomes must both be counted as unordered teams.",
   "wrong": "13*12*39*38*37 / (52*51*50*49*48) without correcting order.",
   "diagnosis": "Mixed ordered and unordered counting.",
   "remediation": "Solve once with combinations and once with ordered draws; verify both match after order factors.",
-  "variant": "A team of 5 is chosen from 13 engineers and 39 non-engineers. Probability exactly two engineers?"
+  "variant": "Same numbers, different costume: a 5-card hand from a 52-card deck — probability of exactly two hearts?"
  },
  {
   "id": "P1-002",
@@ -78,9 +78,9 @@ const LM_PROBLEMS = [
    "complement",
    "birthday"
   ],
-  "statement": "Assume 365 equally likely birthdays and no leap years. What is the probability that among n people, at least two share a birthday?",
+  "statement": "Your 40-person office celebrated two birthdays in the same week and someone called it spooky. Among n colleagues with 365 equally likely birthdays and no leap years, what is the probability at least two share a birthday?",
   "answer": "1 - 365·364·...·(365-n+1)/365^n for n <= 365",
-  "solution": "Count the complement: all birthdays distinct. The first person has 365 choices, the second 364, and so on. Divide by 365^n total birthday assignments. Thus P(collision)=1 - (365)_n/365^n.",
+  "solution": "Count the complement: all n birthdays distinct. The first colleague can have any of 365 days, the next 364, and so on; divide by 365^n total assignments. P(collision) = 1 - (365)_n/365^n. At n = 40 this is already about 89% — the office is not spooky.",
   "autopsy": "Collisions are easier by complement because direct pair counts overlap.",
   "wrong": "C(n,2)/365 as the exact answer.",
   "diagnosis": "Union bound used as equality; pair collisions overlap.",
@@ -89,7 +89,7 @@ const LM_PROBLEMS = [
  },
  {
   "id": "P2-001",
-  "title": "The Two-Child Trap",
+  "title": "The Two-Deal Trap",
   "level": "Hard",
   "module": "P2",
   "hardness": [
@@ -100,14 +100,14 @@ const LM_PROBLEMS = [
    "conditional_probability",
    "sample_space"
   ],
-  "statement": "A family has two children. You are told that at least one is a girl. Assuming boy/girl are equally likely and independent, what is the probability both children are girls?",
+  "statement": "Two pilot deals ran independently last quarter, each closing with probability 1/2. Your VP heard secondhand only that “at least one closed.” Given exactly that information, what is the probability both closed?",
   "answer": "1/3",
-  "solution": "The equally likely ordered possibilities are BB, BG, GB, GG. Conditioning on at least one girl removes BB, leaving BG, GB, GG. Only GG has two girls, so the probability is 1/3.",
-  "autopsy": "'At least one' does not select a random child; it shrinks the original ordered sample space.",
-  "wrong": "1/2, because the other child is equally likely boy or girl.",
+  "solution": "The equally likely outcomes are (miss, miss), (miss, close), (close, miss), (close, close). Conditioning on “at least one closed” removes (miss, miss), leaving three outcomes, of which one is both closing. 1/3.",
+  "autopsy": "“At least one” does not point at a specific deal; it filters the original four outcomes.",
+  "wrong": "1/2, because the other deal is a coin flip.",
   "diagnosis": "Ambiguous conditioning collapsed two cases into one.",
-  "remediation": "Contrast with: 'You meet one randomly selected child and she is a girl.' That version can differ depending on selection process.",
-  "variant": "A two-ticket account has at least one winning ticket. What is the chance both are winners if each independently wins with probability 1/2?"
+  "remediation": "Contrast with: “You asked about deal A specifically and heard it closed.” That version gives 1/2 — what was observed, and how, changes the answer.",
+  "variant": "The schoolbook original, same trap: a family has two children and at least one is a girl — what is the probability both are girls?"
  },
  {
   "id": "P2-002",
@@ -233,11 +233,11 @@ const LM_PROBLEMS = [
    "independence",
    "events"
   ],
-  "statement": "A fair die is rolled. Let A be 'the result is even' and B be 'the result is 3'. Are A and B independent?",
+  "statement": "Let A be “the Meridian deal closes this quarter” (probability 1/2) and B “it closes next quarter” (probability 1/6). The deal can close at most once. Are A and B independent?",
   "answer": "No",
-  "solution": "P(A)=1/2 and P(B)=1/6. Since A and B cannot both occur, P(A∩B)=0. Independence would require P(A∩B)=P(A)P(B)=1/12. Since 0 ≠ 1/12, they are not independent.",
+  "solution": "P(A)=1/2 and P(B)=1/6, but the deal closes at most once, so P(A∩B)=0. Independence would require P(A∩B)=P(A)P(B)=1/12. Since 0 ≠ 1/12, they are dependent — maximally so: learning A happened drives P(B) to zero.",
   "autopsy": "Mutually exclusive positive-probability events are dependent because one rules out the other.",
-  "wrong": "Yes, because evenness and being 3 are different properties.",
+  "wrong": "Yes — this quarter and next quarter feel like separate things.",
   "diagnosis": "Semantic unrelatedness confused with probabilistic independence.",
   "remediation": "Ask whether learning B happened changes P(A). It changes it to 0.",
   "variant": "A card is drawn. Are 'ace' and 'heart' independent? Are 'heart' and 'spade' independent?"
@@ -255,9 +255,9 @@ const LM_PROBLEMS = [
    "independence",
    "parity"
   ],
-  "statement": "Choose two independent fair bits X and Y. Define Z = X xor Y. Show that X,Y,Z are pairwise independent but not mutually independent.",
+  "statement": "Two independent feature flags X and Y are each on for a uniform random half of sessions. A dashboard tracks Z = “exactly one of the flags is on” (X xor Y). Show that X, Y, Z are pairwise independent but not mutually independent.",
   "answer": "Pairwise independent, not mutually independent",
-  "solution": "Each of X,Y,Z is fair. X and Y are independent by construction. For X and Z: if X=0, then Z=Y, still fair; if X=1, then Z=1-Y, still fair. Thus P(X=a,Z=b)=1/4 for all a,b. Similarly Y and Z are independent. But X,Y,Z are not mutually independent because Z is determined by X and Y. For example P(X=0,Y=0,Z=0)=1/4, while P(X=0)P(Y=0)P(Z=0)=1/8.",
+  "solution": "Each of X, Y, Z is on for half of sessions. X and Y are independent by construction. For X and Z: if X is off, Z matches Y; if X is on, Z is Y flipped — either way a fair bit, so P(X=a, Z=b)=1/4 for all a,b. Same for Y and Z. But the three are not mutually independent: Z is determined by X and Y. P(all three off)=1/4, while the product of marginals is 1/8.",
   "autopsy": "Pairwise independence does not prevent a three-way constraint.",
   "wrong": "If every pair is independent, all three must be independent.",
   "diagnosis": "Pairwise vs mutual independence confusion.",
@@ -276,14 +276,14 @@ const LM_PROBLEMS = [
    "binomial",
    "hypergeometric"
   ],
-  "statement": "A box has 8 red balls and 12 blue balls. You draw 5 without replacement. What is the probability exactly 2 are red?",
+  "statement": "A hiring pool has 20 finalists: 8 internal and 12 external. A 5-person shortlist is drawn at random without replacement. What is the probability it contains exactly 2 internal candidates?",
   "answer": "C(8,2)C(12,3)/C(20,5)",
-  "solution": "Because drawing is without replacement, use a hypergeometric model. Total 5-ball subsets: C(20,5). Favorable subsets: choose 2 of 8 red and 3 of 12 blue. Probability = C(8,2)C(12,3)/C(20,5).",
+  "solution": "Drawing without replacement means hypergeometric. Total shortlists: C(20,5). Favorable: choose 2 of the 8 internal and 3 of the 12 external. Probability = C(8,2)C(12,3)/C(20,5).",
   "autopsy": "Distribution choice follows the generative story: without replacement means hypergeometric, not binomial.",
   "wrong": "C(5,2)(8/20)^2(12/20)^3.",
   "diagnosis": "Using binomial independence where draws are dependent.",
-  "remediation": "Compare probability of red on draw 2 after red vs after blue on draw 1.",
-  "variant": "Same box, but each draw is replaced before the next. Probability exactly 2 red?"
+  "remediation": "Compare the probability the second pick is internal after an internal first pick vs after an external one.",
+  "variant": "Same pool, but each pick is put back before the next (with replacement). Probability of exactly 2 internal?"
  },
  {
   "id": "P4-002",
@@ -297,14 +297,14 @@ const LM_PROBLEMS = [
    "geometric",
    "waiting_time"
   ],
-  "statement": "A system check succeeds independently with probability p each time. What is the probability the first success occurs on the k-th check?",
+  "statement": "A flaky integration test passes independently with probability p on each run. What is the probability the first pass happens on run k?",
   "answer": "(1-p)^(k-1)p",
-  "solution": "The first k-1 checks must fail, and the k-th must succeed. Independence gives (1-p)^(k-1)p.",
+  "solution": "The first k-1 runs must fail and the k-th must pass. Independence gives (1-p)^(k-1)p.",
   "autopsy": "A geometric random variable is a waiting-time story.",
   "wrong": "p^k, multiplying success probability k times.",
   "diagnosis": "Confusing first success with all successes.",
-  "remediation": "Write the sequence required: F,F,...,F,S.",
-  "variant": "A salesperson closes a deal with probability p per call. Probability first close on call k?"
+  "remediation": "Write the required sequence: fail, fail, …, fail, pass.",
+  "variant": "A rep's cold calls convert independently with probability p each. Probability the first conversion is on call k?"
  },
  {
   "id": "P5-001",
@@ -320,14 +320,14 @@ const LM_PROBLEMS = [
    "indicators",
    "permutations"
   ],
-  "statement": "A random permutation of 1,...,n is chosen. What is the expected number of fixed points?",
+  "statement": "IT re-images all n laptops over the weekend and hands them back at random — a uniformly random assignment of laptops to owners. What is the expected number of people who get their own laptop back?",
   "answer": "1",
-  "solution": "Let I_i be 1 if position i contains i, otherwise 0. The number of fixed points is X=I_1+...+I_n. For each i, P(I_i=1)=1/n, so E[I_i]=1/n. By linearity, E[X]=n*(1/n)=1. Independence is not required.",
+  "solution": "Let I_i be 1 if person i gets their own laptop. The number of matches is X = I_1 + … + I_n. Each I_i has P(I_i=1) = 1/n, so E[I_i] = 1/n, and by linearity E[X] = n·(1/n) = 1 — for any n. Independence is never needed.",
   "autopsy": "Linearity turns a global matching problem into local indicators.",
   "wrong": "Trying to find the entire distribution of fixed points first.",
   "diagnosis": "Over-solving; missing linearity of expectation.",
   "remediation": "Define one indicator for one local event, then sum.",
-  "variant": "n people randomly get n hats. Expected number who get their own hat?"
+  "variant": "The schoolbook costume: a random permutation of 1…n — expected number of fixed points?"
  },
  {
   "id": "P5-002",
@@ -363,14 +363,14 @@ const LM_PROBLEMS = [
    "linearity",
    "graphs"
   ],
-  "statement": "In a round-robin tournament with n players, each game has a winner. Suppose all 2^C(n,2) orientations are equally likely. What is the expected number of players who beat every other player?",
+  "statement": "An n-team sales league plays a full round robin; every matchup has a winner, and all 2^C(n,2) outcome patterns are equally likely. What is the expected number of teams that beat every other team?",
   "answer": "n / 2^(n-1)",
-  "solution": "For player i, let I_i=1 if i beats all n-1 other players. This has probability (1/2)^(n-1). Summing over n players gives expected count n/2^(n-1).",
+  "solution": "For team i, let I_i = 1 if it beats all n-1 others: probability (1/2)^(n-1). Summing over the n teams gives n/2^(n-1).",
   "autopsy": "Even rare global dominance can be counted with one-player indicators.",
-  "wrong": "Saying exactly one player must beat everyone.",
+  "wrong": "Exactly one team must beat everyone.",
   "diagnosis": "Confusing total order with arbitrary tournament orientation.",
-  "remediation": "For n=3, draw a rock-paper-scissors cycle with no universal winner.",
-  "variant": "Expected number of players with exactly n-2 wins?"
+  "remediation": "For n = 3, draw the rock-paper-scissors cycle: no team dominates.",
+  "variant": "Expected number of teams with exactly n-2 wins?"
  },
  {
   "id": "P6-001",
@@ -386,7 +386,7 @@ const LM_PROBLEMS = [
    "covariance",
    "indicators"
   ],
-  "statement": "Two cards are drawn without replacement from a standard deck. Let X be the number of aces drawn. Compute Var(X).",
+  "statement": "Second round at the same trading desk: two cards are drawn without replacement from a standard deck, and X counts the aces drawn. Compute Var(X).",
   "answer": "2*(1/13)*(12/13) + 2*(-12/2197) = 96/663 approximately 0.1448, equivalently hypergeometric variance 2*(4/52)*(48/52)*(50/51).",
   "solution": "Let I_1 and I_2 indicate whether draw 1 and draw 2 are aces. E[I_j]=4/52=1/13. Var(I_j)=p(1-p)=12/169. Cov(I_1,I_2)=P(both aces)-p^2=(4/52)(3/51)-(1/13)^2=1/221-1/169=-12/37349. Therefore Var(X)=Var(I_1)+Var(I_2)+2Cov(I_1,I_2)=24/169-24/37349=96/663. The hypergeometric formula gives the same value: 2*(4/52)*(48/52)*(50/51).",
   "autopsy": "Without replacement creates negative covariance.",
@@ -408,7 +408,7 @@ const LM_PROBLEMS = [
    "second_moment",
    "existence"
   ],
-  "statement": "A nonnegative integer-valued random variable X has E[X]=10 and E[X^2]=120. Prove P(X>0) >= 5/6.",
+  "statement": "Pages during a week on call form a nonnegative integer X with E[X] = 10 and E[X²] = 120. Prove that P(X > 0) ≥ 5/6 — at most a sixth of on-call weeks are silent.",
   "answer": "P(X>0) >= 5/6",
   "solution": "By Cauchy-Schwarz or Paley-Zygmund style reasoning, E[X]=E[X 1_{X>0}] <= sqrt(E[X^2] P(X>0)). Thus 10 <= sqrt(120 P(X>0)). Squaring gives 100 <= 120 P(X>0), so P(X>0) >= 5/6.",
   "autopsy": "A second moment controls whether expectation comes from rare huge values or common positive values.",
@@ -429,18 +429,18 @@ const LM_PROBLEMS = [
    "random_walk",
    "recursion"
   ],
-  "statement": "A random walk starts at 0. Each step moves +1 with probability p and -1 with probability q=1-p. Let h_i be the probability of hitting +a before -b starting from i. Write the recurrence and boundary conditions.",
+  "statement": "A trading book's P&L moves in unit ticks: +1 with probability p, −1 with probability q = 1−p. Let h_i be the probability it hits the profit target +a before the stop-loss −b, starting from level i. Write the recurrence and boundary conditions.",
   "answer": "h_i = p h_{i+1} + q h_{i-1}, with h_a=1 and h_{-b}=0",
-  "solution": "Condition on the first step. From state i, the walk moves to i+1 with probability p and i-1 with probability q. Therefore h_i=p h_{i+1}+q h_{i-1}. If already at +a, success probability is 1; if at -b, it is 0.",
-  "autopsy": "Random walk hitting questions are state equations plus boundary conditions.",
+  "solution": "Condition on the first tick. From level i the book moves to i+1 with probability p and i−1 with probability q, so h_i = p·h_{i+1} + q·h_{i−1}. At the target, h_a = 1; at the stop, h_{−b} = 0.",
+  "autopsy": "Hitting questions are state equations plus boundary conditions.",
   "wrong": "Writing h_i=p^a q^b or trying to enumerate all paths directly.",
   "diagnosis": "Missed first-step recursion and absorbing boundaries.",
-  "remediation": "Draw states -b,...,a and label boundary values before solving.",
+  "remediation": "Draw levels −b,…,a and label the boundary values before solving.",
   "variant": "For p=q=1/2, solve h_i explicitly."
  },
  {
   "id": "P7-002",
-  "title": "Expected Time to HH",
+  "title": "Two Greens in a Row",
   "level": "Elite",
   "module": "P7",
   "hardness": [
@@ -452,14 +452,14 @@ const LM_PROBLEMS = [
    "coin_flips",
    "waiting_time"
   ],
-  "statement": "A fair coin is flipped until two heads in a row appear. What is the expected number of flips?",
+  "statement": "A release gate requires two consecutive green CI runs. Each run is green independently with probability 1/2. What is the expected number of runs until the gate opens?",
   "answer": "6",
-  "solution": "Let E_0 be expected flips from no current streak of heads. Let E_1 be expected flips given the previous flip was H. From E_0: one flip occurs; with probability 1/2 go to E_1, with probability 1/2 stay at E_0. So E_0=1+(1/2)E_1+(1/2)E_0. From E_1: one flip occurs; with probability 1/2 finish, with probability 1/2 return to E_0. So E_1=1+(1/2)*0+(1/2)E_0. Solving gives E_0=6.",
-  "autopsy": "The state is not the number of flips; it is the current suffix relevant to the target pattern.",
-  "wrong": "Expected time is 4 because HH has probability 1/4.",
+  "solution": "Let E_0 be the expected runs remaining with no streak, E_1 with one green banked. From E_0: one run happens; half the time move to E_1, half stay. E_0 = 1 + (1/2)E_1 + (1/2)E_0. From E_1: one run happens; half the time the gate opens, half you fall back. E_1 = 1 + (1/2)·0 + (1/2)E_0. Solving: E_0 = 6.",
+  "autopsy": "The state is not how many runs have happened; it is the current streak relevant to the target.",
+  "wrong": "4, because two greens in a row has probability 1/4.",
   "diagnosis": "Confusing expected waiting time with reciprocal of one-block probability; overlaps matter.",
-  "remediation": "Compare HH vs HT; both probability 1/4 as two-flip blocks, but expected waiting differs.",
-  "variant": "Expected flips until HT appears?"
+  "remediation": "Compare green-green with green-red as targets: both are probability-1/4 blocks, but the expected waits differ.",
+  "variant": "Expected runs until a green immediately followed by a red?"
  },
  {
   "id": "P8-001",
@@ -494,13 +494,13 @@ const LM_PROBLEMS = [
    "markov",
    "expectation"
   ],
-  "statement": "A nonnegative random variable X has E[X]=3. What is the largest possible upper bound Markov's inequality gives for P(X>=12)?",
+  "statement": "Incident resolution time X is nonnegative with mean 3 hours — and that is all you know. What is the best upper bound Markov's inequality gives for P(X ≥ 12 hours)?",
   "answer": "At most 1/4",
-  "solution": "Markov's inequality says P(X >= a) <= E[X]/a for nonnegative X. With a=12, P(X>=12)<=3/12=1/4.",
+  "solution": "Markov: P(X ≥ a) ≤ E[X]/a for nonnegative X. With a = 12: P(X ≥ 12) ≤ 3/12 = 1/4.",
   "autopsy": "Markov uses only nonnegativity and mean, so it is broad but often loose.",
   "wrong": "Assuming the probability is exactly 1/4.",
   "diagnosis": "Treating an inequality as equality.",
-  "remediation": "Construct X=3 always; then P(X>=12)=0 but Markov still gives <=1/4.",
+  "remediation": "Construct X = 3 always: P(X ≥ 12) = 0, yet Markov still says ≤ 1/4.",
   "variant": "If E[cost]=$500, bound P(cost >= $5000)."
  },
  {
@@ -515,9 +515,9 @@ const LM_PROBLEMS = [
    "chebyshev",
    "variance"
   ],
-  "statement": "A random variable X has mean 100 and variance 25. Bound P(|X-100| >= 15).",
+  "statement": "A demand forecast has mean 100 units and variance 25. Bound the probability that actual demand lands 15 or more units away from the mean.",
   "answer": "At most 1/9",
-  "solution": "Chebyshev gives P(|X-μ|>=t) <= Var(X)/t^2. Here t=15 and Var=25, so the bound is 25/225=1/9.",
+  "solution": "Chebyshev: P(|X−μ| ≥ t) ≤ Var(X)/t². With t = 15 and Var = 25, the bound is 25/225 = 1/9.",
   "autopsy": "Variance controls probability of being far from the mean.",
   "wrong": "Using Markov on X directly and getting a weak or irrelevant bound.",
   "diagnosis": "Wrong inequality for deviation from mean.",
@@ -537,11 +537,11 @@ const LM_PROBLEMS = [
    "probabilistic_method",
    "union_bound"
   ],
-  "statement": "A graph has m edges. Show that there exists a cut with at least m/2 edges crossing it.",
+  "statement": "A review board has m known conflict-of-interest pairs among its members. Show the board can always be split into two panels so that at least m/2 of the conflicted pairs are separated.",
   "answer": "Random partition gives expected crossing edges m/2, so some cut has at least m/2.",
-  "solution": "Put each vertex independently into side A or B with probability 1/2. For any edge e, its endpoints are separated with probability 1/2. Let X be the number of crossing edges. By linearity, E[X]=m/2. Since the average cut size over random cuts is m/2, at least one cut has size at least m/2.",
+  "solution": "Assign each member independently to panel A or B with probability 1/2. Any conflicted pair is separated with probability 1/2, so with X = separated pairs, E[X] = m/2 by linearity. A random split averages m/2, so some split achieves at least m/2.",
   "autopsy": "Randomness proves deterministic existence by averaging.",
-  "wrong": "Trying to construct the cut greedily without seeing the expectation proof.",
+  "wrong": "Trying to build the split greedily without the expectation argument.",
   "diagnosis": "Missing probabilistic method: average implies existence.",
   "remediation": "Memorize: if E[X]>=a, then some outcome has X>=a.",
   "variant": "Show every tournament has a set ordering with at least half the edges pointing forward."
@@ -559,13 +559,13 @@ const LM_PROBLEMS = [
    "probabilistic_method",
    "alteration"
   ],
-  "statement": "In a graph with n vertices and m edges, prove there is an independent set of size at least n^2/(2m+n). Hint: choose vertices randomly and delete one endpoint from every selected edge.",
+  "statement": "n projects compete for a demo day, but m pairs of them conflict (shared team — can't both present). Prove you can always pick at least n²/(2m+n) mutually conflict-free projects. Hint: pick projects at random, then drop one from every conflicted pair you picked.",
   "answer": "Independent set size at least n^2/(2m+n)",
-  "solution": "Select each vertex independently with probability p. Expected selected vertices = pn. Expected selected edges = p^2 m. Delete one endpoint from each selected edge; remaining vertices form an independent set and have expected size at least pn - p^2 m. Choose p = n/(2m) if <=1 for a simple bound, but optimizing with p=n/(2m+n) gives expected remaining size at least n^2/(2m+n). Therefore some choice achieves at least that many.",
+  "solution": "Select each project independently with probability p: expected picks pn, expected conflicted pairs among picks p²m. Drop one project from each conflicted pair; the rest is conflict-free with expected size at least pn − p²m. Optimizing at p = n/(2m+n) gives n²/(2m+n), so some selection achieves it.",
   "autopsy": "Randomly build something imperfect, then alter it to remove defects.",
-  "wrong": "Assuming the random selected set is already independent.",
+  "wrong": "Assuming the random selection is already conflict-free.",
   "diagnosis": "Forgetting the alteration step.",
-  "remediation": "Separate construction from cleanup: selected vertices minus selected bad edges.",
+  "remediation": "Separate construction from cleanup: picked projects minus picked conflicts.",
   "variant": "Use random selection plus deletion to prove a lower bound for a subset with no forbidden pair."
  },
  {
@@ -581,9 +581,9 @@ const LM_PROBLEMS = [
    "entropy",
    "counting"
   ],
-  "statement": "Let X be uniformly distributed over a finite set S. What is H(X), and why does this imply a random variable supported on S has entropy at most log2 |S|?",
+  "statement": "A triage bot must identify which of |S| known failure modes a ticket belongs to, using yes/no questions. If X is the failure mode and all |S| modes are equally likely, what is H(X) — and why can no distribution on S have more entropy?",
   "answer": "H(X)=log2 |S|; maximum entropy on finite support is uniform.",
-  "solution": "If X is uniform on S, each outcome has probability 1/|S|. Then H(X)=sum_{x in S} (1/|S|) log2 |S| = log2 |S|. More generally, entropy is maximized by the uniform distribution on a fixed finite support, so H(X)<=log2 |S|.",
+  "solution": "Uniform on S means each mode has probability 1/|S|, so H(X) = Σ (1/|S|)·log₂|S| = log₂|S|. Entropy on a fixed finite support is maximized by the uniform distribution, so any X supported on S has H(X) ≤ log₂|S| — you never need more than about log₂|S| well-chosen yes/no questions.",
   "autopsy": "Entropy converts support size into uncertainty budget.",
   "wrong": "Saying entropy equals |S|.",
   "diagnosis": "Confusing number of states with log-number of bits needed to identify a state.",
@@ -604,13 +604,13 @@ const LM_PROBLEMS = [
    "birthday",
    "method_choice"
   ],
-  "statement": "Among n people with uniformly random birthdays over 365 days, give a simple upper bound for the probability that at least one pair shares a birthday.",
+  "statement": "n teams each independently pick one of 365 release days at random. You need a one-line answer in the planning meeting: give a quick upper bound for the probability that at least two teams pick the same day.",
   "answer": "At most C(n,2)/365",
-  "solution": "For each pair {i,j}, let A_ij be the event they share a birthday. P(A_ij)=1/365. The event that some pair matches is the union of all A_ij. By the union bound, probability <= C(n,2)/365.",
+  "solution": "For each pair of teams {i, j}, let A_ij be the event they picked the same day: P(A_ij) = 1/365. A shared day anywhere is the union of the A_ij, so by the union bound the probability is at most C(n,2)/365.",
   "autopsy": "Exact birthday probability uses complement; quick upper bound uses union bound.",
   "wrong": "Using the bound as an exact probability.",
   "diagnosis": "Method-choice confusion: bound vs exact answer.",
-  "remediation": "Compare this with the exact complement formula from P1-002.",
+  "remediation": "Compare this with the exact complement formula from P1-002 — the bound is the meeting answer, the complement is the memo answer.",
   "variant": "Bound probability any two of n hashes collide in m buckets."
  },
  {
@@ -626,7 +626,7 @@ const LM_PROBLEMS = [
    "conditional_probability",
    "cards"
   ],
-  "statement": "A card is drawn from a deck and not shown. A second card is drawn and is an ace. What is the probability the first card was an ace?",
+  "statement": "Another interview classic: a card is drawn from a deck and set aside unseen; a second card is drawn and it is an ace. What is the probability the first, hidden card was an ace?",
   "answer": "3/51 = 1/17",
   "solution": "Given the second card is an ace, the remaining unknown first card is equally likely among the other 51 card positions relative to that ace. There are 3 remaining aces among those 51 possibilities. Probability = 3/51 = 1/17. Equivalently, by symmetry, after seeing one ace in one position, any other position has probability 3/51 of being ace.",
   "autopsy": "Conditioning on a later observation changes the distribution of the earlier hidden card.",
@@ -649,13 +649,13 @@ const LM_PROBLEMS = [
    "balls_bins",
    "collisions"
   ],
-  "statement": "m balls are independently thrown into n boxes uniformly. What is the expected number of unordered pairs of balls that land in the same box?",
+  "statement": "m requests are hashed independently and uniformly into n buckets. What is the expected number of unordered pairs of requests that collide in the same bucket?",
   "answer": "C(m,2)/n",
-  "solution": "For each unordered pair of balls {i,j}, define I_ij=1 if they land in the same box. P(I_ij=1)=1/n, since after ball i lands anywhere, ball j matches its box with probability 1/n. Summing over C(m,2) pairs gives expected collisions C(m,2)/n.",
+  "solution": "For each unordered pair of requests {i, j}, let I_ij = 1 if they hash to the same bucket; after request i lands anywhere, request j matches with probability 1/n. Summing over C(m,2) pairs gives C(m,2)/n.",
   "autopsy": "Pair indicators avoid tracking the full occupancy distribution.",
   "wrong": "m/n or n(1-1/n)^m.",
-  "diagnosis": "Counting occupied/empty boxes instead of colliding pairs.",
-  "remediation": "Name the object being counted: pairs of balls, not boxes.",
+  "diagnosis": "Counting occupied or empty buckets instead of colliding pairs.",
+  "remediation": "Name the object being counted: pairs of requests, not buckets.",
   "variant": "Expected number of equal-birthday pairs among m people."
  },
  {
@@ -671,13 +671,13 @@ const LM_PROBLEMS = [
    "conditional_probability",
    "size_bias"
   ],
-  "statement": "A factory has two types of boxes: half contain 1 item and half contain 3 items. You pick a random item from all items produced today and inspect the box it came from. What is the probability its box is a 3-item box?",
+  "statement": "Half your customer accounts have 1 seat and half have 3 seats. A support ticket arrives from a uniformly random seat across all accounts. What is the probability it comes from a 3-seat account?",
   "answer": "3/4",
-  "solution": "Boxes with 3 items contribute three times as many items to the item-level sample space. For every two boxes, one has 1 item and one has 3 items, so there are 4 items total, 3 of which come from a 3-item box. Probability = 3/4.",
-  "autopsy": "Sampling an item is not the same as sampling a box; larger boxes are size-biased.",
-  "wrong": "1/2, because half of boxes are 3-item boxes.",
-  "diagnosis": "Wrong sampling unit: item-level sampling biases toward larger boxes.",
-  "remediation": "Ask: what exactly was sampled uniformly? Box or item?",
+  "solution": "3-seat accounts contribute three times the seats. For every two accounts there are 4 seats, 3 of them on the 3-seat account. Probability = 3/4.",
+  "autopsy": "Sampling a seat is not sampling an account; bigger accounts are size-biased.",
+  "wrong": "1/2, because half of the accounts are 3-seat.",
+  "diagnosis": "Wrong sampling unit: seat-level sampling biases toward larger accounts.",
+  "remediation": "Ask: what exactly was sampled uniformly? Account or seat?",
   "variant": "A random user-session is inspected. Longer sessions are more likely to be sampled."
  },
  {
@@ -693,11 +693,11 @@ const LM_PROBLEMS = [
    "conditional_independence",
    "bayes"
   ],
-  "statement": "Two fair coins are flipped independently. Let A be 'first coin is heads' and B be 'second coin is heads'. They are independent. Are A and B independent conditional on the event C that at least one coin is heads?",
+  "statement": "Two monitors fire independently, each with probability 1/2 today: A = “latency monitor fired,” B = “error-rate monitor fired.” Independent, yes. Now condition on C: “at least one monitor fired.” Are A and B still independent given C?",
   "answer": "No",
-  "solution": "Given C, the possible outcomes are HT, TH, HH, equally likely. P(A|C)=2/3 and P(B|C)=2/3. But P(A∩B|C)=P(HH|C)=1/3. Since 1/3 ≠ 4/9, A and B are not independent conditional on C.",
+  "solution": "Given C, the equally likely outcomes are latency-only, errors-only, and both. P(A|C) = 2/3 and P(B|C) = 2/3, but P(A∩B|C) = 1/3 ≠ 4/9. Not independent given C.",
   "autopsy": "Conditioning on a shared constraint can create dependence.",
-  "wrong": "Yes, because the coins were originally independent.",
+  "wrong": "Yes — the monitors were independent to begin with.",
   "diagnosis": "Assuming independence survives conditioning.",
   "remediation": "Conditioning changes the universe; retest independence inside the new universe.",
   "variant": "Are two disease symptoms independent after conditioning on having at least one symptom?"
@@ -714,14 +714,14 @@ const LM_PROBLEMS = [
    "symmetry",
    "order_statistics"
   ],
-  "statement": "n distinct numbers are randomly ordered. What is the probability the largest number appears before the second-largest number?",
+  "statement": "n vendors demo their products in uniformly random order. What is the probability the strongest product is demoed before the runner-up?",
   "answer": "1/2",
-  "solution": "Ignore all other numbers. In a uniformly random order, the relative order of the largest and second-largest numbers is equally likely to be largest-before-second-largest or second-largest-before-largest. So the probability is 1/2.",
+  "solution": "Ignore the other vendors entirely: the two demos that matter occur in either relative order with equal probability. 1/2.",
   "autopsy": "Random ordering often reduces to relative order symmetry among the important objects.",
-  "wrong": "1/n because the largest has to be first.",
+  "wrong": "1/n, because the strongest would have to go first.",
   "diagnosis": "Confusing 'before a specific item' with 'first overall'.",
-  "remediation": "Delete irrelevant objects and compare the two important labels only.",
-  "variant": "Probability the largest appears after both the second- and third-largest?"
+  "remediation": "Delete the irrelevant vendors and compare only the two labels that matter.",
+  "variant": "Probability the strongest product is demoed after both the runner-up and the third-best?"
  },
  {
   "id": "MX-007",
@@ -737,14 +737,14 @@ const LM_PROBLEMS = [
    "optional_stopping",
    "games"
   ],
-  "statement": "You repeatedly toss a fair coin. Heads wins $1, tails loses $1. You stop the first time your total is +1. Is your expected gain necessarily +1 with finite expected time? Explain the trap.",
+  "statement": "A day trader runs a strategy that each period wins $1 or loses $1 with equal probability, and plans to “just stop once I'm up $1.” Is the expected gain necessarily +$1, with a finite expected wait? Explain the trap.",
   "answer": "The stopping rule may have infinite expected time or hidden constraints; optional stopping conditions matter.",
-  "solution": "The running total is a fair-game martingale: expected change per step is zero. Stopping when ahead seems to guarantee +1, but optional stopping theorems require conditions such as bounded stopping time or integrability. For a simple symmetric walk starting at 0, hitting +1 occurs with probability 1, but the expected hitting time is infinite. The trap is using 'fair game has zero expected gain' or 'eventually hit +1' without checking stopping assumptions.",
+  "solution": "The bankroll is a fair-game martingale: zero expected change per period. Stopping when ahead seems to lock in +$1 — and the walk does hit +1 eventually with probability 1 — but the expected time to get there is infinite, and optional-stopping guarantees require conditions such as bounded time or bounded increments. Free profit from a fair game is exactly what those conditions rule out; in practice the finite bankroll binds first.",
   "autopsy": "Martingale intuition is powerful but must be paired with stopping-condition discipline.",
   "wrong": "You can guarantee profit from a fair game by waiting long enough.",
   "diagnosis": "Optional-stopping fallacy.",
   "remediation": "Learn the checklist: bounded time, bounded increments, finite expectation, absorbing boundaries.",
-  "variant": "What changes if you stop at +1 or -M, whichever comes first?"
+  "variant": "What changes with a stop at +$1 or −$M (the margin call), whichever comes first?"
  },
  {
   "id": "MX-008",
@@ -758,14 +758,14 @@ const LM_PROBLEMS = [
    "continuous_probability",
    "cdf"
   ],
-  "statement": "Let X_1,...,X_n be independent Uniform(0,1). What is P(max X_i <= t) for 0<=t<=1?",
+  "statement": "n independent services each respond in a Uniform(0,1)-second time, and the page renders when the slowest one finishes. What is P(render time ≤ t), for 0 ≤ t ≤ 1?",
   "answer": "t^n",
-  "solution": "The maximum is at most t exactly when every X_i is at most t. Since the variables are independent and P(X_i<=t)=t, the probability is t^n.",
-  "autopsy": "For maxima, use the CDF event 'all values are below threshold.'",
+  "solution": "The slowest response is ≤ t exactly when every service responds in ≤ t. By independence, P = t^n.",
+  "autopsy": "For maxima, use the all-below-threshold event.",
   "wrong": "n t or t/n.",
   "diagnosis": "Not translating maximum into an all-event.",
-  "remediation": "Write max<=t iff X_1<=t and ... and X_n<=t.",
-  "variant": "Find the CDF of the minimum of n independent Uniform(0,1)."
+  "remediation": "Write max ≤ t iff X₁ ≤ t and … and X_n ≤ t.",
+  "variant": "Find the CDF of the fastest response (the minimum)."
  },
  {
   "id": "MX-009",
@@ -780,14 +780,14 @@ const LM_PROBLEMS = [
    "expectation",
    "tail_sum"
   ],
-  "statement": "Let X be a nonnegative integer-valued random variable. Prove E[X]=sum_{k>=1} P(X>=k).",
+  "statement": "A subscription's lifetime in whole months is a nonnegative integer X. Prove E[X] = Σ_{k≥1} P(X ≥ k) — expected lifetime is exactly the sum of the survival curve.",
   "answer": "E[X]=Σ_{k≥1}P(X≥k)",
   "solution": "For any nonnegative integer x, x = sum_{k>=1} 1_{x>=k}. Therefore X = sum_{k>=1} 1_{X>=k}. Taking expectations and using linearity gives E[X]=sum_{k>=1} E[1_{X>=k}] = sum_{k>=1} P(X>=k).",
   "autopsy": "Expectation can be represented as stacked tail probabilities.",
   "wrong": "Thinking expectation always requires the PMF directly.",
   "diagnosis": "Missing alternate representation of expectation.",
   "remediation": "Draw X as a stack of unit blocks and count layers.",
-  "variant": "Use the formula to compute expectation of a geometric random variable."
+  "variant": "Use the formula on a geometric lifetime: monthly churn probability c, expected months retained?"
  },
  {
   "id": "MX-010",
@@ -827,14 +827,14 @@ const LM_PROBLEMS = [
    "permutation",
    "inversions"
   ],
-  "statement": "A random permutation of 1,...,n is chosen. What is the expected number of inversions? An inversion is a pair i<j such that the number in position i is greater than the number in position j.",
+  "statement": "A backlog of n tickets has a true priority order, but the grooming session left it uniformly randomly shuffled. A pair of tickets is misfiled if the lower-priority one sits above the higher-priority one. What is the expected number of misfiled pairs?",
   "answer": "n(n-1)/4",
-  "solution": "For each pair of positions i<j, let I_ij=1 if the pair is inverted. Among the two relative orders of the two values in those positions, exactly one is inverted, so P(I_ij=1)=1/2. There are C(n,2) pairs. By linearity, expected inversions = C(n,2)/2 = n(n-1)/4.",
+  "solution": "For each pair of positions i<j, let I_ij = 1 if that pair is misfiled. The two relative orders are equally likely, so P(I_ij=1) = 1/2. There are C(n,2) pairs, so by linearity the expected count is C(n,2)/2 = n(n−1)/4.",
   "autopsy": "Pair-level symmetry plus linearity beats distribution-level enumeration.",
-  "wrong": "Trying to list all permutations or assuming inversions are independent.",
+  "wrong": "Trying to enumerate orderings, or assuming misfilings are independent.",
   "diagnosis": "Not decomposing global disorder into local pair indicators.",
-  "remediation": "For n=3, list all permutations and compare with indicator computation.",
-  "variant": "Expected number of descents: positions i where a_i > a_{i+1}."
+  "remediation": "For n = 3, list all six orders and compare with the indicator computation.",
+  "variant": "Expected number of adjacent misfilings — positions i where the ticket at i outranks the ticket at i+1?"
  },
  {
   "id": "BOSS-002",
@@ -875,11 +875,11 @@ const LM_PROBLEMS = [
    "first_moment",
    "probabilistic_method"
   ],
-  "statement": "In G(n,1/2), what is the expected number of triangles?",
+  "statement": "Model your partner ecosystem as G(n, 1/2): n companies, each pair independently connected with probability 1/2. What is the expected number of closed triangles — triples where all three pairwise relationships exist?",
   "answer": "C(n,3)/8",
-  "solution": "For each triple of vertices, define I_T=1 if the three edges among them are present. Each edge appears independently with probability 1/2, so P(I_T=1)=(1/2)^3=1/8. There are C(n,3) triples. By linearity, expected triangles = C(n,3)/8.",
+  "solution": "For each triple of companies, let I_T = 1 if all three edges exist: probability (1/2)³ = 1/8. There are C(n,3) triples, so the expected count is C(n,3)/8.",
   "autopsy": "Random graph substructure counts are usually indicator sums over vertex sets.",
-  "wrong": "n^3/8 without accounting for unordered triples, or requiring triangle events to be independent.",
+  "wrong": "n³/8 without accounting for unordered triples, or demanding that triangle events be independent.",
   "diagnosis": "Incorrect indexing object; sum over triples, not ordered sequences unless corrected.",
   "remediation": "Always define the indexing set for indicators.",
   "variant": "Expected number of k-cliques in G(n,p)."
