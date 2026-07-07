@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problems — LeetMath</title>
+<meta name="description" content="The LeetMath problem arena: 40 original probability problems from Easy to Boss, with hint ladders, wrong-answer diagnosis, and solution autopsies.">
+
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<meta name="theme-color" content="#FDFBF6">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=Chivo+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-inner">
+  <a class="lm-brand" href="index.html">Leet<span class="x">Math</span></a>
+  <nav class="topnav">
+    <a href="index.html">Overview</a>
+    <a href="track.html">Track</a>
+    <a href="problems.html" class="active">Problems</a>
+    <a href="review.html" id="nav-due">Review</a>
+    <a class="home" href="https://avianna.ai">avianna.ai &nearr;</a>
+  </nav>
+</div></div>
+
+<div class="wrap" id="arena">
+
+  <div id="list-view">
+    <p class="eyebrow">The arena</p>
+    <h1>Problems</h1>
+    <p class="lede">
+      Each problem is tagged by the kind of hard it tests &mdash; but the tags
+      stay hidden until you commit, so the label can&rsquo;t cue the method.
+      Wrong answers get a diagnosis, not a shrug.
+    </p>
+    <div class="filters" id="filter-mod"></div>
+    <div class="filters" id="filter-lvl"></div>
+    <p class="small muted" id="list-count"></p>
+    <ol class="plist" id="problem-list"></ol>
+  </div>
+
+  <div id="problem-view" hidden></div>
+
+  <footer class="lm-foot">
+    <p>A prototype from <a href="https://avianna.ai">Avianna</a>. Progress is stored only in your browser.</p>
+  </footer>
+</div>
+
+<script src="assets/problems-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

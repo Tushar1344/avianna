@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeetMath — elite math training for adults</title>
+<meta name="description" content="Elite math training for adults with real-world intuition and limited time. Short sessions, adaptive feedback, and hard problems that reveal exactly what kind of hard they are. A lab prototype from Avianna.">
+
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#FDFBF6">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LeetMath">
+<meta property="og:title" content="LeetMath — elite math training for adults">
+<meta property="og:description" content="Master probability through short sessions, wrong-answer diagnosis, and hard problems tagged by the kind of hard they test.">
+<meta property="og:url" content="https://learn.avianna.ai/">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=Chivo+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-inner">
+  <a class="lm-brand" href="index.html">Leet<span class="x">Math</span></a>
+  <nav class="topnav">
+    <a href="index.html" class="active">Overview</a>
+    <a href="track.html">Track</a>
+    <a href="problems.html">Problems</a>
+    <a href="review.html" id="nav-due">Review</a>
+    <a class="home" href="https://avianna.ai">avianna.ai &nearr;</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">An Avianna lab prototype · Track 1: Probability</p>
+  <h1>Elite math training for adults with real-world intuition and limited time.</h1>
+  <p class="lede">
+    Master probability through short sessions, adaptive feedback, visual
+    intuition, and hard problems that reveal exactly what kind of hard they
+    are. Not a textbook, not a school course &mdash; a training arena.
+  </p>
+  <div class="btn-row">
+    <a class="btn primary" href="track.html">Start the probability track</a>
+    <a class="btn" href="problems.html">Enter the arena</a>
+  </div>
+  <p class="hero-stats" id="home-stats"></p>
+</header>
+
+<section>
+  <h2>One sitting, four outcomes</h2>
+  <p>
+    Open LeetMath for 20&ndash;30 minutes and leave with one of four things:
+    a concept became intuitive, a known weakness was diagnosed, a
+    problem-solving move became reusable, or a hard problem became less
+    mysterious. Adults don&rsquo;t need math made shallow. They need math made
+    legible, compressed, recoverable, emotionally safe, and
+    <em>hard in the right order</em>.
+  </p>
+  <div class="grid2">
+    <div class="card"><h3>Solve the problem</h3>
+      <p class="small">40 original problems from Easy to Boss, each with a
+      solution autopsy and a transfer variant. Tags are hidden until you
+      commit, so the wording can&rsquo;t cue the method.</p></div>
+    <div class="card"><h3>Diagnose the miss</h3>
+      <p class="small">Wrong answers trigger specific feedback: the tempting
+      wrong path, what assumption failed, and the repair drill that fixes
+      it. Errors are diagnostic signals, not failure.</p></div>
+    <div class="card"><h3>Climb the hint ladder</h3>
+      <p class="small">Hints preserve learning: first the diagnostic
+      question, then the named move, and only then the solution. Never a
+      jump from confusion to answer.</p></div>
+    <div class="card"><h3>Build mastery</h3>
+      <p class="small">Every attempt schedules a spaced review. Clean solves
+      wait a week; misses come back tomorrow. The goal is recognizing the
+      idea later, when the surface changes.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Tagged by the kind of hard</h2>
+  <p>
+    Most platforms tag problems by topic and a difficulty number. LeetMath
+    tags every problem by <em>why</em> it is hard &mdash; and each hardness
+    dimension comes with the diagnostic question that dissolves it.
+  </p>
+  <div class="hard-grid">
+    <div class="hard-card"><span class="hid">H1</span><p class="hname">Sample-space</p><p class="hq">Are you counting favorable and total in the same representation?</p></div>
+    <div class="hard-card"><span class="hid">H2</span><p class="hname">Conditioning</p><p class="hq">What exactly became known, and how did it become known?</p></div>
+    <div class="hard-card"><span class="hid">H3</span><p class="hname">Dependence</p><p class="hq">If one event happens, does it change the probability of the other?</p></div>
+    <div class="hard-card"><span class="hid">H4</span><p class="hname">Symmetry</p><p class="hq">Is there an exchangeability hidden under the wording?</p></div>
+    <div class="hard-card"><span class="hid">H5</span><p class="hname">Linearity of expectation</p><p class="hq">Can I count expected local successes instead of the global distribution?</p></div>
+    <div class="hard-card"><span class="hid">H6</span><p class="hname">Recursion</p><p class="hq">After the first move, what smaller version of the problem remains?</p></div>
+    <div class="hard-card"><span class="hid">H7</span><p class="hname">Invariant / martingale</p><p class="hq">What quantity has no drift from one step to the next?</p></div>
+    <div class="hard-card"><span class="hid">H8</span><p class="hname">Bounding</p><p class="hq">What failure event can I union-bound, dominate, or concentrate?</p></div>
+    <div class="hard-card"><span class="hid">H9</span><p class="hname">Existence</p><p class="hq">If I choose randomly, is the expected number of defects less than one?</p></div>
+    <div class="hard-card"><span class="hid">H10</span><p class="hname">Representation</p><p class="hq">What is this problem secretly isomorphic to?</p></div>
+    <div class="hard-card"><span class="hid">H11</span><p class="hname">Adversarial wording</p><p class="hq">What assumption did the wording tempt me to make?</p></div>
+    <div class="hard-card"><span class="hid">H12</span><p class="hname">Proof control</p><p class="hq">Which statement would a skeptical grader reject?</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Why probability first</h2>
+  <p>
+    Probability touches adult reality: hiring uncertainty, investing and
+    downside risk, A/B tests, reliability and outages, medical base rates,
+    games and adversaries, AI evaluation under noise. And it has the right
+    elite arc &mdash; from counting and conditioning up to random walks,
+    concentration, coupling, entropy, and the probabilistic method. Your
+    real-world intuition is the raw material; the track converts it into
+    formal reasoning.
+  </p>
+  <div class="btn-row"><a class="btn" href="track.html">See the full ladder: P0 &rarr; P10</a></div>
+</section>
+
+<section>
+  <h2>How a session works</h2>
+  <ol class="session-steps">
+    <li><span class="min">0&ndash;2 min</span><div><b>Recall warmup</b><span>two old cards from the review queue &mdash; retrieval plus spacing</span></div></li>
+    <li><span class="min">2&ndash;14 min</span><div><b>Concept and worked example</b><span>predict first, then the visual model, then the formal move</span></div></li>
+    <li><span class="min">14&ndash;21 min</span><div><b>Main problem</b><span>solve with the hint ladder &mdash; deliberate practice at the edge</span></div></li>
+    <li><span class="min">21&ndash;24 min</span><div><b>Feedback autopsy</b><span>classify the error or explain the move &mdash; metacognition</span></div></li>
+    <li><span class="min">24&ndash;25 min</span><div><b>Commit</b><span>one-sentence takeaway becomes a spaced memory card</span></div></li>
+  </ol>
+  <p class="small muted">
+    In this prototype the arena, hint ladders, miss diagnosis, and spaced
+    review are live. Lessons, visual models, and the diagnostic are on the
+    <a href="track.html#roadmap">roadmap</a>.
+  </p>
+</section>
+
+<footer class="lm-foot">
+  <p>
+    LeetMath is a prototype from <a href="https://avianna.ai">Avianna</a>,
+    a research lab for AI systems &mdash; built under the lab&rsquo;s
+    mathematical-reasoning research area. Progress is stored only in your
+    browser. No account, no tracking.
+  </p>
+</footer>
+
+</div>
+<script src="assets/problems-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

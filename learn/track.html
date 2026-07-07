@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probability Track — LeetMath</title>
+<meta name="description" content="The LeetMath probability ladder: eleven modules from sample spaces to entropy, each with concepts, mental moves, common traps, and problems.">
+
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<meta name="theme-color" content="#FDFBF6">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=Chivo+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-inner">
+  <a class="lm-brand" href="index.html">Leet<span class="x">Math</span></a>
+  <nav class="topnav">
+    <a href="index.html">Overview</a>
+    <a href="track.html" class="active">Track</a>
+    <a href="problems.html">Problems</a>
+    <a href="review.html" id="nav-due">Review</a>
+    <a class="home" href="https://avianna.ai">avianna.ai &nearr;</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Track 1</p>
+  <h1>Probability, from setup to elite</h1>
+  <p class="lede">
+    Probability is the mathematics of uncertain worlds. The goal is not to
+    memorize formulas &mdash; it is to model uncertainty, condition on useful
+    information, exploit symmetry, and prove that randomness behaves
+    predictably. Eleven modules, each a set of concepts, mental moves, and
+    the traps that catch adults.
+  </p>
+</header>
+
+<section id="track-modules"><!-- rendered by app.js --></section>
+
+<section>
+  <h2>The first 30 days</h2>
+  <p>Four sittings a week, 20&ndash;30 minutes each. One goal per week, one boss mini-problem to close it.</p>
+  <table class="weekplan">
+    <tr><th>Week</th><th>Goal</th><th>Boss mini-problem</th></tr>
+    <tr>
+      <td><b>1 &mdash; Sample space &amp; counting</b><br><span class="muted small">Stop counting the wrong universe. Ordered vs unordered, complements, combinations.</span></td>
+      <td>Choose the universe deliberately before computing anything.</td>
+      <td>Birthday collision: exact vs union-bound approximation.</td>
+    </tr>
+    <tr>
+      <td><b>2 &mdash; Conditioning &amp; Bayes</b><br><span class="muted small">Information changes the universe. Filtering, observation traps, natural frequencies.</span></td>
+      <td>Condition on what was observed, not what you wish were observed.</td>
+      <td>Two Monty Halls with different host behavior.</td>
+    </tr>
+    <tr>
+      <td><b>3 &mdash; Independence &amp; random variables</b><br><span class="muted small">Independence is information transfer, not surface unrelatedness.</span></td>
+      <td>Choose a distribution from its generative story.</td>
+      <td>Pairwise independent but not mutually independent, by construction.</td>
+    </tr>
+    <tr>
+      <td><b>4 &mdash; Expectation &amp; indicators</b><br><span class="muted small">Linearity beats enumeration. Fixed points, empty boxes, collisions, inversions.</span></td>
+      <td>Replace one impossible global count with many easy local ones.</td>
+      <td>Expected inversions in a random permutation.</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Adult story arcs</h2>
+  <p>Every concept cluster maps to a frame you already reason in:</p>
+  <table class="weekplan">
+    <tr><th>Arc</th><th>Concepts</th><th>The question it answers</th></tr>
+    <tr><td><b>Risk desk</b></td><td>expectation, variance, concentration</td><td>&ldquo;What loss should we expect, and how bad can it get?&rdquo;</td></tr>
+    <tr><td><b>Hiring funnel</b></td><td>conditional probability, Bayes</td><td>&ldquo;What does a signal really tell us?&rdquo;</td></tr>
+    <tr><td><b>System reliability</b></td><td>independence, union bound</td><td>&ldquo;How often does the system fail?&rdquo;</td></tr>
+    <tr><td><b>Game table</b></td><td>symmetry, conditioning, martingales</td><td>&ldquo;What can a fair game guarantee?&rdquo;</td></tr>
+    <tr><td><b>A/B testing</b></td><td>distributions, variance, inference</td><td>&ldquo;How much evidence is enough?&rdquo;</td></tr>
+    <tr><td><b>Random construction</b></td><td>probabilistic method</td><td>&ldquo;Can randomness prove a deterministic object exists?&rdquo;</td></tr>
+  </table>
+</section>
+
+<section id="roadmap">
+  <h2>What&rsquo;s live, what&rsquo;s next</h2>
+  <div class="grid2">
+    <div class="card"><h3>Live in this prototype</h3>
+      <ul class="small" style="padding-left:18px; color:var(--ink-soft)">
+        <li>40-problem arena with answer checking</li>
+        <li>Hint ladders that preserve learning</li>
+        <li>Wrong-answer diagnosis and repair drills</li>
+        <li>Spaced review scheduled from your attempts</li>
+        <li>Module mastery tracking (local only)</li>
+      </ul></div>
+    <div class="card"><h3>On the roadmap</h3>
+      <ul class="small" style="padding-left:18px; color:var(--ink-soft)">
+        <li>Interactive lessons with visual models</li>
+        <li>Placement diagnostic with misconception mapping</li>
+        <li>AI tutor: nudges and approach diagnosis, no spoonfeeding</li>
+        <li>Skill graph with prerequisite unlocks</li>
+        <li>Further tracks: combinatorics, algebra, proof</li>
+      </ul></div>
+  </div>
+</section>
+
+<footer class="lm-foot">
+  <p>A prototype from <a href="https://avianna.ai">Avianna</a>. Progress is stored only in your browser.</p>
+</footer>
+
+</div>
+<script src="assets/problems-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
