@@ -49,6 +49,15 @@ const SLUG_ALIASES = {
 
 const POSTS = [
   {
+    slug: "better-models-different-risks",
+    title: "Better Models, Different Risks",
+    section: "agents",
+    date: "2026-07-13",
+    summary: "Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.",
+    tags: ["agents", "governance", "risk", "capability"],
+    file: "content/governance/better-models-different-risks.md",
+  },
+  {
     slug: "the-worker-and-the-action",
     title: "The worker and the action",
     section: "agents",
