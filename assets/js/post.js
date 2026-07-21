@@ -168,6 +168,23 @@
         mermaid.run({ nodes: elProse.querySelectorAll(".mermaid") });
       }
 
+      // figure animations: CSS animations in inline SVGs start the moment the
+      // HTML is injected, long before the reader scrolls to them. Hold each
+      // figure's animations and release them when it enters the viewport.
+      if ("IntersectionObserver" in window && document.getAnimations) {
+        elProse.querySelectorAll("svg").forEach((svg) => {
+          const anims = svg.getAnimations({ subtree: true });
+          if (!anims.length) return;
+          anims.forEach((a) => { a.currentTime = 0; a.pause(); });
+          new IntersectionObserver((entries, obs) => {
+            if (entries.some((e) => e.isIntersecting)) {
+              anims.forEach((a) => a.play());
+              obs.disconnect();
+            }
+          }, { threshold: 0.3 }).observe(svg);
+        });
+      }
+
       buildToc();
       buildMeta();
     })
