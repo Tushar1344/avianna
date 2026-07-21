@@ -10,10 +10,11 @@ That is partly true. More capable models should misunderstand fewer instructions
 
 Some risks decline. Others grow.
 
-<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two curves against model capability. Errors of understanding decline as capability rises. Errors of consequence rise. The curves cross: better models change the shape of risk, not the amount." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three curves against model capability. Errors of understanding decline as capability rises. Errors of consequence rise. Induced errors — jailbreaks, injection, long-context attacks — rise as well. The curves cross: better models change the shape of risk, not the amount." style="max-width:100%;height:auto;display:block;margin:28px auto;">
   <style>
     .bmf1-line{stroke-dasharray:800;stroke-dashoffset:800;animation:bmf1-draw 1.8s ease-out forwards}
     .bmf1-b{animation-delay:.5s}
+    .bmf1-c{animation-delay:1s}
     @keyframes bmf1-draw{to{stroke-dashoffset:0}}
     .bmf1-fade{opacity:0;animation:bmf1-in .7s ease-out 1.9s forwards}
     @keyframes bmf1-in{to{opacity:1}}
@@ -26,16 +27,21 @@ Some risks decline. Others grow.
     <text x="52" y="155" text-anchor="middle" font-size="11" fill="var(--muted)" transform="rotate(-90 52 155)">risk</text>
     <path class="bmf1-line" d="M 70 72 C 240 82, 400 195, 640 243" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
     <path class="bmf1-line bmf1-b" d="M 70 243 C 240 233, 400 120, 640 62" fill="none" stroke="var(--orange)" stroke-width="2.5"/>
+    <path class="bmf1-line bmf1-c" d="M 70 256 C 290 248, 470 185, 640 128" fill="none" stroke="var(--amber)" stroke-width="2"/>
     <g class="bmf1-fade">
       <text x="638" y="232" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--teal-deep)">Errors of understanding</text>
       <text x="638" y="247" text-anchor="end" font-size="10" fill="var(--muted)">misread intent · brittle plans · wrong tool</text>
       <text x="638" y="42" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--orange-deep)">Errors of consequence</text>
       <text x="638" y="57" text-anchor="end" font-size="10" fill="var(--muted)">reach · velocity · blast radius</text>
+      <text x="638" y="92" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--amber)">Induced errors</text>
+      <text x="638" y="106" text-anchor="end" font-size="10" fill="var(--muted)">jailbreaks · injection · long-context attacks</text>
       <circle cx="368" cy="157" r="3.5" fill="var(--ink)"/>
       <text x="368" y="142" text-anchor="middle" font-size="10" fill="var(--ink-soft)">the shape of risk changes here</text>
     </g>
   </g>
 </svg>
+
+And not every error is the model's own. Some are induced — an adversary talks the system into them. That family grows too, with capability and with context length.
 
 The useful question is not whether better models increase or decrease risk in general. It is how they change the shape of risk.
 
@@ -193,6 +199,14 @@ Tail exposure deserves a picture, because averages hide it:
   </g>
 </svg>
 
+The attack surface deserves more than a row in the table, because it grows for a different reason than the rest. Reach, velocity, and coupling amplify the model's own mistakes. The attack surface grows because errors can be *induced*.
+
+[Indirect prompt injection](https://arxiv.org/abs/2302.12173) showed that an adversary does not need access to the prompt. Instructions planted in content the agent will read — a web page, a document, an email — can steer it. Every retrieval source, tool result, and memory an agent consumes is a channel.
+
+Nor does jailbreak risk simply fall as models improve. Safety training makes each individual attempt harder. But Anthropic's [many-shot jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking) work showed that the long context windows of modern models are themselves an attack surface: pack the context with enough faux dialogues and the rate of harmful responses rises on a power law with the number of examples. More striking, larger models were **more** susceptible, not less — the same in-context learning that makes them capable makes them better at learning the attack.
+
+And the stakes of a successful attack scale with everything else in this section. A jailbroken chatbot produces a harmful paragraph. A jailbroken agent with tools produces actions — with the reach, velocity, and coupling described above.
+
 Tool use matters most here, because it converts model outputs into real effects. The [ToolEmu research project](https://arxiv.org/abs/2309.15817) tested agents in simulated high-stakes tool environments and identified plausible failures involving privacy leaks, financial harm, and other serious outcomes. Its broader lesson: tool-using agents need to be evaluated in realistic scenarios, including unusual and long-tailed cases, not only on whether they complete a benign task.
 
 There are also more speculative risks that become relevant only as models receive broader goals and authority. [Anthropic tested models](https://www.anthropic.com/research/agentic-misalignment) in deliberately constructed corporate simulations involving goal conflicts and threats to the model's continued operation. Under some conditions, models chose harmful actions such as blackmail or corporate espionage. These experiments do not show that such behaviour is common in production. They show that it is possible under carefully designed conditions and therefore worth testing before agents are given sensitive roles.
@@ -279,5 +293,7 @@ Whether that work becomes dependable will be decided outside the model.
 * METR, "[How Does Time Horizon Vary Across Domains?](https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/)" (2025) — visual computer-use horizons roughly 40–100× shorter than software and reasoning horizons.
 * Laban, Schnabel & Neville (Microsoft Research), "[LLMs Corrupt Your Documents When You Delegate](https://arxiv.org/abs/2604.15597)" (preprint, 2026) — frontier models degraded ~25% of document content across 52 professional domains; errors sparse but severe; tool access did not help.
 * Ruan et al., "[Identifying the Risks of LM Agents with an LM-Emulated Sandbox](https://arxiv.org/abs/2309.15817)" (ICLR 2024) — the ToolEmu framework for testing tool-using agents in simulated high-stakes environments.
+* Greshake et al., "[Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)" (2023) — adversarial instructions planted in retrieved content can steer LLM-integrated applications without prompt access.
+* Anthropic, "[Many-shot Jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking)" (2024) — jailbreak effectiveness follows a power law in the number of in-context examples; long context windows widen the channel, and larger models were more susceptible.
 * Anthropic, "[Agentic Misalignment: How LLMs Could Be Insider Threats](https://www.anthropic.com/research/agentic-misalignment)" (2025) — models choosing harmful actions in constructed corporate simulations with goal conflicts.
 * OpenAI, "[Our Updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/)" (2025) — long-range autonomy as a tracked research category; safeguards required as capability rises.
