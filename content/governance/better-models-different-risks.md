@@ -43,7 +43,7 @@ The useful question is not whether better models increase or decrease risk in ge
 
 One way to see this shift is to look at the length of tasks models can complete.
 
-METR measures the duration of software tasks that AI agents can complete with a specified probability of success. Its results show rapid growth in the time horizon of frontier models. The growth is not uniform — METR found visual computer-use horizons roughly 40 to 100 times shorter than software and reasoning horizons — but the direction is clear. Models are becoming able to stay with a problem for longer.
+METR [measures the duration of software tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) that AI agents can complete with a specified probability of success. Its results show rapid growth in the time horizon of frontier models. The growth is not uniform — [METR found](https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/) visual computer-use horizons roughly 40 to 100 times shorter than software and reasoning horizons — but the direction is clear. Models are becoming able to stay with a problem for longer.
 
 That is valuable, because many enterprise processes are not single questions. They are sequences. Resolving a customer complaint may require finding the customer, reading the account history, checking the current policy, reviewing previous cases, calculating an amount, updating a system, and communicating the decision. The longer the sequence a model can manage, the more of the process it can perform.
 
@@ -106,7 +106,7 @@ Suppose an agent incorrectly decides that a customer is eligible for a refund. W
   </g>
 </svg>
 
-Long workflows also give small errors room to accumulate, and occasional large errors room to appear. A recent preprint from Microsoft Research examined delegated document-editing workflows across 52 professional domains and 19 models. Even the frontier models tested degraded an average of 25 percent of document content by the end of long workflows — and the errors were often sparse but severe, worsening with larger documents, longer interactions, and distracting files. Tool use did not solve the problem in that evaluation.
+Long workflows also give small errors room to accumulate, and occasional large errors room to appear. A [recent preprint from Microsoft Research](https://arxiv.org/abs/2604.15597) examined delegated document-editing workflows across 52 professional domains and 19 models. Even the frontier models tested degraded an average of 25 percent of document content by the end of long workflows — and the errors were often sparse but severe, worsening with larger documents, longer interactions, and distracting files. Tool use did not solve the problem in that evaluation.
 
 The study is one benchmark, not a universal measure of enterprise agents. But it illustrates an important pattern: success on individual steps does not guarantee that the full artifact or process remains intact over time. A model can look competent at every turn while the overall result slowly drifts.
 
@@ -193,9 +193,9 @@ Tail exposure deserves a picture, because averages hide it:
   </g>
 </svg>
 
-Tool use matters most here, because it converts model outputs into real effects. The ToolEmu research project tested agents in simulated high-stakes tool environments and identified plausible failures involving privacy leaks, financial harm, and other serious outcomes. Its broader lesson: tool-using agents need to be evaluated in realistic scenarios, including unusual and long-tailed cases, not only on whether they complete a benign task.
+Tool use matters most here, because it converts model outputs into real effects. The [ToolEmu research project](https://arxiv.org/abs/2309.15817) tested agents in simulated high-stakes tool environments and identified plausible failures involving privacy leaks, financial harm, and other serious outcomes. Its broader lesson: tool-using agents need to be evaluated in realistic scenarios, including unusual and long-tailed cases, not only on whether they complete a benign task.
 
-There are also more speculative risks that become relevant only as models receive broader goals and authority. Anthropic tested models in deliberately constructed corporate simulations involving goal conflicts and threats to the model's continued operation. Under some conditions, models chose harmful actions such as blackmail or corporate espionage. These experiments do not show that such behaviour is common in production. They show that it is possible under carefully designed conditions and therefore worth testing before agents are given sensitive roles.
+There are also more speculative risks that become relevant only as models receive broader goals and authority. [Anthropic tested models](https://www.anthropic.com/research/agentic-misalignment) in deliberately constructed corporate simulations involving goal conflicts and threats to the model's continued operation. Under some conditions, models chose harmful actions such as blackmail or corporate espionage. These experiments do not show that such behaviour is common in production. They show that it is possible under carefully designed conditions and therefore worth testing before agents are given sensitive roles.
 
 This distinction matters. Product leaders should not treat extreme simulations as forecasts of everyday behaviour. They should also not wait for a failure to occur in production before deciding that a plausible failure mode deserves a control.
 
@@ -237,7 +237,7 @@ The safest design is not always to use a weaker model. A weaker model may make m
 
 Let the model interpret the request. Let a deterministic service calculate the amount. Let a policy engine decide whether the transaction is permitted. Let the agent prepare a high-risk action. Let an authorized person approve it. Let the system verify that execution produced the intended result.
 
-This separates judgment from authority and authority from execution. OpenAI's current Preparedness Framework reflects the same separation: it treats long-range autonomy as a capability that needs specific evaluation, and states that as models become more capable, safety increasingly depends on real-world safeguards around them.
+This separates judgment from authority and authority from execution. [OpenAI's current Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/) reflects the same separation: it treats long-range autonomy as a capability that needs specific evaluation, and states that as models become more capable, safety increasingly depends on real-world safeguards around them.
 
 ## What product leaders should do
 
@@ -272,3 +272,12 @@ This is the area Avianna is focused on: not treating model intelligence as suffi
 Better models will make more work possible.
 
 Whether that work becomes dependable will be decided outside the model.
+
+## Sources
+
+* METR, "[Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)" (2025) — the time horizon of tasks frontier agents can complete, and its growth rate.
+* METR, "[How Does Time Horizon Vary Across Domains?](https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/)" (2025) — visual computer-use horizons roughly 40–100× shorter than software and reasoning horizons.
+* Laban, Schnabel & Neville (Microsoft Research), "[LLMs Corrupt Your Documents When You Delegate](https://arxiv.org/abs/2604.15597)" (preprint, 2026) — frontier models degraded ~25% of document content across 52 professional domains; errors sparse but severe; tool access did not help.
+* Ruan et al., "[Identifying the Risks of LM Agents with an LM-Emulated Sandbox](https://arxiv.org/abs/2309.15817)" (ICLR 2024) — the ToolEmu framework for testing tool-using agents in simulated high-stakes environments.
+* Anthropic, "[Agentic Misalignment: How LLMs Could Be Insider Threats](https://www.anthropic.com/research/agentic-misalignment)" (2025) — models choosing harmful actions in constructed corporate simulations with goal conflicts.
+* OpenAI, "[Our Updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/)" (2025) — long-range autonomy as a tracked research category; safeguards required as capability rises.
