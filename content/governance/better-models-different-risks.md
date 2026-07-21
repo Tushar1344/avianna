@@ -10,7 +10,7 @@ That is partly true. More capable models should misunderstand fewer instructions
 
 Some risks decline. Others grow.
 
-<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three curves against model capability. Errors of understanding decline as capability rises. Errors of consequence rise. Induced errors — jailbreaks, injection, long-context attacks — rise as well. The curves cross: better models change the shape of risk, not the amount." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three curves against model capability. Errors of understanding decline as capability rises. Errors of consequence rise. Induced errors — jailbreaks, injection, long-context and slow-burn attacks — rise as well. The curves cross: better models change the shape of risk, not the amount." style="max-width:100%;height:auto;display:block;margin:28px auto;">
   <style>
     .bmf1-line{stroke-dasharray:800;stroke-dashoffset:800;animation:bmf1-draw 1.8s ease-out forwards}
     .bmf1-b{animation-delay:.5s}
@@ -34,7 +34,7 @@ Some risks decline. Others grow.
       <text x="638" y="42" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--orange-deep)">Errors of consequence</text>
       <text x="638" y="57" text-anchor="end" font-size="10" fill="var(--muted)">reach · velocity · blast radius</text>
       <text x="638" y="92" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--amber)">Induced errors</text>
-      <text x="638" y="106" text-anchor="end" font-size="10" fill="var(--muted)">jailbreaks · injection · long-context attacks</text>
+      <text x="638" y="106" text-anchor="end" font-size="10" fill="var(--muted)">jailbreaks · injection · long-context · slow burn</text>
       <circle cx="368" cy="157" r="3.5" fill="var(--ink)"/>
       <text x="368" y="142" text-anchor="middle" font-size="10" fill="var(--ink-soft)">the shape of risk changes here</text>
     </g>
@@ -205,6 +205,10 @@ The attack surface deserves more than a row in the table, because it grows for a
 
 Nor does jailbreak risk simply fall as models improve. Safety training makes each individual attempt harder. But Anthropic's [many-shot jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking) work showed that the long context windows of modern models are themselves an attack surface: pack the context with enough faux dialogues and the rate of harmful responses rises on a power law with the number of examples. More striking, larger models were **more** susceptible, not less — the same in-context learning that makes them capable makes them better at learning the attack.
 
+The most dangerous induced errors may be the slow ones. [Crescendo](https://arxiv.org/abs/2404.01833) showed that a jailbreak does not need a single malicious prompt at all: a benign conversation, escalated gradually over a handful of turns — each step building on what the model itself just said — reaches content the model would refuse outright, with no adversarial text anywhere in the transcript. [AgentPoison](https://arxiv.org/abs/2407.12784) stretched the timeline further: poison an agent's memory or knowledge base today, and the agent behaves normally on every benign query — until a trigger arrives, retrieves the poisoned entry, and acts on it.
+
+Slow-burn attacks are the adversarial mirror of the reach problem. No single message looks harmful, the way no single action in a long workflow looks invalid. Filters that inspect one message at a time miss them by construction. And the properties that make agents useful — persistent memory, standing context, multi-session workflows — are exactly the room a slow burn needs.
+
 And the stakes of a successful attack scale with everything else in this section. A jailbroken chatbot produces a harmful paragraph. A jailbroken agent with tools produces actions — with the reach, velocity, and coupling described above.
 
 Tool use matters most here, because it converts model outputs into real effects. The [ToolEmu research project](https://arxiv.org/abs/2309.15817) tested agents in simulated high-stakes tool environments and identified plausible failures involving privacy leaks, financial harm, and other serious outcomes. Its broader lesson: tool-using agents need to be evaluated in realistic scenarios, including unusual and long-tailed cases, not only on whether they complete a benign task.
@@ -295,5 +299,7 @@ Whether that work becomes dependable will be decided outside the model.
 * Ruan et al., "[Identifying the Risks of LM Agents with an LM-Emulated Sandbox](https://arxiv.org/abs/2309.15817)" (ICLR 2024) — the ToolEmu framework for testing tool-using agents in simulated high-stakes environments.
 * Greshake et al., "[Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)" (2023) — adversarial instructions planted in retrieved content can steer LLM-integrated applications without prompt access.
 * Anthropic, "[Many-shot Jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking)" (2024) — jailbreak effectiveness follows a power law in the number of in-context examples; long context windows widen the channel, and larger models were more susceptible.
+* Russinovich et al. (Microsoft), "[Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack](https://arxiv.org/abs/2404.01833)" (2024) — benign, gradually escalating multi-turn dialogue jailbreaks frontier models in under ten queries with no adversarial text.
+* Chen et al., "[AgentPoison: Red-Teaming LLM Agents via Poisoning Memory or Knowledge Bases](https://arxiv.org/abs/2407.12784)" (NeurIPS 2024) — poisoned memory or RAG entries trigger harmful agent actions later while benign behavior stays normal, with over 80% attack success.
 * Anthropic, "[Agentic Misalignment: How LLMs Could Be Insider Threats](https://www.anthropic.com/research/agentic-misalignment)" (2025) — models choosing harmful actions in constructed corporate simulations with goal conflicts.
 * OpenAI, "[Our Updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/)" (2025) — long-range autonomy as a tracked research category; safeguards required as capability rises.
