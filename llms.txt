@@ -30,6 +30,7 @@
 ## Profiles
 
 - [Avianna on LinkedIn](https://www.linkedin.com/company/avianna-ai-lab/): Official company page (as "Avianna AI Lab"). The older linkedin.com/company/avianna-ai page belongs to the unrelated, defunct drone-software company.
+- [Avianna on GitHub](https://github.com/avianna-ai): Official GitHub organization.
 
 ## Contact
 
