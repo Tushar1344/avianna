@@ -1314,3 +1314,11 @@ summary.section-head:hover .chevron { border-color: var(--teal); }
   .speaker-bio p { font-size: 13.5px; line-height: 1.5; }
   .speaker-bio p + p { margin-top: 8px; }
 }
+
+/* Concord: definition + FAQ (term-of-art) sections */
+.concord .definition-lede { font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.55; color: var(--ink); max-width: 720px; margin: 0 0 12px; }
+.concord .definition-note { color: var(--muted); font-size: 14.5px; max-width: 720px; margin: 0; }
+.concord .faq-list { display: grid; gap: 16px; max-width: 760px; }
+.concord .faq-item { border-top: 1px solid var(--line); padding-top: 14px; }
+.concord .faq-item h3 { margin: 0 0 6px; font-size: 16.5px; color: var(--ink); }
+.concord .faq-item p { margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.6; }

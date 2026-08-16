@@ -26,6 +26,55 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an agent contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An agent contract is a record attached to each action an AI agent takes: what the action meant, who authorized it, which systems it touched, and how to undo it. Durable execution preserves the running of work; an agent contract preserves its meaning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Concord a runtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Concord is a contract layer that sits above durable runtimes like DBOS or Temporal. The runtime guarantees the work runs to completion; the contract records what the work meant, who allowed it, and how to reverse it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is an agent contract different from durable execution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durable execution preserves state and retries so a workflow survives crashes — it tells you what ran. An agent contract adds the layer audits actually need: intent, authority, blast radius, and a compensation path."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Concord different from a policy engine like OPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A policy engine answers “is this allowed?” at decision time and forgets. Concord enforces that check on every action and keeps the ruling — meaning, authority, undo — in a ledger that later trust decisions and audits can read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who needs agent contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any team letting agents act on real systems: booking, refunding, updating records. The moment an agent proposes work instead of a human, execution history stops being an explanation — that is the gap the contract closes."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- favicons & PWA -->
 <link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
@@ -133,6 +182,16 @@
       </div>
     </section>
 
+
+    <section id="what-is-an-agent-contract" class="concord-section compact" aria-labelledby="definition-title">
+      <div class="section-heading">
+        <span class="eyebrow">The term</span>
+        <h2 id="definition-title">What is an agent contract?</h2>
+      </div>
+      <p class="definition-lede">An <strong>agent contract</strong> is a record attached to each action an AI agent takes: what the action meant, who authorized it, which systems it touched, and how to undo it. Durable execution preserves the <em>running</em> of work; an agent contract preserves its <em>meaning</em>.</p>
+      <p class="definition-note">The term comes from Avianna&rsquo;s Concord project. Where an employment contract governs a worker, an agent contract governs a single action &mdash; proposed, authorized, executed, recorded.</p>
+    </section>
+
     <section id="series" class="concord-section" aria-labelledby="series-title">
       <div class="section-heading">
         <span class="eyebrow">Three-post path</span>
@@ -190,6 +249,31 @@
         <a href="https://tushar1344.github.io/concord-architecture/examples/hotel-booking.html" target="_blank" rel="noopener">Hotel booking ↗</a>
         <a href="https://tushar1344.github.io/concord-architecture/examples/vendor-data-sync.html" target="_blank" rel="noopener">Vendor data sync ↗</a>
         <a href="https://tushar1344.github.io/concord-architecture/examples/revenue-investigation-swarm.html" target="_blank" rel="noopener">Revenue investigation swarm ↗</a>
+      </div>
+    </section>
+
+    <section id="faq" class="concord-section compact" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <span class="eyebrow">Common questions</span>
+        <h2 id="faq-title">Agent contracts, briefly</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Is Concord a runtime?</h3>
+          <p>No. Concord is a contract layer that sits above durable runtimes like DBOS or Temporal. The runtime guarantees the work runs to completion; the contract records what the work meant, who allowed it, and how to reverse it.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is an agent contract different from durable execution?</h3>
+          <p>Durable execution preserves state and retries so a workflow survives crashes — it tells you what ran. An agent contract adds the layer audits actually need: intent, authority, blast radius, and a compensation path.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is Concord different from a policy engine like OPA?</h3>
+          <p>A policy engine answers “is this allowed?” at decision time and forgets. Concord enforces that check on every action and keeps the ruling — meaning, authority, undo — in a ledger that later trust decisions and audits can read.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Who needs agent contracts?</h3>
+          <p>Any team letting agents act on real systems: booking, refunding, updating records. The moment an agent proposes work instead of a human, execution history stops being an explanation — that is the gap the contract closes.</p>
+        </div>
       </div>
     </section>
   </main>
