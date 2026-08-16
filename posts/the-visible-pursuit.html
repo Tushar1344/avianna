@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Visible Pursuit — avianna.ai</title>
+<meta name="description" content="Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations." />
+
+<!-- favicons & PWA -->
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../assets/brand/site.webmanifest">
+<meta name="theme-color" content="#FDFBF6">
+
+<!-- feed discovery -->
+<link rel="alternate" type="application/atom+xml" title="avianna.ai" href="/feed.xml">
+
+<link rel="canonical" href="https://avianna.ai/posts/the-visible-pursuit.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="avianna.ai">
+<meta property="og:title" content="The Visible Pursuit — avianna.ai">
+<meta property="og:description" content="Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.">
+<meta property="og:url" content="https://avianna.ai/posts/the-visible-pursuit.html">
+<meta property="og:image" content="https://avianna.ai/assets/brand/og-image.png">
+<meta property="article:published_time" content="2026-06-07">
+<meta property="article:author" content="https://avianna.ai/tushar.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Visible Pursuit — avianna.ai">
+<meta name="twitter:description" content="Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.">
+<meta name="twitter:image" content="https://avianna.ai/assets/brand/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Visible Pursuit",
+  "description": "Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.",
+  "image": "https://avianna.ai/assets/brand/og-image.png",
+  "datePublished": "2026-06-07",
+  "mainEntityOfPage": "https://avianna.ai/posts/the-visible-pursuit.html",
+  "author": {
+    "@type": "Person",
+    "@id": "https://avianna.ai/tushar.html#person",
+    "name": "Tushar Madan",
+    "url": "https://avianna.ai/tushar.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://avianna.ai/#organization",
+    "name": "Avianna",
+    "url": "https://avianna.ai/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://avianna.ai/assets/brand/logo-mark.png"
+    }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<!-- highlight.js theme (matches concord) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-light.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="layout with-rail">
+
+  <aside class="sidebar">
+    <a class="brand" href="../index.html"><span class="brand-mark"><img src="../assets/brand/logo-mark.png" alt=""></span>avianna.ai</a>
+    <p class="brand-sub">we do applied research in enterprise contexts</p>
+
+    <p class="nav-label">Site</p>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html" class="active">Essays</a>
+      <a href="../tushar.html">People</a>
+    </nav>
+
+    <p class="nav-label">Featured products</p>
+    <nav class="nav">
+      <a href="../concord/">Concord</a>
+      <a href="../lattice/">Lattice</a>
+    </nav>
+
+    <p class="nav-label">Sections</p>
+    <nav class="nav">
+      <a href="../blog.html#agents">Agents</a>
+      <a href="../blog.html#ai">AI</a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <p class="creation-by">Team<a class="creation-name" href="https://www.linkedin.com/in/tusharmadaan/" target="_blank" rel="noopener">Tushar Madan</a><a class="creation-name" href="https://www.linkedin.com/in/rishubh-khurana-46874b7/" target="_blank" rel="noopener">Rishubh Khurana</a></p>
+      <a href="../blog.html">← All posts</a>
+    </div>
+  </aside>
+
+  <main>
+    <article class="article" id="article">
+      <p class="article-eyebrow" id="article-eyebrow">AI</p>
+      <h1 class="article-title" id="article-title">The Visible Pursuit</h1>
+      <p class="article-sub" id="article-sub">Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.</p>
+      <div class="prose" id="prose">
+<p>Watch a chess player for ten moves and you can usually tell what they're trying to do. Not because they announced anything (they're doing the opposite of announcing) but because <em>doing</em> a thing leaks evidence about <em>wanting</em> the thing. Every move shaves a little distance off some goal and adds it to others. Stand back, count which distances are shrinking, and the plan tells itself.</p>
+<p>This is general. Any agent in any environment that pursues a goal efficiently broadcasts, through its actions alone, a signal about what that goal is. There's a small, beautiful literature on this, split between people who want to <em>encourage</em> the leak (robots that should be readable to humans) and people who want to <em>plug</em> it (autonomous systems, security, games of imperfect information). What follows is a tour of the basic picture and the four or five real strategies for hiding your intent without giving up on actually doing things.</p>
+<blockquote>
+<p>The signal is the shadow of competence. Acting on a preference is, mathematically, almost the same as announcing it.</p>
+</blockquote>
+<h2 id="what-the-observer-sees">What the observer sees</h2>
+<p>Put yourself behind the curtain. You can see the environment, you can see the agent, but you can't see what it wants. You hold a list of possibilities (say, three things it might be after) and a guess about how rational it is. Now every action it takes tightens that list.</p>
+<p>The mechanism is almost embarrassingly simple. For each candidate goal, ask: <em>if this were the real goal, how likely was the move I just saw?</em> Boltzmann-rational agents take low-cost actions more often, so moves that close in on goal $A$ are evidence for $A$, and moves that don't are evidence against. Multiply across the trajectory and you get a posterior.</p>
+<p>Try it. The dot in the middle is the agent. Pick one of the three labelled goals in your head and walk toward it. The observer's belief sits in the panel beside the grid, updating as you go.</p>
+<div class="embed">
+  <iframe class="embed-frame" src="../sims/visible-pursuit/goal-inference.html" title="Interactive: an observer inferring an agent's goal from its trajectory" loading="lazy" scrolling="no"></iframe>
+</div>
+
+<p>The takeaway, after a few runs: a straight line is a confession. Most other paths are also confessions, just slower ones. There don't seem to be many trajectories that keep all three bars near 33%, and the few that exist are <em>long</em>.</p>
+<h2 id="the-math-of-the-leak">The math of the leak</h2>
+<p>Strip away the grid and what's left is information theory. Let $G$ be the random variable for the agent's goal, and $T$ the random variable for the trajectory it generates. The observer starts with a prior $P(g)$ and updates to a posterior by Bayes:</p>
+$$
+P(g \mid \tau) \;\propto\; P(\tau \mid g)\, P(g).
+$$
+<p>How much the trajectory <em>tells</em> the observer, on average, is the mutual information between goals and trajectories:</p>
+$$
+I(G; T) \;=\; \mathbb{E}_{g,\tau}\!\left[\, \log \frac{P(g \mid \tau)}{P(g)} \,\right].
+$$
+<p>When this number is zero, watching the agent teaches you nothing about its goal. When it's high, every action shrinks the hypothesis space sharply. The unfortunate result from the legibility literature is that <strong>optimal goal pursuit is generically information-rich</strong>: shortest paths, greedy resource use, the principle of least action: all of them concentrate the posterior on the truth. The leak is not a defect in the policy; it is the shadow of competence.</p>
+<h2 id="five-ways-to-hide">Five ways to hide</h2>
+<p>Each strategy below is a knob on the same underlying tradeoff. None of them get you to zero leakage while still letting you pursue something. All of them buy concealment with some currency: time, cost, optionality, or the suspicion of a careful observer.</p>
+<ol>
+<li>
+<p><strong>Policy randomization.</strong> Add noise. Trade expected return for entropy in your action distribution. The clean objective is $\max\, \mathbb{E}[R] - \lambda \cdot I(G; T)$, a rate-distortion frontier with two extremes (full optimality, full anonymity) and a knob you turn between them.</p>
+</li>
+<li>
+<p><strong>Deceptive planning.</strong> Look like you're going somewhere else for as long as possible, then commit. Formally: keep $P(g_{\text{true}} \mid \tau_{0:t})$ low up to the "last deceptive point," the last step where the observer can still be wrong, then take the optimal path home. Masters &amp; Sardiña's classic result.</p>
+</li>
+<li>
+<p><strong>Ambiguity preservation.</strong> Don't try to look like a decoy. Try to look like <em>several things at once.</em> Constrain your trajectory so the posterior's support stays broad: at least $k$ goals remain plausible at every step. You're never lying, just refusing to disambiguate.</p>
+</li>
+<li>
+<p><strong>Option preservation.</strong> Keep multiple goals reachable at bounded extra cost. The empowerment-style approach: commit late, preserve future flexibility, and let the observer's prior do most of the work.</p>
+</li>
+<li>
+<p><strong>Behavioral steganography.</strong> Minimize the KL divergence between your policy and a benign reference policy $\pi_0$. Your trajectory is explained away by mundane priors. The observer doesn't infer a goal; they don't infer anything at all.</p>
+</li>
+</ol>
+<p>The second simulation runs three of these (optimal, legible, and deceptive) against the same world. Same start, same true goal, same observer. Watch the accent curve: that's the observer's belief that you're heading where you're actually heading.</p>
+<div class="embed">
+  <iframe class="embed-frame" src="../sims/visible-pursuit/strategy-demo.html" title="Interactive: three policies — optimal, legible, deceptive — and the observer's belief over time" loading="lazy" scrolling="no"></iframe>
+</div>
+
+<p>Notice the asymmetry. The legible path makes you instantly readable, which is what you want if you're a robot pointing at a coffee cup in a kitchen full of humans. The deceptive path keeps the observer's belief under fifty percent for the entire first half of the trajectory, at the cost of two or three extra moves and a much more convoluted commitment. Optimal sits in the middle, leaking by accident.</p>
+<h2 id="the-limit">The limit</h2>
+<p>All of these strategies are negotiating with the same three-cornered tradeoff: <em>competence</em> (how much return you actually capture), <em>concealment</em> (how little you reveal), and <em>efficiency</em> (how much extra time and cost the hiding takes). The corners are real. Any move toward one of them costs you something of the others.</p>
+<p>And the floor matters. $I(G; T) = 0$ forces your policy to be statistically independent of your goal, which means it can't preferentially pursue anything. You've eliminated the leak by eliminating the pursuit. Anything short of that is a question of <em>against whom.</em> Concealment is always defined relative to a specific observer model, with a specific prior, doing a specific amount of computation. Beat that observer and a more careful one can still see through you.</p>
+<blockquote>
+<p>You can hide from a particular observer. You can't hide from inference itself.</p>
+</blockquote>
+<p>Which is a strange and clarifying place to land. Acting on a preference is, in the limit, the same thing as announcing one. <em>How do I act without leaking</em> has no answer; no such policy exists. The question worth asking is <em>which leaks am I willing to pay for, against which audience, for how much return.</em></p>
+<h2 id="further-reading">Further reading</h2>
+<ol>
+<li>Keren, Gal, Karpas. <em>Goal Recognition Design.</em> ICAPS 2014. The observer's-side framing: how to design environments that force agents to reveal themselves.</li>
+<li>Masters &amp; Sardiña. <em>Deceptive Path-Planning.</em> IJCAI 2017. The agent's side. Introduces the "last deceptive point" and a principled objective.</li>
+<li>Dragan, Lee, Srinivasa. <em>Legibility and Predictability of Robot Motion.</em> HRI 2013. The inverse problem: moving so that a human reads your goal faster.</li>
+<li>Ramírez &amp; Geffner. <em>Probabilistic Plan Recognition Using Off-the-Shelf Classical Planners.</em> AAAI 2010. The Bayesian model the simulations above run on.</li>
+<li>Crawford &amp; Sobel. <em>Strategic Information Transmission.</em> Econometrica 1982. The signalling-game foundation for everything in this area.</li>
+</ol>
+      </div>
+    </article>
+  </main>
+
+  <aside class="rail">
+    <div class="toc-block">
+      <p class="rail-label">On this page</p>
+      <nav class="toc" id="toc">
+        <a class="lvl-2" href="#what-the-observer-sees">What the observer sees</a>
+        <a class="lvl-2" href="#the-math-of-the-leak">The math of the leak</a>
+        <a class="lvl-2" href="#five-ways-to-hide">Five ways to hide</a>
+        <a class="lvl-2" href="#the-limit">The limit</a>
+        <a class="lvl-2" href="#further-reading">Further reading</a>
+      </nav>
+    </div>
+    <div class="rail-meta" id="rail-meta">
+      <div><span class="k">Section</span><br>AI</div>
+      <div><span class="k">Published</span><br>June 7, 2026</div>
+      <div><span class="k">Read</span><br>5 min</div>
+      <div><span class="k">Tags</span><br>goal-recognition, information-theory, interactive</div>
+    </div>
+    <a class="rail-back" href="../blog.html">← Back to blog</a>
+  </aside>
+
+</div>
+
+<!-- libraries (CDN, no build) -->
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/js/static-post.js"></script>
+</body>
+</html>

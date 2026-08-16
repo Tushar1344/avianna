@@ -41,12 +41,24 @@
     }
     m.setAttribute("content", value);
   }
-  const shareUrl = `https://avianna.ai/post.html?slug=${encodeURIComponent(post.slug)}`;
+  // Every post has a static page (external_url, or the generated
+  // posts/<slug>.html — see scripts/build_static.py). Canonicalize this
+  // ?slug= view onto it so search engines index one URL per post.
+  const staticUrl =
+    "https://avianna.ai/" + (post.external_url || `posts/${encodeURIComponent(post.slug)}.html`);
+  let canon = document.querySelector('link[rel="canonical"]');
+  if (!canon) {
+    canon = document.createElement("link");
+    canon.setAttribute("rel", "canonical");
+    document.head.appendChild(canon);
+  }
+  canon.setAttribute("href", staticUrl);
+
   const shareTitle = `${post.title} — avianna.ai`;
   const shareDesc = post.summary || "";
   setMeta("og:title", shareTitle);
   setMeta("og:description", shareDesc);
-  setMeta("og:url", shareUrl);
+  setMeta("og:url", staticUrl);
   setMeta("twitter:title", shareTitle, "name");
   setMeta("twitter:description", shareDesc, "name");
 

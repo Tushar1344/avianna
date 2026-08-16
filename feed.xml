@@ -29,8 +29,8 @@
   </entry>
   <entry>
     <title>The worker and the action</title>
-    <link href="https://avianna.ai/post.html?slug=the-worker-and-the-action" />
-    <id>https://avianna.ai/post.html?slug=the-worker-and-the-action</id>
+    <link href="https://avianna.ai/posts/the-worker-and-the-action.html" />
+    <id>https://avianna.ai/posts/the-worker-and-the-action.html</id>
     <updated>2026-07-04T00:00:00Z</updated>
     <published>2026-07-04T00:00:00Z</published>
     <summary>An agent gets neither the onboarding a new hire gets nor the sign-offs a transaction gets. How to build both, and why one without the other fails.</summary>
@@ -73,6 +73,17 @@
     <category term="governance" />
   </entry>
   <entry>
+    <title>acting is announcing</title>
+    <link href="https://avianna.ai/posts/acting-is-announcing.html" />
+    <id>https://avianna.ai/posts/acting-is-announcing.html</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <published>2026-06-30T00:00:00Z</published>
+    <summary>The Visible Pursuit, rerun through a blunter voice: doing a thing leaks the thing, competence is loud, and you can hide from a watcher but not from inference. Same two interactive sims.</summary>
+    <category term="goal-recognition" />
+    <category term="information-theory" />
+    <category term="interactive" />
+  </entry>
+  <entry>
     <title>Why agents need a contract</title>
     <link href="https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html" />
     <id>https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html</id>
@@ -86,8 +97,8 @@
   </entry>
   <entry>
     <title>The Visible Pursuit</title>
-    <link href="https://avianna.ai/post.html?slug=the-visible-pursuit" />
-    <id>https://avianna.ai/post.html?slug=the-visible-pursuit</id>
+    <link href="https://avianna.ai/posts/the-visible-pursuit.html" />
+    <id>https://avianna.ai/posts/the-visible-pursuit.html</id>
     <updated>2026-06-07T00:00:00Z</updated>
     <published>2026-06-07T00:00:00Z</published>
     <summary>Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.</summary>

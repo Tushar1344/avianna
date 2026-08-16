@@ -1,0 +1,35 @@
+# Avianna
+
+> Avianna (avianna.ai) is an independent research lab founded by Tushar Madan and Rishubh Khurana. It studies how AI systems, agents, software, and organizations work together safely, reliably, and intelligently — with research focused on agent economics, reliability, and alignment/governance — and advises a small number of startups and enterprise teams on AI strategy. Avianna is not affiliated with the drone / autonomous-vehicle software company previously associated with the avianna.ai domain name.
+
+## Products and research
+
+- [Concord](https://avianna.ai/concord/): Contracts for the actions AI agents take. Records what an action meant, who authorized it, which systems it touched, and how to undo it. Sits above durable runtimes like DBOS or Temporal.
+- [Lattice](https://avianna.ai/lattice/): The worker layer of Avianna's agent-governance stack; companion to Concord.
+- [LeetMath](https://avianna.ai/learn/): Math training for adults with limited time. First track: probability, forty problems with hint ladders and spaced review.
+
+## Writing
+
+- [Essays](https://avianna.ai/blog.html): Research notes and frameworks on AI systems, agents, and the future of software work.
+- [Why agents need a contract](https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html): Durable execution preserves execution, not intent. Part 1 of the Concord series.
+- [Contract, not runtime](https://avianna.ai/posts/concord-2-contract-not-runtime.html): The boundary between Concord, DBOS, LangGraph, OPA, OTel, and Postgres.
+- [A day in the life](https://avianna.ai/posts/concord-3-day-in-the-life.html): A hotel booking traced end to end under the contract.
+- [The worker and the action](https://avianna.ai/posts/the-worker-and-the-action.html): An agent gets neither the onboarding a new hire gets nor the sign-offs a transaction gets. How to build both, and why one without the other fails.
+- [Lattice, part 1 — The problem](https://avianna.ai/lattice/part-1-the-problem.html): Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model; it does not onboard a worker.
+- [Lattice, part 2 — The framework](https://avianna.ai/lattice/part-2-the-framework.html): What a properly onboarded agent inherits: a role, context, permissions, policy, evaluation, and a path to more trust.
+- [Lattice, part 3 — In practice](https://avianna.ai/lattice/part-3-in-practice.html): An agent traced through Lattice end to end, graduating from observing to acting on its own without losing accountability.
+- [acting is announcing](https://avianna.ai/posts/acting-is-announcing.html): Doing a thing leaks the thing — goal recognition and how to hide a pursuit, with two interactive simulations.
+- [The Visible Pursuit](https://avianna.ai/posts/the-visible-pursuit.html): Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.
+
+## People
+
+- [Tushar Madan](https://avianna.ai/tushar.html): Founder of Avianna; product adoption lead at Databricks. A decade deploying AI and data systems in enterprises.
+- Rishubh Khurana: Co-team, Avianna.
+
+## Profiles
+
+- [Avianna on LinkedIn](https://www.linkedin.com/company/avianna-ai-lab/): Official company page (as "Avianna AI Lab"). The older linkedin.com/company/avianna-ai page belongs to the unrelated, defunct drone-software company.
+
+## Contact
+
+- Advisory and collaboration: tushar.madaan@gmail.com

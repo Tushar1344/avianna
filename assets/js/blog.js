@@ -10,6 +10,10 @@
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const root = document.getElementById("blog-root");
+  // blog.html ships a server-rendered copy of this list for non-JS crawlers
+  // (see scripts/build_static.py); replace it so the manifest stays the
+  // source of truth for browsers.
+  root.replaceChildren();
   const byDate = (a, b) => b.date.localeCompare(a.date);
 
   // Order sections so the one with the newest post sits at the top.

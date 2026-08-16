@@ -1,2 +1,9 @@
 .claude/
 .DS_Store
+
+# Pair-review mailbox for the voice-agent. Holds his verbatim rulings, the owner log, and
+# findings that quote locations and contacts. It is untracked and has never been committed —
+# but this repo has a GitHub remote and untracked-but-unignored is one `git add -A` from
+# published, which nearly happened on 2026-08-03 (a stale cwd staged the whole mailbox before
+# the commit was undone). Same reasoning as arch.tracked_runtime_data in the voice-agent repo.
+.pairing/

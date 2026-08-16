@@ -8,6 +8,9 @@
         Skipping this leaves returning visitors on a cached manifest: the
         new post 404s with a stuck "Loading…" title until their cache expires.
      4. Rebuild the feed: python3 scripts/build_feed.py
+     5. Rebuild the static pages + blog index + sitemap (crawlers don't run
+        JS, so every post also ships as static HTML under /posts/):
+        python3 scripts/build_static.py   (needs: pip install markdown)
 
    Fields:
      slug          unique id, used in the URL: post.html?slug=<slug>
@@ -65,6 +68,7 @@ const POSTS = [
     summary: "An agent gets neither the onboarding a new hire gets nor the sign-offs a transaction gets. How to build both, and why one without the other fails.",
     tags: ["lattice", "concord", "agents", "governance"],
     file: "content/governance/the-worker-and-the-action.md",
+    external_url: "posts/the-worker-and-the-action.html",
   },
   {
     slug: "lattice-1-the-problem",
@@ -100,6 +104,16 @@ const POSTS = [
     external_url: "lattice/part-3-in-practice.html",
   },
   {
+    slug: "acting-is-announcing",
+    title: "acting is announcing",
+    section: "ai",
+    date: "2026-06-30",
+    summary: "The Visible Pursuit, rerun through a blunter voice: doing a thing leaks the thing, competence is loud, and you can hide from a watcher but not from inference. Same two interactive sims.",
+    tags: ["goal-recognition", "information-theory", "interactive"],
+    file: "content/ai/acting-is-announcing.md",
+    external_url: "posts/acting-is-announcing.html",
+  },
+  {
     slug: "the-visible-pursuit",
     title: "The Visible Pursuit",
     section: "ai",
@@ -107,6 +121,7 @@ const POSTS = [
     summary: "Why every action you take to get what you want tells someone else what you want. Goal recognition, with two interactive simulations.",
     tags: ["goal-recognition", "information-theory", "interactive"],
     file: "content/ai/the-visible-pursuit.md",
+    external_url: "posts/the-visible-pursuit.html",
   },
   {
     slug: "concord-1-why-agents-need-a-contract",

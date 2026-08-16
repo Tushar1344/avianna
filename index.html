@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>avianna.ai — a research lab for AI systems</title>
+<title>avianna.ai — we do applied research in enterprise contexts</title>
 <meta name="description" content="Avianna is a research lab studying how AI systems, agents, software, and organizations can work together safely, reliably, and intelligently. Research, essays, projects, and applied advisory." />
 
 <!-- favicons & PWA -->
@@ -17,15 +17,62 @@
 <!-- feed discovery -->
 <link rel="alternate" type="application/atom+xml" title="avianna.ai" href="/feed.xml">
 
+<link rel="canonical" href="https://avianna.ai/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avianna.ai/#organization",
+      "name": "Avianna",
+      "alternateName": ["avianna.ai", "Avianna AI Lab"],
+      "url": "https://avianna.ai/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://avianna.ai/assets/brand/logo-mark.png"
+      },
+      "description": "Avianna is a research lab studying how AI systems, agents, software, and organizations can work together safely, reliably, and intelligently.",
+      "disambiguatingDescription": "Avianna is an independent AI-systems research lab founded by Tushar Madan and Rishubh Khurana. It is not affiliated with the drone / autonomous-vehicle software company previously associated with the avianna.ai domain name.",
+      "email": "tushar.madaan@gmail.com",
+      "knowsAbout": ["AI agents", "agent governance", "durable execution", "enterprise AI adoption", "AI systems research", "mathematical reasoning"],
+      "founder": [
+        {
+          "@type": "Person",
+          "@id": "https://avianna.ai/tushar.html#person",
+          "name": "Tushar Madan",
+          "url": "https://avianna.ai/tushar.html",
+          "sameAs": ["https://www.linkedin.com/in/tusharmadaan/", "https://huggingface.co/tushar1344"]
+        },
+        {
+          "@type": "Person",
+          "name": "Rishubh Khurana",
+          "sameAs": ["https://www.linkedin.com/in/rishubh-khurana-46874b7/"]
+        }
+      ],
+      "sameAs": ["https://www.linkedin.com/company/avianna-ai-lab/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avianna.ai/#website",
+      "url": "https://avianna.ai/",
+      "name": "avianna.ai",
+      "publisher": { "@id": "https://avianna.ai/#organization" }
+    }
+  ]
+}
+</script>
+
 <!-- open graph / twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="avianna.ai">
-<meta property="og:title" content="avianna.ai — a research lab for AI systems">
+<meta property="og:title" content="avianna.ai — we do applied research in enterprise contexts">
 <meta property="og:description" content="Avianna studies how intelligent systems reason, act, coordinate, and become governable inside real organizations.">
 <meta property="og:image" content="https://avianna.ai/assets/brand/og-image.png">
 <meta property="og:url" content="https://avianna.ai/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="avianna.ai — a research lab for AI systems">
+<meta name="twitter:title" content="avianna.ai — we do applied research in enterprise contexts">
 <meta name="twitter:description" content="Avianna studies how intelligent systems reason, act, coordinate, and become governable inside real organizations.">
 <meta name="twitter:image" content="https://avianna.ai/assets/brand/og-image.png">
 
@@ -39,7 +86,7 @@
 
   <aside class="sidebar">
     <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/brand/logo-mark.png" alt=""></span>avianna.ai</a>
-    <p class="brand-sub">a research lab for AI systems</p>
+    <p class="brand-sub">we do applied research in enterprise contexts</p>
 
     <p class="nav-label">Site</p>
     <nav class="nav">
@@ -73,7 +120,7 @@
       <span class="eyebrow">Systems research</span>
       <h1>avianna</h1>
       <p class="hero-tagline">
-        We do original research at the intersection of AI systems, agents,
+        We do applied research at the intersection of AI systems, agents,
         and the future of software work.
       </p>
       <div class="resume-actions">
@@ -124,6 +171,21 @@
         the probabilistic method, each tagged by the kind of hard it tests,
         with hint ladders, wrong-answer diagnosis, and spaced review.
         <a href="learn/">Start the probability track &rarr;</a>
+      </p>
+    </section>
+
+    <section class="resume-section" id="about">
+      <h2>About</h2>
+      <p class="section-intro">
+        Avianna is an independent research lab founded by Tushar Madan and
+        Rishubh Khurana. The lab studies how AI systems, agents, software,
+        and organizations work together safely, reliably, and intelligently,
+        and advises a small number of startups and enterprise teams on AI
+        strategy. Avianna builds Concord (contracts for agent actions),
+        Lattice (the worker layer of the governance stack), and LeetMath
+        (probability training for adults). Avianna is not affiliated with
+        the drone-software company previously associated with this domain
+        name.
       </p>
     </section>
   </main>
