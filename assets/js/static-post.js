@@ -31,6 +31,22 @@
     });
   }
 
+  // -- figure animations: hold CSS animations in inline SVGs until the
+  //    figure scrolls into view (same behavior as post.js) -------------------
+  if ("IntersectionObserver" in window && document.getAnimations) {
+    prose.querySelectorAll("svg").forEach(function (svg) {
+      var anims = svg.getAnimations({ subtree: true });
+      if (!anims.length) return;
+      anims.forEach(function (a) { a.currentTime = 0; a.pause(); });
+      new IntersectionObserver(function (entries, obs) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          anims.forEach(function (a) { a.play(); });
+          obs.disconnect();
+        }
+      }, { threshold: 0.3 }).observe(svg);
+    });
+  }
+
   // -- TOC: smooth scroll + scrollspy (links are server-rendered) -----------
   var toc = document.getElementById("toc");
   var links = toc ? Array.prototype.slice.call(toc.querySelectorAll("a")) : [];

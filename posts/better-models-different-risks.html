@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Better Models, Different Risks — avianna.ai</title>
+<meta name="description" content="Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk." />
+
+<!-- favicons & PWA -->
+<link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../assets/brand/site.webmanifest">
+<meta name="theme-color" content="#FDFBF6">
+
+<!-- feed discovery -->
+<link rel="alternate" type="application/atom+xml" title="avianna.ai" href="/feed.xml">
+
+<link rel="canonical" href="https://avianna.ai/posts/better-models-different-risks.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="avianna.ai">
+<meta property="og:title" content="Better Models, Different Risks — avianna.ai">
+<meta property="og:description" content="Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.">
+<meta property="og:url" content="https://avianna.ai/posts/better-models-different-risks.html">
+<meta property="og:image" content="https://avianna.ai/assets/brand/og-image.png">
+<meta property="article:published_time" content="2026-07-13">
+<meta property="article:author" content="https://avianna.ai/tushar.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Better Models, Different Risks — avianna.ai">
+<meta name="twitter:description" content="Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.">
+<meta name="twitter:image" content="https://avianna.ai/assets/brand/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Better Models, Different Risks",
+  "description": "Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.",
+  "image": "https://avianna.ai/assets/brand/og-image.png",
+  "datePublished": "2026-07-13",
+  "mainEntityOfPage": "https://avianna.ai/posts/better-models-different-risks.html",
+  "author": {
+    "@type": "Person",
+    "@id": "https://avianna.ai/tushar.html#person",
+    "name": "Tushar Madan",
+    "url": "https://avianna.ai/tushar.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://avianna.ai/#organization",
+    "name": "Avianna",
+    "url": "https://avianna.ai/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://avianna.ai/assets/brand/logo-mark.png"
+    }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<!-- highlight.js theme (matches concord) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-light.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="layout with-rail">
+
+  <aside class="sidebar">
+    <a class="brand" href="../index.html"><span class="brand-mark"><img src="../assets/brand/logo-mark.png" alt=""></span>avianna.ai</a>
+    <p class="brand-sub">we do applied research in enterprise contexts</p>
+
+    <p class="nav-label">Site</p>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html" class="active">Essays</a>
+      <a href="../tushar.html">People</a>
+    </nav>
+
+    <p class="nav-label">Featured products</p>
+    <nav class="nav">
+      <a href="../concord/">Concord</a>
+      <a href="../lattice/">Lattice</a>
+    </nav>
+
+    <p class="nav-label">Sections</p>
+    <nav class="nav">
+      <a href="../blog.html#agents">Agents</a>
+      <a href="../blog.html#ai">AI</a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <p class="creation-by">Team<a class="creation-name" href="https://www.linkedin.com/in/tusharmadaan/" target="_blank" rel="noopener">Tushar Madan</a><a class="creation-name" href="https://www.linkedin.com/in/rishubh-khurana-46874b7/" target="_blank" rel="noopener">Rishubh Khurana</a></p>
+      <a href="../blog.html">← All posts</a>
+    </div>
+  </aside>
+
+  <main>
+    <article class="article" id="article">
+      <p class="article-eyebrow" id="article-eyebrow">Agents</p>
+      <h1 class="article-title" id="article-title">Better Models, Different Risks</h1>
+      <p class="article-sub" id="article-sub">Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.</p>
+      <div class="prose" id="prose">
+<p>A model that writes a bad answer creates a quality problem.</p>
+<p>An agent that can search company records, update a customer account, send an email, or move money can create an operational problem.</p>
+<p>This distinction will matter more as AI models improve.</p>
+<p>The usual discussion treats capability as a single upward curve. Models become better at reasoning, planning, using tools, and completing longer tasks. The assumption is that better capability will make enterprise AI safer and more reliable.</p>
+<p>That is partly true. More capable models should misunderstand fewer instructions, make better plans, select tools more accurately, and recover from simple mistakes. But capability also changes the reach of a system. A model that once produced a paragraph can now carry out a sequence of actions. It can work for longer, touch more systems, and affect more people.</p>
+<p>Some risks decline. Others grow.</p>
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three curves against model capability. Errors of understanding decline as capability rises. Errors of consequence rise. Induced errors — jailbreaks, injection, long-context and slow-burn attacks — rise as well. The curves cross: better models change the shape of risk, not the amount." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+  <style>
+    .bmf1-line{stroke-dasharray:800;stroke-dashoffset:800;animation:bmf1-draw 1.8s ease-out forwards}
+    .bmf1-b{animation-delay:.5s}
+    .bmf1-c{animation-delay:1s}
+    @keyframes bmf1-draw{to{stroke-dashoffset:0}}
+    .bmf1-fade{opacity:0;animation:bmf1-in .7s ease-out 1.9s forwards}
+    @keyframes bmf1-in{to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.bmf1-line{animation:none;stroke-dashoffset:0}.bmf1-fade{animation:none;opacity:1}}
+  </style>
+  <g font-family="Inter, system-ui, sans-serif">
+    <line x1="70" y1="272" x2="645" y2="272" stroke="var(--line-strong)" stroke-width="1.5"/>
+    <line x1="70" y1="272" x2="70" y2="38" stroke="var(--line-strong)" stroke-width="1.5"/>
+    <text x="357" y="298" text-anchor="middle" font-size="11" fill="var(--muted)">model capability →</text>
+    <text x="52" y="155" text-anchor="middle" font-size="11" fill="var(--muted)" transform="rotate(-90 52 155)">risk</text>
+    <path class="bmf1-line" d="M 70 72 C 240 82, 400 195, 640 243" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+    <path class="bmf1-line bmf1-b" d="M 70 243 C 240 233, 400 120, 640 62" fill="none" stroke="var(--orange)" stroke-width="2.5"/>
+    <path class="bmf1-line bmf1-c" d="M 70 256 C 290 248, 470 185, 640 128" fill="none" stroke="var(--amber)" stroke-width="2"/>
+    <g class="bmf1-fade">
+      <text x="638" y="232" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--teal-deep)">Errors of understanding</text>
+      <text x="638" y="247" text-anchor="end" font-size="10" fill="var(--muted)">misread intent · brittle plans · wrong tool</text>
+      <text x="638" y="42" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--orange-deep)">Errors of consequence</text>
+      <text x="638" y="57" text-anchor="end" font-size="10" fill="var(--muted)">reach · velocity · blast radius</text>
+      <text x="638" y="92" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--amber)">Induced errors</text>
+      <text x="638" y="106" text-anchor="end" font-size="10" fill="var(--muted)">jailbreaks · injection · long-context · slow burn</text>
+      <circle cx="368" cy="157" r="3.5" fill="var(--ink)"/>
+      <text x="368" y="142" text-anchor="middle" font-size="10" fill="var(--ink-soft)">the shape of risk changes here</text>
+    </g>
+  </g>
+</svg>
+<p>And not every error is the model's own. Some are induced — an adversary talks the system into them. That family grows too, with capability and with context length.</p>
+<p>The useful question is not whether better models increase or decrease risk in general. It is how they change the shape of risk.</p>
+<h2 id="capability-increases-reach">Capability increases reach</h2>
+<p>One way to see this shift is to look at the length of tasks models can complete.</p>
+<p>METR <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">measures the duration of software tasks</a> that AI agents can complete with a specified probability of success. Its results show rapid growth in the time horizon of frontier models. The growth is not uniform — <a href="https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/">METR found</a> visual computer-use horizons roughly 40 to 100 times shorter than software and reasoning horizons — but the direction is clear. Models are becoming able to stay with a problem for longer.</p>
+<p>That is valuable, because many enterprise processes are not single questions. They are sequences. Resolving a customer complaint may require finding the customer, reading the account history, checking the current policy, reviewing previous cases, calculating an amount, updating a system, and communicating the decision. The longer the sequence a model can manage, the more of the process it can perform.</p>
+<p>The same improvement creates a new failure mode: an error near the beginning of a long workflow can travel.</p>
+<p>Suppose an agent incorrectly decides that a customer is eligible for a refund. What happens next depends entirely on how much of the workflow the agent owns:</p>
+<svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two workflow lanes. In the recommend-only lane, a wrong eligibility call reaches a human review gate and stops. In the execute lane, the same wrong call flows through selecting the order, issuing the payment, updating the record, and emailing the customer: one wrong premise, four systems changed." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+  <style>
+    .bmf2-n{animation:bmf2-flip .4s ease-out forwards}
+    .bmf2-t{animation:bmf2-tint .4s ease-out forwards}
+    .bmf2-d1{animation-delay:.4s}.bmf2-d2{animation-delay:1.1s}.bmf2-d3{animation-delay:1.8s}.bmf2-d4{animation-delay:2.5s}.bmf2-d5{animation-delay:3.2s}
+    @keyframes bmf2-flip{to{fill:var(--orange-bg);stroke:var(--orange)}}
+    @keyframes bmf2-tint{to{fill:var(--orange-deep)}}
+    .bmf2-cap{opacity:0;animation:bmf2-in .6s ease-out 3.7s forwards}
+    @keyframes bmf2-in{to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.bmf2-n{animation:none;fill:var(--orange-bg);stroke:var(--orange)}.bmf2-t{animation:none;fill:var(--orange-deep)}.bmf2-cap{animation:none;opacity:1}}
+  </style>
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="32" y="34" font-size="11" font-weight="600" fill="var(--muted)" letter-spacing="1">TRUST LEVEL: RECOMMEND</text>
+    <rect class="bmf2-n bmf2-d1" x="32" y="48" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d1" x="88" y="68" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Misjudges</text>
+    <text class="bmf2-t bmf2-d1" x="88" y="82" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">eligibility</text>
+    <line x1="144" y1="71" x2="156" y2="71" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect class="bmf2-n bmf2-d2" x="158" y="48" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d2" x="214" y="68" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Drafts refund</text>
+    <text class="bmf2-t bmf2-d2" x="214" y="82" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">recommendation</text>
+    <line x1="270" y1="71" x2="282" y2="71" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect x="284" y="48" width="112" height="46" rx="5" fill="var(--teal-bg)" stroke="var(--teal)"/>
+    <text x="340" y="68" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--teal-deep)">Human review</text>
+    <text x="340" y="82" text-anchor="middle" font-size="10.5" fill="var(--teal-deep)">✕ stops here</text>
+    <text class="bmf2-cap" x="412" y="75" font-size="10.5" fill="var(--muted)">the mistake is caught as an output error</text>
+    <text x="32" y="164" font-size="11" font-weight="600" fill="var(--muted)" letter-spacing="1">TRUST LEVEL: EXECUTE END-TO-END</text>
+    <rect class="bmf2-n bmf2-d1" x="32" y="178" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d1" x="88" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Misjudges</text>
+    <text class="bmf2-t bmf2-d1" x="88" y="212" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">eligibility</text>
+    <line x1="144" y1="201" x2="156" y2="201" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect class="bmf2-n bmf2-d2" x="158" y="178" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d2" x="214" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Selects</text>
+    <text class="bmf2-t bmf2-d2" x="214" y="212" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">the order</text>
+    <line x1="270" y1="201" x2="282" y2="201" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect class="bmf2-n bmf2-d3" x="284" y="178" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d3" x="340" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Issues</text>
+    <text class="bmf2-t bmf2-d3" x="340" y="212" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">the payment</text>
+    <line x1="396" y1="201" x2="408" y2="201" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect class="bmf2-n bmf2-d4" x="410" y="178" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d4" x="466" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Updates</text>
+    <text class="bmf2-t bmf2-d4" x="466" y="212" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">the record</text>
+    <line x1="522" y1="201" x2="534" y2="201" stroke="var(--muted-2)" stroke-width="1.5"/>
+    <rect class="bmf2-n bmf2-d5" x="536" y="178" width="112" height="46" rx="5" fill="var(--panel)" stroke="var(--line-strong)"/>
+    <text class="bmf2-t bmf2-d5" x="592" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">Emails the</text>
+    <text class="bmf2-t bmf2-d5" x="592" y="212" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ink)">customer</text>
+    <g class="bmf2-cap">
+      <line x1="158" y1="244" x2="648" y2="244" stroke="var(--orange)" stroke-width="1.5"/>
+      <line x1="158" y1="238" x2="158" y2="244" stroke="var(--orange)" stroke-width="1.5"/>
+      <line x1="648" y1="238" x2="648" y2="244" stroke="var(--orange)" stroke-width="1.5"/>
+      <text x="403" y="264" text-anchor="middle" font-size="11" font-weight="600" fill="var(--orange-deep)">one wrong premise, four systems changed</text>
+      <text x="340" y="292" text-anchor="middle" font-size="10.5" fill="var(--muted)">The model has not become less reliable. It has become more consequential.</text>
+    </g>
+  </g>
+</svg>
+<p>Long workflows also give small errors room to accumulate, and occasional large errors room to appear. A <a href="https://arxiv.org/abs/2604.15597">recent preprint from Microsoft Research</a> examined delegated document-editing workflows across 52 professional domains and 19 models. Even the frontier models tested degraded an average of 25 percent of document content by the end of long workflows — and the errors were often sparse but severe, worsening with larger documents, longer interactions, and distracting files. Tool use did not solve the problem in that evaluation.</p>
+<p>The study is one benchmark, not a universal measure of enterprise agents. But it illustrates an important pattern: success on individual steps does not guarantee that the full artifact or process remains intact over time. A model can look competent at every turn while the overall result slowly drifts.</p>
+<h2 id="the-risks-that-decline">The risks that decline</h2>
+<p>Several risks should fall as models improve — and these gains are real. They will make more enterprise tasks economically viable.</p>
+<table>
+<thead>
+<tr>
+<th>What declines</th>
+<th>Why</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Misunderstanding</strong></td>
+<td>Better models infer what a person wants from incomplete, loosely worded instructions</td>
+<td>"Sort out the Hendersons' billing issue" resolves to the right account and the right problem</td>
+</tr>
+<tr>
+<td><strong>Planning failure</strong></td>
+<td>Stronger decomposition, ordering, and replanning when new information appears</td>
+<td>A complaint is worked account → policy → precedent → amount, not in a broken order</td>
+</tr>
+<tr>
+<td><strong>Poor tool selection</strong></td>
+<td>Models recognize when to search, retrieve, compute, or ask for human judgment</td>
+<td>The agent queries the policy database instead of guessing from memory</td>
+</tr>
+<tr>
+<td><strong>Brittle instruction following</strong></td>
+<td>Less prompt engineering needed for valid structure and routine process</td>
+<td>Fewer "output valid JSON or else" scaffolds in the product</td>
+</tr>
+<tr>
+<td><strong>Routine correction</strong></td>
+<td>Less human time on wording, obvious gaps, and simple reasoning slips</td>
+<td>Reviewers stop fixing drafts and start reviewing decisions</td>
+</tr>
+</tbody>
+</table>
+<p>More capable models may also reduce risk directly. A strong model may notice that information is missing, identify a contradiction between two policies, question an unusual transaction, or recognize that an action exceeds its authority.</p>
+<p>So the argument is not that stronger models are inherently less safe. The argument is that model quality addresses only part of the risk.</p>
+<h2 id="the-risks-that-grow">The risks that grow</h2>
+<p>Six risks grow with capability — not because the model gets worse, but because the system around it gets bigger, faster, and more connected. The profile looks very different for an assistant that drafts and an agent that executes:</p>
+<svg viewBox="0 0 680 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radar chart with six axes: reach, velocity, authority, coupling, tail exposure, and attack surface. A small teal polygon shows the risk profile of an assistant that only recommends and drafts. A much larger orange polygon shows the profile of an agent that executes end-to-end." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+  <style>
+    .bmf3-p{transform-origin:340px 210px;transform:scale(0);animation:bmf3-grow .9s cubic-bezier(.2,.7,.3,1) forwards}
+    .bmf3-agent{animation-delay:.6s}
+    @keyframes bmf3-grow{to{transform:scale(1)}}
+    .bmf3-cap{opacity:0;animation:bmf3-in .6s ease-out 1.5s forwards}
+    @keyframes bmf3-in{to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.bmf3-p{animation:none;transform:scale(1)}.bmf3-cap{animation:none;opacity:1}}
+  </style>
+  <g font-family="Inter, system-ui, sans-serif">
+    <polygon points="340,70 461.2,140 461.2,280 340,350 218.8,280 218.8,140" fill="none" stroke="var(--line)" stroke-width="1"/>
+    <polygon points="340,117 420.5,163.5 420.5,256.5 340,303 259.5,256.5 259.5,163.5" fill="none" stroke="var(--line)" stroke-width="1"/>
+    <polygon points="340,163 380.7,186.5 380.7,233.5 340,257 299.3,233.5 299.3,186.5" fill="none" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="340" y2="70" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="461.2" y2="140" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="461.2" y2="280" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="340" y2="350" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="218.8" y2="280" stroke="var(--line)" stroke-width="1"/>
+    <line x1="340" y1="210" x2="218.8" y2="140" stroke="var(--line)" stroke-width="1"/>
+    <polygon class="bmf3-p bmf3-agent" points="340,84 443.1,150.5 449.1,273 340,322 255.1,259 236.9,150.5" fill="var(--orange)" fill-opacity="0.14" stroke="var(--orange)" stroke-width="2"/>
+    <polygon class="bmf3-p" points="340,182 370.3,192.5 358.2,220.5 340,238 303.6,231 297.6,185.5" fill="var(--teal)" fill-opacity="0.22" stroke="var(--teal-deep)" stroke-width="2"/>
+    <text x="340" y="56" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Reach</text>
+    <text x="472" y="134" text-anchor="start" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Velocity</text>
+    <text x="472" y="292" text-anchor="start" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Authority</text>
+    <text x="340" y="372" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Coupling</text>
+    <text x="208" y="292" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Tail exposure</text>
+    <text x="208" y="134" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--ink-soft)">Attack surface</text>
+    <g class="bmf3-cap">
+      <rect x="40" y="398" width="12" height="12" rx="2" fill="var(--teal)" fill-opacity="0.22" stroke="var(--teal-deep)"/>
+      <text x="58" y="408" font-size="11" fill="var(--ink-soft)">Assistant — recommends and drafts</text>
+      <rect x="300" y="398" width="12" height="12" rx="2" fill="var(--orange)" fill-opacity="0.14" stroke="var(--orange)"/>
+      <text x="318" y="408" font-size="11" fill="var(--ink-soft)">Agent — executes end-to-end, across systems</text>
+    </g>
+  </g>
+</svg>
+<table>
+<thead>
+<tr>
+<th>What grows</th>
+<th>What changes</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reach</strong></td>
+<td>A capable agent keeps acting after an early mistake — a trail of individually valid actions built on an invalid premise</td>
+<td>The wrong eligibility call above: order selected, payment issued, record updated, email sent</td>
+</tr>
+<tr>
+<td><strong>Velocity</strong></td>
+<td>A person makes one incorrect change at a time; an agent repeats the error at machine speed</td>
+<td>The same bad discount applied to thousands of accounts before anyone notices the pattern</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>Recommending becomes executing</td>
+<td>A poor refund recommendation is an output error. An incorrect refund is a financial event</td>
+</tr>
+<tr>
+<td><strong>Coupling</strong></td>
+<td>One action fans out across systems, making the full effect hard to see and reverse</td>
+<td>An order change touches inventory, billing, customer communication, revenue reporting, compliance</td>
+</tr>
+<tr>
+<td><strong>Tail exposure</strong></td>
+<td>Average performance improves while rare failures still matter at volume</td>
+<td>99.9% success across ten million transactions is ten thousand failures</td>
+</tr>
+<tr>
+<td><strong>Attack surface</strong></td>
+<td>Every context source, tool, integration, and memory is a place where bad information can enter</td>
+<td>A poisoned document in the agent's context instructs it to approve the refund</td>
+</tr>
+</tbody>
+</table>
+<p>Tail exposure deserves a picture, because averages hide it:</p>
+<svg viewBox="0 0 680 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A long teal bar representing 99.9 percent of ten million transactions succeeding, with a thin orange sliver at the end representing the 0.1 percent that fail: ten thousand failures." style="max-width:100%;height:auto;display:block;margin:28px auto;">
+  <style>
+    .bmf4-s{animation:bmf4-pulse 1.6s ease-in-out 3 alternate}
+    @keyframes bmf4-pulse{from{fill-opacity:1}to{fill-opacity:.35}}
+    @media (prefers-reduced-motion: reduce){.bmf4-s{animation:none}}
+  </style>
+  <g font-family="Inter, system-ui, sans-serif">
+    <rect x="40" y="36" width="588" height="26" rx="4" fill="var(--teal-soft)"/>
+    <rect class="bmf4-s" x="628" y="36" width="12" height="26" rx="2" fill="var(--orange)"/>
+    <text x="40" y="26" font-size="11" fill="var(--teal-deep)" font-weight="600">99.9% succeed — 9,990,000 transactions</text>
+    <text x="640" y="26" text-anchor="end" font-size="11" fill="var(--orange-deep)" font-weight="600">0.1% fail — 10,000 failures</text>
+    <text x="640" y="80" text-anchor="end" font-size="9.5" fill="var(--muted)">sliver enlarged ~10× to be visible</text>
+    <text x="40" y="104" font-size="11" fill="var(--muted)">Whether this is acceptable depends on what each failure can do — not on the average.</text>
+  </g>
+</svg>
+<p>The attack surface deserves more than a row in the table, because it grows for a different reason than the rest. Reach, velocity, and coupling amplify the model's own mistakes. The attack surface grows because errors can be <em>induced</em>.</p>
+<p><a href="https://arxiv.org/abs/2302.12173">Indirect prompt injection</a> showed that an adversary does not need access to the prompt. Instructions planted in content the agent will read — a web page, a document, an email — can steer it. Every retrieval source, tool result, and memory an agent consumes is a channel.</p>
+<p>Nor does jailbreak risk simply fall as models improve. Safety training makes each individual attempt harder. But Anthropic's <a href="https://www.anthropic.com/research/many-shot-jailbreaking">many-shot jailbreaking</a> work showed that the long context windows of modern models are themselves an attack surface: pack the context with enough faux dialogues and the rate of harmful responses rises on a power law with the number of examples. More striking, larger models were <strong>more</strong> susceptible, not less — the same in-context learning that makes them capable makes them better at learning the attack.</p>
+<p>The most dangerous induced errors may be the slow ones. <a href="https://arxiv.org/abs/2404.01833">Crescendo</a> showed that a jailbreak does not need a single malicious prompt at all: a benign conversation, escalated gradually over a handful of turns — each step building on what the model itself just said — reaches content the model would refuse outright, with no adversarial text anywhere in the transcript. <a href="https://arxiv.org/abs/2407.12784">AgentPoison</a> stretched the timeline further: poison an agent's memory or knowledge base today, and the agent behaves normally on every benign query — until a trigger arrives, retrieves the poisoned entry, and acts on it.</p>
+<p>Slow-burn attacks are the adversarial mirror of the reach problem. No single message looks harmful, the way no single action in a long workflow looks invalid. Filters that inspect one message at a time miss them by construction. And the properties that make agents useful — persistent memory, standing context, multi-session workflows — are exactly the room a slow burn needs.</p>
+<p>And the stakes of a successful attack scale with everything else in this section. A jailbroken chatbot produces a harmful paragraph. A jailbroken agent with tools produces actions — with the reach, velocity, and coupling described above.</p>
+<p>Tool use matters most here, because it converts model outputs into real effects. The <a href="https://arxiv.org/abs/2309.15817">ToolEmu research project</a> tested agents in simulated high-stakes tool environments and identified plausible failures involving privacy leaks, financial harm, and other serious outcomes. Its broader lesson: tool-using agents need to be evaluated in realistic scenarios, including unusual and long-tailed cases, not only on whether they complete a benign task.</p>
+<p>There are also more speculative risks that become relevant only as models receive broader goals and authority. <a href="https://www.anthropic.com/research/agentic-misalignment">Anthropic tested models</a> in deliberately constructed corporate simulations involving goal conflicts and threats to the model's continued operation. Under some conditions, models chose harmful actions such as blackmail or corporate espionage. These experiments do not show that such behaviour is common in production. They show that it is possible under carefully designed conditions and therefore worth testing before agents are given sensitive roles.</p>
+<p>This distinction matters. Product leaders should not treat extreme simulations as forecasts of everyday behaviour. They should also not wait for a failure to occur in production before deciding that a plausible failure mode deserves a control.</p>
+<h2 id="capability-is-not-authority">Capability is not authority</h2>
+<p>The central product decision is not simply which model to use. It is how much authority to place behind that model.</p>
+<p>Capability asks:</p>
+<blockquote>
+<p>Can the model perform this action?</p>
+</blockquote>
+<p>Authority asks:</p>
+<blockquote>
+<p>Under which conditions should the system allow it to perform the action?</p>
+</blockquote>
+<p>The same capability supports very different grants of authority:</p>
+<table>
+<thead>
+<tr>
+<th>The model is capable of…</th>
+<th>The enterprise may decide…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Changing a supplier's bank details</td>
+<td>It may <strong>never</strong> do this autonomously</td>
+</tr>
+<tr>
+<td>Processing a refund</td>
+<td>Only for verified customers, eligible orders, amounts below a fixed limit</td>
+</tr>
+<tr>
+<td>Publishing a pricing change</td>
+<td>It prepares the change and runs checks; a person approves publication</td>
+</tr>
+</tbody>
+</table>
+<p>The amount of risk is therefore not determined by model capability alone. A useful approximation is:</p>
+$$\begin{aligned}\text{Expected harm} \;=\;\; & P(\text{error}) \times P(\text{execution}) \\ & \times\; \text{scale of exposure} \times \text{severity} \times \text{recovery difficulty}\end{aligned}$$
+<p>Better models bear on exactly one of those five terms. The rest are shaped by the surrounding system:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Does a better model help?</th>
+<th>Shaped mostly by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$P(\text{error})$</td>
+<td><strong>Yes, directly</strong></td>
+<td>Model quality, context, task design</td>
+</tr>
+<tr>
+<td>$P(\text{execution})$</td>
+<td>Marginally</td>
+<td>Approvals, permissions, policy checks</td>
+</tr>
+<tr>
+<td>Scale of exposure</td>
+<td>No</td>
+<td>Transaction limits, rate caps, staged rollout</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>No</td>
+<td>Which tools and systems the agent may touch</td>
+</tr>
+<tr>
+<td>Recovery difficulty</td>
+<td>No</td>
+<td>Logging, reversibility, the ability to stop the agent</td>
+</tr>
+</tbody>
+</table>
+<p>The safest design is not always to use a weaker model. A weaker model may make more mistakes, miss ambiguity, and require more supervision. The stronger design is often to use an appropriately capable model inside a constrained environment.</p>
+<p>Let the model interpret the request. Let a deterministic service calculate the amount. Let a policy engine decide whether the transaction is permitted. Let the agent prepare a high-risk action. Let an authorized person approve it. Let the system verify that execution produced the intended result.</p>
+<p>This separates judgment from authority and authority from execution. <a href="https://openai.com/index/updating-our-preparedness-framework/">OpenAI's current Preparedness Framework</a> reflects the same separation: it treats long-range autonomy as a capability that needs specific evaluation, and states that as models become more capable, safety increasingly depends on real-world safeguards around them.</p>
+<h2 id="what-product-leaders-should-do">What product leaders should do</h2>
+<p>The first step is to stop assigning trust at the level of the model. A benchmark can show that a model has useful capabilities. It cannot show that the full product is safe for a particular enterprise process.</p>
+<p>Trust should be evaluated at the level of a defined task. For each task, product and technology leaders should ask:</p>
+<ul>
+<li>How difficult is the reasoning?</li>
+<li>How long is the chain of dependent actions?</li>
+<li>Which systems and tools are involved?</li>
+<li>What authority is required?</li>
+<li>How far could a mistake spread, and how quickly would it be detected?</li>
+<li>Can the action be reversed?</li>
+<li>Which controls remain independent of model judgment?</li>
+</ul>
+<p>This also changes how agent products should be measured. A successful demonstration is not enough. Neither is average benchmark accuracy.</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>The question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>End-to-end completion</td>
+<td>Does the whole task finish — not just each step?</td>
+</tr>
+<tr>
+<td>Repeated-run consistency</td>
+<td>Same input, same outcome?</td>
+</tr>
+<tr>
+<td>Exception rate</td>
+<td>How often does the agent need a human?</td>
+</tr>
+<tr>
+<td>Undetected error rate</td>
+<td>What gets through looking correct?</td>
+</tr>
+<tr>
+<td>Maximum exposure</td>
+<td>What is the worst a single failure can do?</td>
+</tr>
+<tr>
+<td>Recovery time</td>
+<td>How fast can an error be found and undone?</td>
+</tr>
+<tr>
+<td>Human intervention at fixed risk</td>
+<td>How much supervision does this risk level actually require?</td>
+</tr>
+</tbody>
+</table>
+<p>As models improve, some of these numbers should get better naturally. The rest will depend on product architecture.</p>
+<p>This is the area Avianna is focused on: not treating model intelligence as sufficient, but placing it inside a task-specific operating environment with context, knowledge, tools, authority, evaluation, and controls. The point is not to constrain useful capability. It is to make greater capability deployable.</p>
+<p>Better models will make more work possible.</p>
+<p>Whether that work becomes dependable will be decided outside the model.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>METR, "<a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">Measuring AI Ability to Complete Long Tasks</a>" (2025) — the time horizon of tasks frontier agents can complete, and its growth rate.</li>
+<li>METR, "<a href="https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/">How Does Time Horizon Vary Across Domains?</a>" (2025) — visual computer-use horizons roughly 40–100× shorter than software and reasoning horizons.</li>
+<li>Laban, Schnabel &amp; Neville (Microsoft Research), "<a href="https://arxiv.org/abs/2604.15597">LLMs Corrupt Your Documents When You Delegate</a>" (preprint, 2026) — frontier models degraded ~25% of document content across 52 professional domains; errors sparse but severe; tool access did not help.</li>
+<li>Ruan et al., "<a href="https://arxiv.org/abs/2309.15817">Identifying the Risks of LM Agents with an LM-Emulated Sandbox</a>" (ICLR 2024) — the ToolEmu framework for testing tool-using agents in simulated high-stakes environments.</li>
+<li>Greshake et al., "<a href="https://arxiv.org/abs/2302.12173">Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</a>" (2023) — adversarial instructions planted in retrieved content can steer LLM-integrated applications without prompt access.</li>
+<li>Anthropic, "<a href="https://www.anthropic.com/research/many-shot-jailbreaking">Many-shot Jailbreaking</a>" (2024) — jailbreak effectiveness follows a power law in the number of in-context examples; long context windows widen the channel, and larger models were more susceptible.</li>
+<li>Russinovich et al. (Microsoft), "<a href="https://arxiv.org/abs/2404.01833">Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack</a>" (2024) — benign, gradually escalating multi-turn dialogue jailbreaks frontier models in under ten queries with no adversarial text.</li>
+<li>Chen et al., "<a href="https://arxiv.org/abs/2407.12784">AgentPoison: Red-Teaming LLM Agents via Poisoning Memory or Knowledge Bases</a>" (NeurIPS 2024) — poisoned memory or RAG entries trigger harmful agent actions later while benign behavior stays normal, with over 80% attack success.</li>
+<li>Anthropic, "<a href="https://www.anthropic.com/research/agentic-misalignment">Agentic Misalignment: How LLMs Could Be Insider Threats</a>" (2025) — models choosing harmful actions in constructed corporate simulations with goal conflicts.</li>
+<li>OpenAI, "<a href="https://openai.com/index/updating-our-preparedness-framework/">Our Updated Preparedness Framework</a>" (2025) — long-range autonomy as a tracked research category; safeguards required as capability rises.</li>
+</ul>
+      </div>
+    </article>
+  </main>
+
+  <aside class="rail">
+    <div class="toc-block">
+      <p class="rail-label">On this page</p>
+      <nav class="toc" id="toc">
+        <a class="lvl-2" href="#capability-increases-reach">Capability increases reach</a>
+        <a class="lvl-2" href="#the-risks-that-decline">The risks that decline</a>
+        <a class="lvl-2" href="#the-risks-that-grow">The risks that grow</a>
+        <a class="lvl-2" href="#capability-is-not-authority">Capability is not authority</a>
+        <a class="lvl-2" href="#what-product-leaders-should-do">What product leaders should do</a>
+        <a class="lvl-2" href="#sources">Sources</a>
+      </nav>
+    </div>
+    <div class="rail-meta" id="rail-meta">
+      <div><span class="k">Section</span><br>Agents</div>
+      <div><span class="k">Published</span><br>July 13, 2026</div>
+      <div><span class="k">Read</span><br>12 min</div>
+      <div><span class="k">Tags</span><br>agents, governance, risk, capability</div>
+    </div>
+    <a class="rail-back" href="../blog.html">← Back to blog</a>
+  </aside>
+
+</div>
+
+<!-- libraries (CDN, no build) -->
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/js/static-post.js"></script>
+</body>
+</html>

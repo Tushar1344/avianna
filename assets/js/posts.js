@@ -59,6 +59,7 @@ const POSTS = [
     summary: "Better models shrink some enterprise risks and grow others. Capability is not authority: how reach, velocity, and blast radius change the shape of agent risk.",
     tags: ["agents", "governance", "risk", "capability"],
     file: "content/governance/better-models-different-risks.md",
+    external_url: "posts/better-models-different-risks.html",
   },
   {
     slug: "the-worker-and-the-action",

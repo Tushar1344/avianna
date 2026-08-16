@@ -14,6 +14,7 @@
 - [Why agents need a contract](https://avianna.ai/posts/concord-1-why-agents-need-a-contract.html): Durable execution preserves execution, not intent. Part 1 of the Concord series.
 - [Contract, not runtime](https://avianna.ai/posts/concord-2-contract-not-runtime.html): The boundary between Concord, DBOS, LangGraph, OPA, OTel, and Postgres.
 - [A day in the life](https://avianna.ai/posts/concord-3-day-in-the-life.html): A hotel booking traced end to end under the contract.
+- [Better Models, Different Risks](https://avianna.ai/posts/better-models-different-risks.html): Better models shrink some enterprise risks and grow others. Capability is not authority.
 - [The worker and the action](https://avianna.ai/posts/the-worker-and-the-action.html): An agent gets neither the onboarding a new hire gets nor the sign-offs a transaction gets. How to build both, and why one without the other fails.
 - [Lattice, part 1 — The problem](https://avianna.ai/lattice/part-1-the-problem.html): Onboarding digital labor is the hardest challenge of the agent era. A prompt configures a model; it does not onboard a worker.
 - [Lattice, part 2 — The framework](https://avianna.ai/lattice/part-2-the-framework.html): What a properly onboarded agent inherits: a role, context, permissions, policy, evaluation, and a path to more trust.
