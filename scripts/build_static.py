@@ -334,6 +334,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 {json_ld}
 </script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YBG7Z4GV65"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YBG7Z4GV65');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
