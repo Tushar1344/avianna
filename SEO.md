@@ -76,6 +76,14 @@ mail to be delivered (Gmail silently discards on failure):
   exactly one DMARC record, ever. Tighten `p=none` → `p=quarantine` after a few
   clean weeks of reports.
 
+## Analytics
+
+Google Analytics 4, measurement ID `G-YBG7Z4GV65`. The gtag snippet is in every
+page's head and baked into the static-post template in `scripts/build_static.py`,
+so generated pages inherit it — new hand-authored pages must include it manually.
+Standard (cookie-based) configuration; if EU consent ever becomes a concern,
+switch to Consent Mode with denied defaults.
+
 ## Monitoring cadence
 
 Weekly-ish: GSC Performance ("avianna" query), Bing AI Performance tab, and a
